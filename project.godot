@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.0")
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/datalogue/plugin.cfg")
+enabled=PackedStringArray()
 
 [rendering]
 
