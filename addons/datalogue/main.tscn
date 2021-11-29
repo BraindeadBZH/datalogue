@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bldutgh2qfhhk"]
 
 [ext_resource type="Script" path="res://addons/datalogue/main.gd" id="1_wsox0"]
-[ext_resource type="Texture2D" path="res://addons/datalogue/assets/filter.svg" id="2_pm7sn"]
-[ext_resource type="Texture2D" path="res://addons/datalogue/assets/add.svg" id="3_237n5"]
-[ext_resource type="Texture2D" path="res://addons/datalogue/assets/duplicate.svg" id="4_xi1pk"]
-[ext_resource type="Texture2D" path="res://addons/datalogue/assets/remove.svg" id="5_latir"]
+[ext_resource type="Texture2D" uid="uid://dbxmoer6eanmv" path="res://addons/datalogue/assets/filter.svg" id="2_pm7sn"]
+[ext_resource type="Texture2D" uid="uid://cjhme6ts8armj" path="res://addons/datalogue/assets/add.svg" id="3_237n5"]
+[ext_resource type="Texture2D" uid="uid://b1pjxdltvtp1" path="res://addons/datalogue/assets/duplicate.svg" id="4_xi1pk"]
+[ext_resource type="Texture2D" uid="uid://csytqo75pf64x" path="res://addons/datalogue/assets/remove.svg" id="5_latir"]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
