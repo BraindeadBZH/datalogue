@@ -1,0 +1,369 @@
+[gd_scene load_steps=6 format=3 uid="uid://bldutgh2qfhhk"]
+
+[ext_resource type="Script" path="res://addons/datalogue/main.gd" id="1_wsox0"]
+[ext_resource type="Texture2D" uid="uid://boq3b1t615dth" path="res://addons/datalogue/assets/filter.svg" id="2_pm7sn"]
+[ext_resource type="Texture2D" uid="uid://kvqsuxtyavaq" path="res://addons/datalogue/assets/add.svg" id="3_237n5"]
+[ext_resource type="Texture2D" uid="uid://bq4abuvvatjax" path="res://addons/datalogue/assets/duplicate.svg" id="4_xi1pk"]
+[ext_resource type="Texture2D" uid="uid://bjttpr4j7yvih" path="res://addons/datalogue/assets/remove.svg" id="5_latir"]
+
+[node name="Root" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( "1_wsox0" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Borders" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLayout" type="VBoxContainer" parent="Borders"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 1019.0
+offset_bottom = 595.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ToolbarLayout" type="HBoxContainer" parent="Borders/MainLayout"]
+offset_right = 1014.0
+offset_bottom = 29.0
+
+[node name="SaveBtn" type="Button" parent="Borders/MainLayout/ToolbarLayout"]
+modulate = Color(0.721333, 1, 0.12, 1)
+offset_right = 100.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+hint_tooltip = "Write all databases to disk."
+theme_override_font_sizes/font_size = 16
+text = "Save"
+
+[node name="Spacer1" type="Control" parent="Borders/MainLayout/ToolbarLayout"]
+offset_left = 104.0
+offset_right = 464.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="Borders/MainLayout/ToolbarLayout"]
+offset_left = 468.0
+offset_top = 1.0
+offset_right = 546.0
+offset_bottom = 27.0
+text = "Datalogue"
+align = 1
+valign = 1
+
+[node name="Spacer2" type="Control" parent="Borders/MainLayout/ToolbarLayout"]
+offset_left = 550.0
+offset_right = 910.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+
+[node name="CancelBtn" type="Button" parent="Borders/MainLayout/ToolbarLayout"]
+modulate = Color(1, 0.25098, 0.121569, 1)
+offset_left = 914.0
+offset_right = 1014.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+hint_tooltip = "Reload all databases from disk, effectively going back to the last saved data"
+text = "Cancel"
+
+[node name="ViewLayout" type="HBoxContainer" parent="Borders/MainLayout"]
+offset_top = 33.0
+offset_right = 1014.0
+offset_bottom = 590.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DatabasesLayout" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout"]
+offset_right = 335.0
+offset_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
+offset_right = 335.0
+offset_bottom = 30.0
+rect_min_size = Vector2(0, 30)
+text = "Databases"
+align = 1
+valign = 1
+
+[node name="Separator" type="HSeparator" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
+offset_top = 34.0
+offset_right = 335.0
+offset_bottom = 38.0
+
+[node name="DatabasesList" type="ItemList" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
+offset_top = 42.0
+offset_right = 335.0
+offset_bottom = 524.0
+size_flags_vertical = 3
+
+[node name="DatabasesTools" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
+offset_top = 528.0
+offset_right = 335.0
+offset_bottom = 557.0
+
+[node name="AddDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
+offset_right = 109.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+icon = ExtResource( "3_237n5" )
+icon_align = 1
+
+[node name="DupDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
+offset_left = 113.0
+offset_right = 222.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+disabled = true
+icon = ExtResource( "4_xi1pk" )
+icon_align = 1
+
+[node name="RemoveDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
+modulate = Color(1, 0.25098, 0.121569, 1)
+offset_left = 226.0
+offset_right = 335.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+disabled = true
+icon = ExtResource( "5_latir" )
+icon_align = 1
+
+[node name="ItemsLayout" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout"]
+offset_left = 339.0
+offset_right = 674.0
+offset_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
+offset_right = 335.0
+offset_bottom = 30.0
+rect_min_size = Vector2(0, 30)
+text = "Items"
+align = 1
+valign = 1
+
+[node name="ItemFilterBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/Title"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+icon = ExtResource( "2_pm7sn" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Separator" type="HSeparator" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
+offset_top = 34.0
+offset_right = 335.0
+offset_bottom = 38.0
+
+[node name="ItemsList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
+offset_top = 42.0
+offset_right = 335.0
+offset_bottom = 524.0
+size_flags_vertical = 3
+
+[node name="ItemsTools" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
+offset_top = 528.0
+offset_right = 335.0
+offset_bottom = 557.0
+
+[node name="AddItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
+offset_right = 109.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+icon = ExtResource( "3_237n5" )
+icon_align = 1
+
+[node name="DupItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
+offset_left = 113.0
+offset_right = 222.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+disabled = true
+icon = ExtResource( "4_xi1pk" )
+icon_align = 1
+
+[node name="RemoveItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
+modulate = Color(1, 0.25098, 0.121569, 1)
+offset_left = 226.0
+offset_right = 335.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+disabled = true
+icon = ExtResource( "5_latir" )
+icon_align = 1
+
+[node name="ItemLayout" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout"]
+offset_left = 678.0
+offset_right = 1014.0
+offset_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_right = 336.0
+offset_bottom = 30.0
+rect_min_size = Vector2(0, 30)
+text = "Item data"
+align = 1
+valign = 1
+
+[node name="Separator" type="HSeparator" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_top = 34.0
+offset_right = 336.0
+offset_bottom = 38.0
+
+[node name="ClassifTitle" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_top = 42.0
+offset_right = 336.0
+offset_bottom = 68.0
+text = "Classification"
+
+[node name="ClassifLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_top = 72.0
+offset_right = 336.0
+offset_bottom = 211.0
+size_flags_vertical = 3
+
+[node name="ClassifList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout"]
+offset_right = 304.0
+offset_bottom = 139.0
+size_flags_horizontal = 3
+
+[node name="ClassifTools" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout"]
+offset_left = 308.0
+offset_right = 336.0
+offset_bottom = 139.0
+
+[node name="AddClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
+offset_right = 28.0
+offset_bottom = 43.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+icon = ExtResource( "3_237n5" )
+
+[node name="DupClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
+offset_top = 47.0
+offset_right = 28.0
+offset_bottom = 91.0
+size_flags_vertical = 3
+disabled = true
+icon = ExtResource( "4_xi1pk" )
+
+[node name="RemoveClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
+modulate = Color(1, 0.25098, 0.121569, 1)
+offset_top = 95.0
+offset_right = 28.0
+offset_bottom = 139.0
+size_flags_vertical = 3
+disabled = true
+icon = ExtResource( "5_latir" )
+
+[node name="ValuesTitle" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_top = 215.0
+offset_right = 336.0
+offset_bottom = 241.0
+text = "Values"
+
+[node name="ValuesLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_top = 245.0
+offset_right = 336.0
+offset_bottom = 384.0
+size_flags_vertical = 3
+
+[node name="ValueList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout"]
+offset_right = 304.0
+offset_bottom = 139.0
+size_flags_horizontal = 3
+
+[node name="ValuesTools" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout"]
+offset_left = 308.0
+offset_right = 336.0
+offset_bottom = 139.0
+
+[node name="AddValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
+offset_right = 28.0
+offset_bottom = 43.0
+size_flags_vertical = 3
+icon = ExtResource( "3_237n5" )
+
+[node name="DupValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
+offset_top = 47.0
+offset_right = 28.0
+offset_bottom = 91.0
+size_flags_vertical = 3
+disabled = true
+icon = ExtResource( "4_xi1pk" )
+
+[node name="RemoveValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
+modulate = Color(1, 0.25098, 0.121569, 1)
+offset_top = 95.0
+offset_right = 28.0
+offset_bottom = 139.0
+size_flags_vertical = 3
+disabled = true
+icon = ExtResource( "5_latir" )
+
+[node name="TextsTitle" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_top = 388.0
+offset_right = 336.0
+offset_bottom = 414.0
+text = "Texts"
+
+[node name="TextsLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+offset_top = 418.0
+offset_right = 336.0
+offset_bottom = 557.0
+size_flags_vertical = 3
+
+[node name="TextsList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout"]
+offset_right = 304.0
+offset_bottom = 139.0
+size_flags_horizontal = 3
+
+[node name="TextsTools" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout"]
+offset_left = 308.0
+offset_right = 336.0
+offset_bottom = 139.0
+
+[node name="AddTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
+offset_right = 28.0
+offset_bottom = 43.0
+size_flags_vertical = 3
+icon = ExtResource( "3_237n5" )
+
+[node name="DupTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
+offset_top = 47.0
+offset_right = 28.0
+offset_bottom = 91.0
+size_flags_vertical = 3
+disabled = true
+icon = ExtResource( "4_xi1pk" )
+
+[node name="RemoveTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
+modulate = Color(1, 0.25098, 0.121569, 1)
+offset_top = 95.0
+offset_right = 28.0
+offset_bottom = 139.0
+size_flags_vertical = 3
+disabled = true
+icon = ExtResource( "5_latir" )
