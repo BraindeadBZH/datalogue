@@ -28,7 +28,7 @@ func validate_db_id(id: String) -> String:
 	if _databases.has(id):
 		return "Invalid database ID: not unique"
 	
-	if not Utils.is_id_valid(id):
+	if not DatalogueUtils.is_id_valid(id):
 		return "Invalid database ID: invalid format"
 	
 	return ""

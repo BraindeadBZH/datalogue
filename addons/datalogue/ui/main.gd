@@ -3,7 +3,7 @@ extends Control
 
 
 @onready var _create_dlg: PopupPanel = $CreateDialog
-@onready var _create_form: CreateForm = $CreateDialog/CreateForm
+@onready var _create_form: DatalogueCreateForm = $CreateDialog/CreateForm
 
 
 func _show_create_dialog(title: String) -> void:

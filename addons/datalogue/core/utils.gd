@@ -1,5 +1,5 @@
 @tool
-class_name Utils
+class_name DatalogueUtils
 extends RefCounted
 
 

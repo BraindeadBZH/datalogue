@@ -10,18 +10,18 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Control",
-"class": &"CreateForm",
+"class": &"DatalogueCreateForm",
 "language": &"GDScript",
 "path": "res://addons/datalogue/ui/forms/create_form.gd"
 }, {
 "base": "RefCounted",
-"class": &"Utils",
+"class": &"DatalogueUtils",
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/utils.gd"
 }]
 _global_script_class_icons={
-"CreateForm": "",
-"Utils": ""
+"DatalogueCreateForm": "",
+"DatalogueUtils": ""
 }
 
 [application]

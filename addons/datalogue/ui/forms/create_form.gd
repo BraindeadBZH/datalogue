@@ -1,5 +1,5 @@
 @tool
-class_name CreateForm
+class_name DatalogueCreateForm
 extends Control
 
 
