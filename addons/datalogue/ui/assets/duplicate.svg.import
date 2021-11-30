@@ -2,16 +2,16 @@
 
 importer="texture"
 type="StreamTexture2D"
-uid="uid://csytqo75pf64x"
-path="res://.godot/imported/remove.svg-84439a312d02c35a962288ce242a25eb.stex"
+uid="uid://b1pjxdltvtp1"
+path="res://.godot/imported/duplicate.svg-1aeff36294750ae8a4ac8000a7452649.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/datalogue/assets/remove.svg"
-dest_files=["res://.godot/imported/remove.svg-84439a312d02c35a962288ce242a25eb.stex"]
+source_file="res://addons/datalogue/ui/assets/duplicate.svg"
+dest_files=["res://.godot/imported/duplicate.svg-1aeff36294750ae8a4ac8000a7452649.stex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 
-const MainPanel := preload("res://addons/datalogue/main.tscn")
+const MainPanel := preload("res://addons/datalogue/ui/main.tscn")
 
 
 var main_panel_instance: Control = null
@@ -33,5 +33,5 @@ func _get_plugin_name() -> String:
 
 
 func _get_plugin_icon() -> Texture:
-	return load("res://addons/datalogue/assets/datalogue.svg")
+	return load("res://addons/datalogue/ui/assets/datalogue.svg")
 

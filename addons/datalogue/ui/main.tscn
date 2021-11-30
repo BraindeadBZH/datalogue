@@ -1,18 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bldutgh2qfhhk"]
+[gd_scene load_steps=7 format=3 uid="uid://26qo4dlmjlb8"]
 
-[ext_resource type="Script" path="res://addons/datalogue/main.gd" id="1_wsox0"]
-[ext_resource type="Texture2D" uid="uid://dbxmoer6eanmv" path="res://addons/datalogue/assets/filter.svg" id="2_pm7sn"]
-[ext_resource type="Texture2D" uid="uid://cjhme6ts8armj" path="res://addons/datalogue/assets/add.svg" id="3_237n5"]
-[ext_resource type="Texture2D" uid="uid://b1pjxdltvtp1" path="res://addons/datalogue/assets/duplicate.svg" id="4_xi1pk"]
-[ext_resource type="Texture2D" uid="uid://csytqo75pf64x" path="res://addons/datalogue/assets/remove.svg" id="5_latir"]
-[ext_resource type="PackedScene" uid="uid://co2rnlt45waqm" path="res://addons/datalogue/dialogs/create_dialog.tscn" id="6_duxvl"]
+[ext_resource type="Script" path="res://addons/datalogue/ui/main.gd" id="1_qojb5"]
+[ext_resource type="Texture2D" uid="uid://cjhme6ts8armj" path="res://addons/datalogue/ui/assets/add.svg" id="2_oanak"]
+[ext_resource type="Texture2D" uid="uid://b1pjxdltvtp1" path="res://addons/datalogue/ui/assets/duplicate.svg" id="3_n8033"]
+[ext_resource type="Texture2D" uid="uid://csytqo75pf64x" path="res://addons/datalogue/ui/assets/remove.svg" id="4_gdjpx"]
+[ext_resource type="Texture2D" uid="uid://dbxmoer6eanmv" path="res://addons/datalogue/ui/assets/filter.svg" id="5_f2h61"]
+[ext_resource type="PackedScene" path="res://addons/datalogue/ui/dialogs/create_dialog.tscn" id="6_t0t4a"]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( "1_wsox0" )
+script = ExtResource( "1_qojb5" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -123,7 +123,7 @@ offset_right = 109.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-icon = ExtResource( "3_237n5" )
+icon = ExtResource( "2_oanak" )
 icon_align = 1
 
 [node name="DupDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
@@ -132,7 +132,7 @@ offset_right = 222.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 disabled = true
-icon = ExtResource( "4_xi1pk" )
+icon = ExtResource( "3_n8033" )
 icon_align = 1
 
 [node name="RemoveDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
@@ -142,7 +142,7 @@ offset_right = 335.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 disabled = true
-icon = ExtResource( "5_latir" )
+icon = ExtResource( "4_gdjpx" )
 icon_align = 1
 
 [node name="ItemsLayout" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout"]
@@ -165,7 +165,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -28.0
-icon = ExtResource( "2_pm7sn" )
+icon = ExtResource( "5_f2h61" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -191,7 +191,7 @@ offset_right = 109.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-icon = ExtResource( "3_237n5" )
+icon = ExtResource( "2_oanak" )
 icon_align = 1
 
 [node name="DupItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
@@ -200,7 +200,7 @@ offset_right = 222.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 disabled = true
-icon = ExtResource( "4_xi1pk" )
+icon = ExtResource( "3_n8033" )
 icon_align = 1
 
 [node name="RemoveItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
@@ -210,7 +210,7 @@ offset_right = 335.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 disabled = true
-icon = ExtResource( "5_latir" )
+icon = ExtResource( "4_gdjpx" )
 icon_align = 1
 
 [node name="ItemLayout" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout"]
@@ -260,7 +260,7 @@ offset_right = 28.0
 offset_bottom = 43.0
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 16
-icon = ExtResource( "3_237n5" )
+icon = ExtResource( "2_oanak" )
 
 [node name="DupClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
 offset_top = 47.0
@@ -268,7 +268,7 @@ offset_right = 28.0
 offset_bottom = 90.0
 size_flags_vertical = 3
 disabled = true
-icon = ExtResource( "4_xi1pk" )
+icon = ExtResource( "3_n8033" )
 
 [node name="RemoveClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
@@ -277,7 +277,7 @@ offset_right = 28.0
 offset_bottom = 138.0
 size_flags_vertical = 3
 disabled = true
-icon = ExtResource( "5_latir" )
+icon = ExtResource( "4_gdjpx" )
 
 [node name="ValuesTitle" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
 offset_top = 214.0
@@ -305,7 +305,7 @@ offset_bottom = 138.0
 offset_right = 28.0
 offset_bottom = 43.0
 size_flags_vertical = 3
-icon = ExtResource( "3_237n5" )
+icon = ExtResource( "2_oanak" )
 
 [node name="DupValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
 offset_top = 47.0
@@ -313,7 +313,7 @@ offset_right = 28.0
 offset_bottom = 90.0
 size_flags_vertical = 3
 disabled = true
-icon = ExtResource( "4_xi1pk" )
+icon = ExtResource( "3_n8033" )
 
 [node name="RemoveValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
@@ -322,7 +322,7 @@ offset_right = 28.0
 offset_bottom = 138.0
 size_flags_vertical = 3
 disabled = true
-icon = ExtResource( "5_latir" )
+icon = ExtResource( "4_gdjpx" )
 
 [node name="TextsTitle" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
 offset_top = 386.0
@@ -350,7 +350,7 @@ offset_bottom = 139.0
 offset_right = 28.0
 offset_bottom = 43.0
 size_flags_vertical = 3
-icon = ExtResource( "3_237n5" )
+icon = ExtResource( "2_oanak" )
 
 [node name="DupTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
 offset_top = 47.0
@@ -358,7 +358,7 @@ offset_right = 28.0
 offset_bottom = 91.0
 size_flags_vertical = 3
 disabled = true
-icon = ExtResource( "4_xi1pk" )
+icon = ExtResource( "3_n8033" )
 
 [node name="RemoveTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
@@ -367,7 +367,7 @@ offset_right = 28.0
 offset_bottom = 139.0
 size_flags_vertical = 3
 disabled = true
-icon = ExtResource( "5_latir" )
+icon = ExtResource( "4_gdjpx" )
 
 [node name="CreateDialog" type="PopupPanel" parent="."]
 title = "Some Test"
@@ -377,7 +377,7 @@ borderless = false
 always_on_top = true
 content_scale_mode = 1
 
-[node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_duxvl" )]
+[node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = -720.0

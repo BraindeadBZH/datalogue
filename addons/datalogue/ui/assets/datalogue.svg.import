@@ -3,15 +3,15 @@
 importer="texture"
 type="StreamTexture2D"
 uid="uid://buxdqn48swqjj"
-path="res://.godot/imported/datalogue.svg-7e59b1e9b36868786ee6bebdde57552d.stex"
+path="res://.godot/imported/datalogue.svg-6472fba727ee799aa1f9fca8421f79fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/datalogue/assets/datalogue.svg"
-dest_files=["res://.godot/imported/datalogue.svg-7e59b1e9b36868786ee6bebdde57552d.stex"]
+source_file="res://addons/datalogue/ui/assets/datalogue.svg"
+dest_files=["res://.godot/imported/datalogue.svg-6472fba727ee799aa1f9fca8421f79fa.stex"]
 
 [params]
 

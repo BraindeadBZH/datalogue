@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://co2rnlt45waqm"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/datalogue/dialogs/create_dialog.gd" id="1_3afgk"]
+[ext_resource type="Script" path="res://addons/datalogue/ui/dialogs/create_dialog.gd" id="1_3afgk"]
 
 [node name="CreateForm" type="Control"]
 anchor_right = 1.0
