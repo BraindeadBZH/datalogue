@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://co2rnlt45waqm"]
+
+[ext_resource type="Script" path="res://addons/datalogue/dialogs/create_dialog.gd" id="1_3afgk"]
+
+[node name="CreateForm" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -724.0
+offset_bottom = -400.0
+rect_min_size = Vector2(300, 200)
+script = ExtResource( "1_3afgk" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ValidateBtn" type="Button" parent="MainLayout"]
+offset_right = 300.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 16
+text = "Validate"
+
+[connection signal="pressed" from="MainLayout/ValidateBtn" to="." method="_on_ValidateBtn_pressed"]

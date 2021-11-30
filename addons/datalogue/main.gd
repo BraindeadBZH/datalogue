@@ -1,8 +1,9 @@
 @tool
 extends Control
 
-signal request_reload()
+
+@onready var _create_dlg: PopupPanel = $CreateDialog
 
 
-func _on_TestBtn_pressed():
-	print("I'm happy to report this is working")
+func _on_AddDatabaseBtn_pressed():
+	_create_dlg.popup_centered()

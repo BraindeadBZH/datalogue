@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bldutgh2qfhhk"]
+[gd_scene load_steps=7 format=3 uid="uid://bldutgh2qfhhk"]
 
 [ext_resource type="Script" path="res://addons/datalogue/main.gd" id="1_wsox0"]
 [ext_resource type="Texture2D" uid="uid://dbxmoer6eanmv" path="res://addons/datalogue/assets/filter.svg" id="2_pm7sn"]
 [ext_resource type="Texture2D" uid="uid://cjhme6ts8armj" path="res://addons/datalogue/assets/add.svg" id="3_237n5"]
 [ext_resource type="Texture2D" uid="uid://b1pjxdltvtp1" path="res://addons/datalogue/assets/duplicate.svg" id="4_xi1pk"]
 [ext_resource type="Texture2D" uid="uid://csytqo75pf64x" path="res://addons/datalogue/assets/remove.svg" id="5_latir"]
+[ext_resource type="PackedScene" uid="uid://co2rnlt45waqm" path="res://addons/datalogue/dialogs/create_dialog.tscn" id="6_duxvl"]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
@@ -367,3 +368,19 @@ offset_bottom = 139.0
 size_flags_vertical = 3
 disabled = true
 icon = ExtResource( "5_latir" )
+
+[node name="CreateDialog" type="PopupPanel" parent="."]
+title = "Some Test"
+size = Vector2i(308, 208)
+exclusive = true
+borderless = false
+always_on_top = true
+content_scale_mode = 1
+
+[node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_duxvl" )]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -720.0
+offset_bottom = -396.0
+
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/AddDatabaseBtn" to="." method="_on_AddDatabaseBtn_pressed"]
