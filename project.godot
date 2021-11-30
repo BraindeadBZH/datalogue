@@ -15,12 +15,24 @@ _global_script_classes=[{
 "path": "res://addons/datalogue/ui/forms/create_form.gd"
 }, {
 "base": "RefCounted",
+"class": &"DatalogueDb",
+"language": &"GDScript",
+"path": "res://addons/datalogue/core/database.gd"
+}, {
+"base": "RefCounted",
+"class": &"DatalogueItem",
+"language": &"GDScript",
+"path": "res://addons/datalogue/core/item.gd"
+}, {
+"base": "RefCounted",
 "class": &"DatalogueUtils",
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/utils.gd"
 }]
 _global_script_class_icons={
 "DatalogueCreateForm": "",
+"DatalogueDb": "",
+"DatalogueItem": "",
 "DatalogueUtils": ""
 }
 

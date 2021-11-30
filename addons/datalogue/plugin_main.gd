@@ -2,6 +2,7 @@
 extends EditorPlugin
 
 
+const MAIN_FOLDER := "res://_datalogue"
 const MainPanel := preload("res://addons/datalogue/ui/main.tscn")
 
 
@@ -10,6 +11,10 @@ var main_panel_instance: Control = null
 
 func _enter_tree() -> void:
 	add_autoload_singleton("Datalogue", "res://addons/datalogue/core/datalogue.gd")
+	
+	var dir := Directory.new()
+	if not dir.dir_exists(MAIN_FOLDER):
+		dir.make_dir_recursive(MAIN_FOLDER)
 	
 	main_panel_instance = MainPanel.instantiate()
 	get_editor_interface().get_editor_main_control().add_child(main_panel_instance)

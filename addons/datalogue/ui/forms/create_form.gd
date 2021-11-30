@@ -4,6 +4,7 @@ extends Control
 
 
 signal request_close()
+signal submitted(id: String)
 
 
 @onready var _id_edit: LineEdit = $MainLayout/IdEdit
@@ -27,11 +28,11 @@ func _clear_error() -> void:
 func _on_CreateBtn_pressed():
 	_clear_error()
 	
-	var error := Datalogue.validate_db_id(_id_edit.text)
+	var error := Datalogue.validate_id(_id_edit.text)
 	if not error.is_empty():
 		_error_lbl.text = error
 	else:
-		Datalogue.create_db(_id_edit.text)
+		emit_signal("submitted", _id_edit.text)
 		emit_signal("request_close")
 
 
