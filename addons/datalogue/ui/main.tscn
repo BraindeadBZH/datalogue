@@ -378,10 +378,6 @@ always_on_top = true
 content_scale_mode = 1
 
 [node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 104.0
 
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/AddDatabaseBtn" to="." method="_on_AddDatabaseBtn_pressed"]
 [connection signal="about_to_popup" from="CreateDialog" to="." method="_on_CreateDialog_about_to_popup"]

@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      showgrid="true"
      inkscape:snap-global="true"
-     inkscape:zoom="1"
-     inkscape:cx="8.5"
-     inkscape:cy="7.5"
+     inkscape:zoom="58.0625"
+     inkscape:cx="8"
+     inkscape:cy="8"
      inkscape:window-width="1920"
      inkscape:window-height="1137"
      inkscape:window-x="-8"
@@ -35,7 +35,7 @@
      inkscape:object-nodes="true"
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="false"
-     inkscape:snap-nodes="false"
+     inkscape:snap-nodes="true"
      inkscape:bbox-nodes="true">
     <inkscape:grid
        type="xygrid"
@@ -46,25 +46,15 @@
      id="layer2"
      inkscape:label="Icon">
     <g
-       id="g3401"
-       transform="matrix(0.58333333,0,0,0.58333333,1,1)"
-       style="stroke-width:36.5714;fill:#e0e0e0;fill-opacity:1">
-      <g
-         id="_x32_-9"
-         style="stroke-width:36.5714;fill:#e0e0e0;fill-opacity:1">
-        <path
-           d="m 18,2 c 2.206,0 4,1.794 4,4 v 12 c 0,2.206 -1.794,4 -4,4 H 6 C 3.794,22 2,20.206 2,18 V 6 C 2,3.794 3.794,2 6,2 Z M 18,0 H 6 C 2.686,0 0,2.686 0,6 v 12 c 0,3.314 2.686,6 6,6 h 12 c 3.314,0 6,-2.686 6,-6 V 6 C 24,2.686 21.314,0 18,0 Z"
-           id="path3386"
-           style="stroke-width:36.5714;fill:#e0e0e0;fill-opacity:1" />
-      </g>
-      <g
-         id="_x31_-7"
-         style="stroke-width:36.5714;fill:#e0e0e0;fill-opacity:1">
-        <path
-           d="m 6,12 c 0,-0.552 0.447,-1 1,-1 h 10 c 0.552,0 1,0.448 1,1 0,0.552 -0.448,1 -1,1 H 7 C 6.447,13 6,12.552 6,12 Z"
-           id="path3389"
-           style="stroke-width:36.5714;fill:#e0e0e0;fill-opacity:1" />
-      </g>
+       id="g3075">
+      <path
+         style="color:#000000;fill:#e0e0e0;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none"
+         d="M 3.5,1 C 2.1236503,1 1,2.1236503 1,3.5 v 9 C 1,13.87635 2.1236503,15 3.5,15 h 9 c 1.37635,0 2.5,-1.12365 2.5,-2.5 v -9 C 15,2.1236503 13.87635,1 12.5,1 Z m 0,1 h 9 C 13.339648,2 14,2.660352 14,3.5 v 9 c 0,0.839648 -0.660352,1.5 -1.5,1.5 h -9 C 2.660352,14 2,13.339648 2,12.5 v -9 C 2,2.660352 2.660352,2 3.5,2 Z"
+         id="rect1911" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#e0e0e0;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 5,8 h 6"
+         id="path2873" />
     </g>
   </g>
 </svg>
