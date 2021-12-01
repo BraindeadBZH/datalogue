@@ -194,7 +194,7 @@ offset_bottom = 38.0
 offset_top = 42.0
 offset_right = 336.0
 offset_bottom = 68.0
-text = "Classification"
+text = "Classifications"
 
 [node name="ClassifLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
 offset_top = 72.0
