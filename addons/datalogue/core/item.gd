@@ -80,12 +80,12 @@ func set_values(values: Dictionary) -> void:
 	mark_changed()
 
 
-func add_value(id: String, value: int) -> void:
+func add_value(id: String, value: float) -> void:
 	_values[id] = value
 	mark_changed()
 
 
-func set_value(id: String, value: int) -> void:
+func set_value(id: String, value: float) -> void:
 	_values[id] = value
 	mark_changed()
 
@@ -94,7 +94,7 @@ func has_value(id: String) -> bool:
 	return _values.has(id)
 
 
-func get_value(id: String) -> int:
+func get_value(id: String) -> float:
 	return _values[id]
 
 
