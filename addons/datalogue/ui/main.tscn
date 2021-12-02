@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcqixxculuipw"]
+[gd_scene load_steps=10 format=3 uid="uid://dcqixxculuipw"]
 
 [ext_resource type="Script" path="res://addons/datalogue/ui/main.gd" id="1_qojb5"]
 [ext_resource type="Script" path="res://addons/datalogue/ui/databases_ui.gd" id="2_bbge7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1pjxdltvtp1" path="res://addons/datalogue/ui/assets/duplicate.svg" id="3_n8033"]
 [ext_resource type="Texture2D" uid="uid://csytqo75pf64x" path="res://addons/datalogue/ui/assets/remove.svg" id="4_gdjpx"]
 [ext_resource type="Texture2D" uid="uid://dbxmoer6eanmv" path="res://addons/datalogue/ui/assets/filter.svg" id="5_f2h61"]
+[ext_resource type="Script" path="res://addons/datalogue/ui/items_ui.gd" id="6_h4xjf"]
 [ext_resource type="PackedScene" uid="uid://qdqlhdyxoycs" path="res://addons/datalogue/ui/forms/create_form.tscn" id="6_t0t4a"]
 [ext_resource type="PackedScene" uid="uid://ddbxamso0dywb" path="res://addons/datalogue/ui/forms/remove_form.tscn" id="8_wn8wp"]
 
@@ -110,6 +111,7 @@ offset_right = 674.0
 offset_bottom = 590.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( "6_h4xjf" )
 
 [node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
 offset_right = 335.0
@@ -151,6 +153,7 @@ offset_right = 109.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
+disabled = true
 icon = ExtResource( "2_oanak" )
 icon_align = 1
 
@@ -220,6 +223,7 @@ offset_right = 28.0
 offset_bottom = 47.0
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 16
+disabled = true
 icon = ExtResource( "2_oanak" )
 
 [node name="DupClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
@@ -265,6 +269,7 @@ offset_bottom = 150.0
 offset_right = 28.0
 offset_bottom = 47.0
 size_flags_vertical = 3
+disabled = true
 icon = ExtResource( "2_oanak" )
 
 [node name="DupValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
@@ -310,6 +315,7 @@ offset_bottom = 150.0
 offset_right = 28.0
 offset_bottom = 47.0
 size_flags_vertical = 3
+disabled = true
 icon = ExtResource( "2_oanak" )
 
 [node name="DupTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
@@ -355,11 +361,15 @@ offset_top = 4.0
 offset_right = -720.0
 offset_bottom = -496.0
 
+[connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_remove_form"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesList" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_DatabasesList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/AddDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_AddDatabaseBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/RemoveDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_RemoveDatabaseBtn_pressed"]
+[connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_create_form"]
+[connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_remove_form"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/AddItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_AddItemBtn_pressed"]
 [connection signal="about_to_popup" from="CreateDialog" to="." method="_on_CreateDialog_about_to_popup"]
 [connection signal="request_close" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_request_close"]
 [connection signal="submitted" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_submitted"]

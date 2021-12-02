@@ -3,6 +3,9 @@ class_name DatalogueDb
 extends RefCounted
 
 
+signal changed()
+
+
 var _id := ""
 var _items: Dictionary = {}
 
@@ -25,6 +28,7 @@ func items() -> Dictionary:
 
 func add_item(item: DatalogueItem) -> void:
 	_items[item.id()] = item
+	emit_signal("changed")
 
 
 func item_exists(id: String) -> bool:
@@ -40,3 +44,4 @@ func get_item(id: String) -> DatalogueItem:
 
 func remove_item(id: String) -> void:
 	_items.erase(id)
+	emit_signal("changed")

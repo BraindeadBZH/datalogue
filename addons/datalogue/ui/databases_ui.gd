@@ -2,8 +2,9 @@
 extends VBoxContainer
 
 
-signal request_create_form(mode)
-signal request_remove_form(mode)
+signal request_create_form(mode: int)
+signal request_remove_form(mode: int)
+signal database_selected(db: DatalogueDb)
 
 
 @onready var _db_list: ItemList = $DatabasesList
@@ -51,6 +52,7 @@ func _on_DatabasesList_item_selected(index: int) -> void:
 	_selected_db = Datalogue.get_database(_db_list.get_item_metadata(index))
 	_dup_btn.disabled = false
 	_delete_btn.disabled = false
+	emit_signal("database_selected", _selected_db)
 
 
 func _on_RemoveDatabaseBtn_pressed() -> void:

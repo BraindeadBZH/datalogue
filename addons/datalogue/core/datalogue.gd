@@ -118,7 +118,7 @@ func _read_database(filename: String) -> DatalogueDb:
 		for entry in file.get_section_keys("items"):
 			var item := DatalogueItem.new(entry)
 			var data = file.get_value("items", entry)
-			item.set_categories(data["categories"])
+			item.set_classifications(data["classifications"])
 			item.set_values(data["values"])
 			item.set_texts(data["texts"])
 			db.add_item(item)

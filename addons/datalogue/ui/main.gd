@@ -12,6 +12,7 @@ enum {REMOVE_MODE_DB, REMOVE_MODE_ITEM, REMOVE_MODE_CLASSIF, REMOVE_MODE_VALUE, 
 @onready var _remove_dlg: PopupPanel = $RemoveDialog
 @onready var _remove_form: DatalogueRemoveForm = $RemoveDialog/RemoveForm
 @onready var _db_ui := $Borders/MainLayout/ViewLayout/DatabasesLayout
+@onready var _item_ui := $Borders/MainLayout/ViewLayout/ItemsLayout
 
 
 var _create_mode := CREATE_MODE_DB
@@ -71,7 +72,7 @@ func _on_CreateForm_submitted(id: String) -> void:
 		CREATE_MODE_DB:
 			Datalogue.create_database(DatalogueDb.new(id))
 		CREATE_MODE_ITEM:
-			pass
+			_item_ui.create_item(id)
 		CREATE_MODE_CLASSIF:
 			pass
 		CREATE_MODE_VALUE:
