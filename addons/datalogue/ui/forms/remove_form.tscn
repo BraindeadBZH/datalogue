@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddbxamso0dywb"]
+
+[ext_resource type="Script" path="res://addons/datalogue/ui/forms/remove_form.gd" id="1_vb823"]
+
+[node name="RemoveForm" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -724.0
+offset_bottom = -489.0
+rect_min_size = Vector2(300, 100)
+script = ExtResource( "1_vb823" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorLbl" type="Label" parent="MainLayout"]
+modulate = Color(0.84, 0.21, 0.21, 1)
+offset_right = 300.0
+offset_bottom = 30.0
+rect_min_size = Vector2(0, 30)
+text = "This action cannot be reverted"
+valign = 1
+
+[node name="ValidateSw" type="CheckButton" parent="MainLayout"]
+offset_top = 34.0
+offset_right = 300.0
+offset_bottom = 74.0
+text = "Validate delete"
+
+[node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 78.0
+offset_right = 300.0
+offset_bottom = 107.0
+
+[node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_right = 100.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+text = "Cancel"
+
+[node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]
+offset_left = 104.0
+offset_right = 196.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+
+[node name="DeleteBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_left = 200.0
+offset_right = 300.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+theme_override_font_sizes/font_size = 16
+disabled = true
+text = "Delete"
+
+[connection signal="toggled" from="MainLayout/ValidateSw" to="." method="_on_ValidateSw_toggled"]
+[connection signal="pressed" from="MainLayout/ButtonLayout/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="MainLayout/ButtonLayout/DeleteBtn" to="." method="_on_DeleteBtn_pressed"]

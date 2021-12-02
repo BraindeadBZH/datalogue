@@ -39,7 +39,7 @@ func databases() -> Dictionary:
 
 
 func create_database(db: DatalogueDb) -> void:
-	_databases[db.id] = db
+	_databases[db.id()] = db
 	_write_database(db)
 	emit_signal("changed")
 
@@ -52,7 +52,7 @@ func get_database(id: String) -> DatalogueDb:
 
 
 func update_database(modified_db: DatalogueDb) -> void:
-	_databases[modified_db.id] = modified_db
+	_databases[modified_db.id()] = modified_db
 	_write_database(modified_db)
 	emit_signal("changed")
 
@@ -60,11 +60,12 @@ func update_database(modified_db: DatalogueDb) -> void:
 func delete_database(id: String):
 	if !_databases.has(id): return
 
-	var db = _databases[id]
+	var db: DatalogueDb = _databases[id]
 	_databases.erase(id)
 
 	var dir := Directory.new()
-	dir.remove(FMT_DB_PATH % [FOLDER_PATH, db.id])
+	if dir.open(FOLDER_PATH) == OK:
+		dir.remove(FMT_DB_PATH % [FOLDER_PATH, db.id()])
 
 	emit_signal("changed")
 
@@ -77,7 +78,7 @@ func _load_databases() -> void:
 		while filename != "":
 			if DatalogueUtils.is_db_file(filename):
 				var db := _read_database(filename)
-				_databases[db.id] = db
+				_databases[db.id()] = db
 			filename = dir.get_next()
 		dir.list_dir_end()
 		emit_signal("changed")

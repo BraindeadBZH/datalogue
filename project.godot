@@ -25,6 +25,11 @@ _global_script_classes=[{
 "path": "res://addons/datalogue/core/item.gd"
 }, {
 "base": "Control",
+"class": &"DatalogueRemoveForm",
+"language": &"GDScript",
+"path": "res://addons/datalogue/ui/forms/remove_form.gd"
+}, {
+"base": "Control",
 "class": &"DatalogueUi",
 "language": &"GDScript",
 "path": "res://addons/datalogue/ui/main.gd"
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "DatalogueCreateForm": "",
 "DatalogueDb": "",
 "DatalogueItem": "",
+"DatalogueRemoveForm": "",
 "DatalogueUi": "",
 "DatalogueUtils": ""
 }
