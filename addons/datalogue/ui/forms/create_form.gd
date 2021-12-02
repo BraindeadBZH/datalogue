@@ -25,7 +25,7 @@ func _clear_error() -> void:
 	_error_lbl.text = ""
 
 
-func _on_CreateBtn_pressed():
+func _on_CreateBtn_pressed() -> void:
 	_clear_error()
 	
 	var error := Datalogue.validate_id(_id_edit.text)
@@ -36,12 +36,12 @@ func _on_CreateBtn_pressed():
 		emit_signal("request_close")
 
 
-func _on_CancelBtn_pressed():
+func _on_CancelBtn_pressed() -> void:
 	emit_signal("request_close")
 
 
-func _on_IdEdit_text_changed(new_text):
-	if _id_edit.text.is_empty():
+func _on_IdEdit_text_changed(new_text) -> void:
+	if new_text.is_empty():
 		_create_btn.disabled = true
 	else:
 		_create_btn.disabled = false

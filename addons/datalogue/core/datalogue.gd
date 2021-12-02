@@ -97,7 +97,6 @@ func _write_database(db: DatalogueDb):
 			})
 
 	var err := file.save(FMT_DB_PATH % [FOLDER_PATH, db.id()])
-	print(FMT_DB_PATH % [FOLDER_PATH, db.id()])
 	if err != OK:
 		printerr("Error while writing database: %s" % error_string(err))
 		return
