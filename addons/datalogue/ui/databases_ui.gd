@@ -16,8 +16,14 @@ var _selected_db: DatalogueDb = null
 
 
 func _ready() -> void:
-	Datalogue.connect("changed", Callable(self, "_on_Databases_changed"))
+	Datalogue.connect("database_added", Callable(self, "_on_database_added"))
+	Datalogue.connect("database_updated", Callable(self, "_on_database_updated"))
+	Datalogue.connect("database_removed", Callable(self, "_on_database_removed"))
 	_display_databases()
+
+
+func create_database(id: String) -> void:
+	Datalogue.create_database(DatalogueDb.new(id))
 
 
 func delete_selected() -> void:
@@ -40,7 +46,17 @@ func _display_databases() -> void:
 		_db_list.set_item_metadata(_db_list.get_item_count()-1, db.id())
 
 
-func _on_Databases_changed() -> void:
+func _on_database_added() -> void:
+	_display_databases()
+
+
+func _on_database_updated(db: DatalogueDb) -> void:
+	for idx in range(_db_list.items_count):
+		if db.id() == _db_list.get_item_metadata(idx):
+			_db_list.set_item_text(idx, "%s (%d items)" % [db.id(), db.count()])
+
+
+func _on_database_removed() -> void:
 	_display_databases()
 
 

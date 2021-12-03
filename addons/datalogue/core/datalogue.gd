@@ -2,7 +2,9 @@
 extends Node
 
 
-signal changed()
+signal database_added()
+signal database_updated(db: DatalogueDb)
+signal database_removed()
 
 
 const FOLDER_PATH := "res://_datalogue"
@@ -41,7 +43,7 @@ func databases() -> Dictionary:
 func create_database(db: DatalogueDb) -> void:
 	_databases[db.id()] = db
 	_write_database(db)
-	emit_signal("changed")
+	emit_signal("database_added")
 
 
 func get_database(id: String) -> DatalogueDb:
@@ -54,7 +56,7 @@ func get_database(id: String) -> DatalogueDb:
 func update_database(modified_db: DatalogueDb) -> void:
 	_databases[modified_db.id()] = modified_db
 	_write_database(modified_db)
-	emit_signal("changed")
+	emit_signal("database_updated", modified_db)
 
 
 func delete_database(id: String):
@@ -67,7 +69,7 @@ func delete_database(id: String):
 	if dir.open(FOLDER_PATH) == OK:
 		dir.remove(FMT_DB_PATH % [FOLDER_PATH, db.id()])
 
-	emit_signal("changed")
+	emit_signal("database_removed")
 
 
 func _load_databases() -> void:
@@ -81,7 +83,7 @@ func _load_databases() -> void:
 				_databases[db.id()] = db
 			filename = dir.get_next()
 		dir.list_dir_end()
-		emit_signal("changed")
+		emit_signal("database_added")
 
 
 func _write_database(db: DatalogueDb):

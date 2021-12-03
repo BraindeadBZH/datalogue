@@ -71,7 +71,7 @@ func _on_CreateForm_submitted(id: String) -> void:
 	match _create_mode:
 		CREATE_MODE_DB:
 			print("Create database")
-			Datalogue.create_database(DatalogueDb.new(id))
+			_db_ui.create_database(id)
 			_item_ui.clear()
 		CREATE_MODE_ITEM:
 			print("Create item")
