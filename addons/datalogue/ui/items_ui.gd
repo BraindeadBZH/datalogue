@@ -16,6 +16,18 @@ var _selected_db: DatalogueDb = null
 var _selected_item: DatalogueItem = null
 
 
+func clear() -> void:
+	if _selected_db != null:
+		_selected_db.disconnect("changed", Callable(self, "_on_database_changed"))
+		_selected_db = null
+	
+	_items_list.clear()
+	
+	_add_btn.disabled = true
+	_dup_btn.disabled = true
+	_delete_btn.disabled = true
+
+
 func create_item(id: String) -> void:
 	if _selected_db != null:
 		_selected_db.add_item(DatalogueItem.new(id))
@@ -39,10 +51,14 @@ func _display_items() -> void:
 
 
 func _on_database_selected(db: DatalogueDb) -> void:
-	_selected_db = db
-	_add_btn.disabled = false
-	_selected_db.connect("changed", Callable(self, "_on_database_changed"))
-	_display_items()
+	if _selected_db != db:
+		if _selected_db != null:
+			_selected_db.disconnect("changed", Callable(self, "_on_database_changed"))
+		
+		_selected_db = db
+		_add_btn.disabled = false
+		_selected_db.connect("changed", Callable(self, "_on_database_changed"))
+		_display_items()
 
 
 func _on_database_changed() -> void:

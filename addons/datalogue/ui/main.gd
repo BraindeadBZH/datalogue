@@ -70,15 +70,18 @@ func _on_CreateForm_request_close() -> void:
 func _on_CreateForm_submitted(id: String) -> void:
 	match _create_mode:
 		CREATE_MODE_DB:
+			print("Create database")
 			Datalogue.create_database(DatalogueDb.new(id))
+			_item_ui.clear()
 		CREATE_MODE_ITEM:
+			print("Create item")
 			_item_ui.create_item(id)
 		CREATE_MODE_CLASSIF:
-			pass
+			print("Create classification")
 		CREATE_MODE_VALUE:
-			pass
+			print("Create value")
 		CREATE_MODE_TEXT:
-			pass
+			print("Create text")
 
 
 func _on_RemoveDialog_about_to_popup() -> void:
@@ -90,14 +93,16 @@ func _on_RemoveForm_request_close() -> void:
 
 
 func _on_RemoveForm_submitted() -> void:
-	match _create_mode:
+	match _remove_mode:
 		REMOVE_MODE_DB:
+			print("Remove database")
 			_db_ui.delete_selected()
+			_item_ui.clear()
 		REMOVE_MODE_ITEM:
-			pass
+			print("Remove item")
 		REMOVE_MODE_CLASSIF:
-			pass
+			print("Remove classifcation")
 		REMOVE_MODE_VALUE:
-			pass
+			print("Remove value")
 		REMOVE_MODE_TEXT:
-			pass
+			print("Remove text")
