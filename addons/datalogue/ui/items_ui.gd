@@ -34,6 +34,12 @@ func create_item(id: String) -> void:
 		Datalogue.update_database(_selected_db)
 
 
+func delete_selected() -> void:
+	if _selected_db != null:
+		_selected_db.remove_item(_selected_item.id())
+		Datalogue.update_database(_selected_db)
+
+
 func _display_items() -> void:
 	if _items_list == null:
 		return
@@ -67,3 +73,13 @@ func _on_database_changed() -> void:
 
 func _on_AddItemBtn_pressed() -> void:
 	emit_signal("request_create_form", DatalogueUi.CREATE_MODE_ITEM)
+
+
+func _on_ItemsList_item_selected(index: int) -> void:
+	_selected_item = _selected_db.get_item(_items_list.get_item_metadata(index))
+	_dup_btn.disabled = false
+	_delete_btn.disabled = false
+
+
+func _on_RemoveItemBtn_pressed() -> void:
+	emit_signal("request_remove_form", DatalogueUi.REMOVE_MODE_ITEM)

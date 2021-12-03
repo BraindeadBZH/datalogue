@@ -172,6 +172,7 @@ offset_left = 226.0
 offset_right = 335.0
 offset_bottom = 29.0
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
 disabled = true
 icon = ExtResource( "4_gdjpx" )
 icon_align = 1
@@ -369,7 +370,9 @@ offset_bottom = -496.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/RemoveDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_RemoveDatabaseBtn_pressed"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_remove_form"]
+[connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsList" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_ItemsList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/AddItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_AddItemBtn_pressed"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/RemoveItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_RemoveItemBtn_pressed"]
 [connection signal="about_to_popup" from="CreateDialog" to="." method="_on_CreateDialog_about_to_popup"]
 [connection signal="request_close" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_request_close"]
 [connection signal="submitted" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_submitted"]

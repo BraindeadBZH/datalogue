@@ -27,7 +27,8 @@ func create_database(id: String) -> void:
 
 
 func delete_selected() -> void:
-	Datalogue.delete_database(_selected_db.id())
+	if _selected_db != null:
+		Datalogue.delete_database(_selected_db.id())
 
 
 func _display_databases() -> void:

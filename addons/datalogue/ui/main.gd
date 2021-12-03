@@ -100,6 +100,7 @@ func _on_RemoveForm_submitted() -> void:
 			_item_ui.clear()
 		REMOVE_MODE_ITEM:
 			print("Remove item")
+			_item_ui.delete_selected()
 		REMOVE_MODE_CLASSIF:
 			print("Remove classifcation")
 		REMOVE_MODE_VALUE:
