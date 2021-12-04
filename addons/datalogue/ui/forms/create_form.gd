@@ -53,7 +53,7 @@ func _on_CancelBtn_pressed() -> void:
 
 
 func _on_IdEdit_text_changed(new_text) -> void:
-	if new_text.is_empty():
+	if new_text.is_empty() or new_text == _old_id:
 		_create_btn.disabled = true
 	else:
 		_create_btn.disabled = false
