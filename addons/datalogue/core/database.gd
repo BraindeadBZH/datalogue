@@ -47,6 +47,14 @@ func get_item(id: String) -> DatalogueItem:
 		return null
 
 
+func update_item(modified_item: DatalogueItem, old_id: String = "") -> void:
+	_items[modified_item.id()] = modified_item
+	emit_signal("changed")
+	
+	if not old_id.is_empty():
+		remove_item(old_id)
+
+
 func remove_item(id: String) -> void:
 	_items.erase(id)
 	emit_signal("changed")

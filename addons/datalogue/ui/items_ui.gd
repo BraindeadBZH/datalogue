@@ -3,6 +3,7 @@ extends VBoxContainer
 
 
 signal request_create_form(mode: int)
+signal request_rename_form(mode: int, id: String)
 signal request_remove_form(mode: int)
 
 
@@ -32,6 +33,12 @@ func create_item(id: String) -> void:
 	if _selected_db != null:
 		_selected_db.add_item(DatalogueItem.new(id))
 		Datalogue.update_database(_selected_db)
+
+
+func rename_selected_item(new_id: String, old_id: String):
+	_selected_item.set_id(new_id)
+	_selected_db.update_item(_selected_item, old_id)
+	Datalogue.update_database(_selected_db)
 
 
 func delete_selected() -> void:
@@ -71,14 +78,18 @@ func _on_database_changed() -> void:
 	_display_items()
 
 
-func _on_AddItemBtn_pressed() -> void:
-	emit_signal("request_create_form", DatalogueUi.CREATE_MODE_ITEM)
-
-
 func _on_ItemsList_item_selected(index: int) -> void:
 	_selected_item = _selected_db.get_item(_items_list.get_item_metadata(index))
 	_dup_btn.disabled = false
 	_delete_btn.disabled = false
+
+
+func _on_ItemsList_item_activated(index: int) -> void:
+	emit_signal("request_rename_form", DatalogueUi.RENAME_MODE_ITEM, _selected_item.id())
+
+
+func _on_AddItemBtn_pressed() -> void:
+	emit_signal("request_create_form", DatalogueUi.CREATE_MODE_ITEM)
 
 
 func _on_RemoveItemBtn_pressed() -> void:

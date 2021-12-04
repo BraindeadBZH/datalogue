@@ -372,6 +372,8 @@ offset_bottom = -496.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/RemoveDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_RemoveDatabaseBtn_pressed"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_remove_form"]
+[connection signal="request_rename_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_rename_form"]
+[connection signal="item_activated" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsList" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_ItemsList_item_activated"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsList" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_ItemsList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/AddItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_AddItemBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/RemoveItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_RemoveItemBtn_pressed"]

@@ -15,6 +15,7 @@ var _old_id := ""
 
 
 func clear() -> void:
+	_create_btn.disabled = true
 	_clear_field()
 	_clear_error()
 

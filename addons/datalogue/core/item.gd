@@ -20,6 +20,10 @@ func id() -> String:
 	return _id
 
 
+func set_id(new_id: String) -> void:
+	_id = new_id
+
+
 func duplicate() -> DatalogueItem:
 	var copy = get_script().new(id)
 	copy._classif  = _classif.duplicate()

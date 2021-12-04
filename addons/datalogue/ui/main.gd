@@ -107,6 +107,7 @@ func _on_CreateForm_submitted(id: String, old_id: String) -> void:
 				_item_ui.clear()
 			RENAME_MODE_ITEM:
 				print("Rename item %s to %s" % [old_id, id])
+				_item_ui.rename_selected_item(id, old_id)
 			RENAME_MODE_CLASSIF:
 				print("Rename classification %s to %s" % [old_id, id])
 			RENAME_MODE_VALUE:
