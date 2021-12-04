@@ -18,6 +18,11 @@ func id() -> String:
 	return _id
 
 
+func set_id(new_id: String) -> void:
+	_id = new_id
+	emit_signal("changed")
+
+
 func count() -> int:
 	return _items.size()
 

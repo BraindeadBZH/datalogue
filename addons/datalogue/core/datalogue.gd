@@ -53,21 +53,23 @@ func get_database(id: String) -> DatalogueDb:
 		return null
 
 
-func update_database(modified_db: DatalogueDb) -> void:
+func update_database(modified_db: DatalogueDb, old_id: String = "") -> void:
 	_databases[modified_db.id()] = modified_db
 	_write_database(modified_db)
 	emit_signal("database_updated", modified_db)
+	
+	if not old_id.is_empty():
+		delete_database(old_id)
 
 
 func delete_database(id: String):
 	if !_databases.has(id): return
 
-	var db: DatalogueDb = _databases[id]
 	_databases.erase(id)
 
 	var dir := Directory.new()
 	if dir.open(FOLDER_PATH) == OK:
-		dir.remove(FMT_DB_PATH % [FOLDER_PATH, db.id()])
+		dir.remove(FMT_DB_PATH % [FOLDER_PATH, id])
 
 	emit_signal("database_removed")
 

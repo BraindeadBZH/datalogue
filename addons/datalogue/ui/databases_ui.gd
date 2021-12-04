@@ -3,6 +3,7 @@ extends VBoxContainer
 
 
 signal request_create_form(mode: int)
+signal request_rename_form(mode: int, id: String)
 signal request_remove_form(mode: int)
 signal database_selected(db: DatalogueDb)
 
@@ -24,6 +25,11 @@ func _ready() -> void:
 
 func create_database(id: String) -> void:
 	Datalogue.create_database(DatalogueDb.new(id))
+
+
+func rename_selected_database(new_id: String, old_id: String) -> void:
+	_selected_db.set_id(new_id)
+	Datalogue.update_database(_selected_db, old_id)
 
 
 func delete_selected() -> void:
@@ -61,15 +67,19 @@ func _on_database_removed() -> void:
 	_display_databases()
 
 
-func _on_AddDatabaseBtn_pressed() -> void:
-	emit_signal("request_create_form", DatalogueUi.CREATE_MODE_DB)
-
-
 func _on_DatabasesList_item_selected(index: int) -> void:
 	_selected_db = Datalogue.get_database(_db_list.get_item_metadata(index))
 	_dup_btn.disabled = false
 	_delete_btn.disabled = false
 	emit_signal("database_selected", _selected_db)
+
+
+func _on_DatabasesList_item_activated(index: int) -> void:
+	emit_signal("request_rename_form", DatalogueUi.CREATE_MODE_DB, _selected_db.id())
+
+
+func _on_AddDatabaseBtn_pressed() -> void:
+	emit_signal("request_create_form", DatalogueUi.RENAME_MODE_DB)
 
 
 func _on_RemoveDatabaseBtn_pressed() -> void:

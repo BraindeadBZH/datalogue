@@ -43,6 +43,7 @@ offset_bottom = 100.0
 offset_right = 100.0
 offset_bottom = 29.0
 rect_min_size = Vector2(100, 0)
+theme_override_font_sizes/font_size = 16
 text = "Cancel"
 
 [node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]

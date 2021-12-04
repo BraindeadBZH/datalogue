@@ -365,6 +365,8 @@ offset_bottom = -496.0
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_remove_form"]
+[connection signal="request_rename_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_rename_form"]
+[connection signal="item_activated" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesList" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_DatabasesList_item_activated"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesList" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_DatabasesList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/AddDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_AddDatabaseBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/RemoveDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_RemoveDatabaseBtn_pressed"]
