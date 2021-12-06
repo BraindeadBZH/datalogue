@@ -41,6 +41,13 @@ func rename_selected_item(new_id: String, old_id: String):
 	Datalogue.update_database(_selected_db)
 
 
+func selected_id() -> String:
+	if _selected_item == null:
+		return ""
+	else:
+		return _selected_item.id()
+
+
 func delete_selected() -> void:
 	if _selected_db != null:
 		_selected_db.remove_item(_selected_item.id())

@@ -32,6 +32,13 @@ func rename_selected_database(new_id: String, old_id: String) -> void:
 	Datalogue.update_database(_selected_db, old_id)
 
 
+func selected_id() -> String:
+	if _selected_db == null:
+		return ""
+	else:
+		return _selected_db.id()
+
+
 func delete_selected() -> void:
 	if _selected_db != null:
 		Datalogue.delete_database(_selected_db.id())

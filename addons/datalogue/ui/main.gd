@@ -64,11 +64,11 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 		DlEnums.CREATE_MODE_NEW:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
-					print("Create database")
+					print("Create database %s" % id)
 					_db_ui.create_database(id)
 					_item_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
-					print("Create item")
+					print("Create item %s" % id)
 					_item_ui.create_item(id)
 		DlEnums.CREATE_MODE_RENAME:
 			match _object_mode:
@@ -98,9 +98,9 @@ func _on_RemoveForm_request_close() -> void:
 func _on_RemoveForm_submitted() -> void:
 	match _object_mode:
 		DlEnums.OBJECT_MODE_DB:
-			print("Remove database")
+			print("Remove database %s" % _db_ui.selected_id())
 			_db_ui.delete_selected()
 			_item_ui.clear()
 		DlEnums.OBJECT_MODE_ITEM:
-			print("Remove item")
+			print("Remove item %s" % _item_ui.selected_id())
 			_item_ui.delete_selected()
