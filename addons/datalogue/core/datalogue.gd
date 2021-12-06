@@ -62,6 +62,13 @@ func update_database(modified_db: DlDatabase, old_id: String = "") -> void:
 		delete_database(old_id)
 
 
+func copy_database(origin: DlDatabase, new_id: String) -> void:
+	var new_db := origin.duplicate(new_id)
+	_databases[new_id] = new_db
+	_write_database(new_db)
+	emit_signal("database_added")
+
+
 func delete_database(id: String):
 	if !_databases.has(id): return
 

@@ -35,12 +35,20 @@ func _on_request_create_form(mode: int) -> void:
 			_show_create_dialog("Create a new item", mode, DlEnums.CREATE_MODE_NEW)
 
 
+func _on_request_copy_form(mode, id) -> void:
+	match mode:
+		DlEnums.OBJECT_MODE_DB:
+			_show_create_dialog("Copy a database", mode, DlEnums.CREATE_MODE_COPY, id)
+		DlEnums.OBJECT_MODE_ITEM:
+			_show_create_dialog("Copy an item", mode, DlEnums.CREATE_MODE_COPY, id)
+
+
 func _on_request_rename_form(mode: int, id: String) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
 			_show_create_dialog("Rename a database", mode, DlEnums.CREATE_MODE_RENAME, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Rename a item", mode, DlEnums.CREATE_MODE_RENAME, id)
+			_show_create_dialog("Rename an item", mode, DlEnums.CREATE_MODE_RENAME, id)
 
 
 func _on_request_remove_form(mode: int) -> void:
@@ -48,7 +56,7 @@ func _on_request_remove_form(mode: int) -> void:
 		DlEnums.OBJECT_MODE_DB:
 			_show_remove_dialog("Remove a database", mode)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_remove_dialog("Remove a item", mode)
+			_show_remove_dialog("Remove an item", mode)
 
 
 func _on_CreateDialog_about_to_popup() -> void:
@@ -83,8 +91,11 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Copy database %s to %s" % [origin, id])
+					_db_ui.copy_selected_database(id)
+					_item_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Copy item %s to %s" % [origin, id])
+					_item_ui.copy_selected_item(id)
 
 
 func _on_RemoveDialog_about_to_popup() -> void:

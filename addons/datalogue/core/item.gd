@@ -24,8 +24,11 @@ func set_id(new_id: String) -> void:
 	_id = new_id
 
 
-func duplicate() -> DlItem:
-	var copy = get_script().new(id)
+func duplicate(new_id: String = "") -> DlItem:
+	if new_id.is_empty():
+		new_id = _id
+	
+	var copy: DlItem = get_script().new(new_id)
 	copy._classif  = _classif.duplicate()
 	copy._values = _values.duplicate()
 	copy._texts  = _texts.duplicate()

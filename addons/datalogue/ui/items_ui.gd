@@ -4,6 +4,7 @@ extends VBoxContainer
 
 signal request_create_form(mode: int)
 signal request_rename_form(mode: int, id: String)
+signal request_copy_form(mode: int, id: String)
 signal request_remove_form(mode: int)
 
 
@@ -29,23 +30,29 @@ func clear() -> void:
 	_delete_btn.disabled = true
 
 
-func create_item(id: String) -> void:
-	if _selected_db != null:
-		_selected_db.add_item(DlItem.new(id))
-		Datalogue.update_database(_selected_db)
-
-
-func rename_selected_item(new_id: String, old_id: String):
-	_selected_item.set_id(new_id)
-	_selected_db.update_item(_selected_item, old_id)
-	Datalogue.update_database(_selected_db)
-
-
 func selected_id() -> String:
 	if _selected_item == null:
 		return ""
 	else:
 		return _selected_item.id()
+
+
+func create_item(id: String) -> void:
+	if _selected_db != null:
+		_selected_db.add_item(DlItem.new(id))
+		Datalogue.update_database(_selected_db)
+		
+		
+func copy_selected_item(id: String):
+	if _selected_db != null:
+		_selected_db.copy_item(_selected_item, id)
+		Datalogue.update_database(_selected_db)
+
+
+func rename_selected_item(id: String, origin: String):
+	_selected_item.set_id(id)
+	_selected_db.update_item(_selected_item, origin)
+	Datalogue.update_database(_selected_db)
 
 
 func delete_selected() -> void:
@@ -101,3 +108,7 @@ func _on_AddItemBtn_pressed() -> void:
 
 func _on_RemoveItemBtn_pressed() -> void:
 	emit_signal("request_remove_form", DlEnums.OBJECT_MODE_ITEM)
+
+
+func _on_DupItemBtn_pressed() -> void:
+	emit_signal("request_copy_form", DlEnums.OBJECT_MODE_ITEM, _selected_item.id())

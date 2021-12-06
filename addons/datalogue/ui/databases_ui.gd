@@ -4,6 +4,7 @@ extends VBoxContainer
 
 signal request_create_form(mode: int)
 signal request_rename_form(mode: int, id: String)
+signal request_copy_form(mode: int, id: String)
 signal request_remove_form(mode: int)
 signal database_selected(db: DlDatabase)
 
@@ -23,20 +24,24 @@ func _ready() -> void:
 	_display_databases()
 
 
-func create_database(id: String) -> void:
-	Datalogue.create_database(DlDatabase.new(id))
-
-
-func rename_selected_database(new_id: String, old_id: String) -> void:
-	_selected_db.set_id(new_id)
-	Datalogue.update_database(_selected_db, old_id)
-
-
 func selected_id() -> String:
 	if _selected_db == null:
 		return ""
 	else:
 		return _selected_db.id()
+
+
+func create_database(id: String) -> void:
+	Datalogue.create_database(DlDatabase.new(id))
+
+
+func copy_selected_database(id: String) -> void:
+	Datalogue.copy_database(_selected_db, id)
+
+
+func rename_selected_database(id: String, origin: String) -> void:
+	_selected_db.set_id(id)
+	Datalogue.update_database(_selected_db, origin)
 
 
 func delete_selected() -> void:
@@ -91,3 +96,7 @@ func _on_AddDatabaseBtn_pressed() -> void:
 
 func _on_RemoveDatabaseBtn_pressed() -> void:
 	emit_signal("request_remove_form", DlEnums.OBJECT_MODE_DB)
+
+
+func _on_DupDatabaseBtn_pressed() -> void:
+	emit_signal("request_copy_form", DlEnums.OBJECT_MODE_DB, _selected_db.id())

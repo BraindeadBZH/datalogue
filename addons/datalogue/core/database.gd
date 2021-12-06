@@ -23,6 +23,17 @@ func set_id(new_id: String) -> void:
 	emit_signal("changed")
 
 
+func duplicate(new_id: String = "") -> DlDatabase:
+	if new_id.is_empty():
+		new_id = _id
+	
+	var copy: DlDatabase = get_script().new(new_id)
+	for item_id in _items:
+		var item: DlItem = _items[item_id]
+		copy.add_item(item.duplicate())
+	return copy
+
+
 func count() -> int:
 	return _items.size()
 
@@ -33,6 +44,12 @@ func items() -> Dictionary:
 
 func add_item(item: DlItem) -> void:
 	_items[item.id()] = item
+	emit_signal("changed")
+
+
+func copy_item(origin: DlItem, new_id: String) -> void:
+	var item := origin.duplicate(new_id)
+	_items[new_id] = item
 	emit_signal("changed")
 
 
