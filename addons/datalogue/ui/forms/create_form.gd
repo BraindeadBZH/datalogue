@@ -44,7 +44,7 @@ func _clear_error() -> void:
 	_error_lbl.text = ""
 
 
-func _on_CreateBtn_pressed() -> void:
+func _submit() -> void:
 	_clear_error()
 	
 	var error := Datalogue.validate_id(_id_edit.text)
@@ -53,6 +53,10 @@ func _on_CreateBtn_pressed() -> void:
 	else:
 		emit_signal("submitted", _id_edit.text, _mode, _origin)
 		emit_signal("request_close")
+
+
+func _on_CreateBtn_pressed() -> void:
+	_submit()
 
 
 func _on_CancelBtn_pressed() -> void:
@@ -64,3 +68,11 @@ func _on_IdEdit_text_changed(new_text) -> void:
 		_create_btn.disabled = true
 	else:
 		_create_btn.disabled = false
+
+
+func _on_IdEdit_text_change_rejected(rejected_substring: String) -> void:
+	emit_signal("request_close")
+
+
+func _on_IdEdit_text_submitted(new_text: String) -> void:
+	_submit()

@@ -61,6 +61,8 @@ theme_override_font_sizes/font_size = 16
 disabled = true
 text = "Create"
 
+[connection signal="text_change_rejected" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_change_rejected"]
 [connection signal="text_changed" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_changed"]
+[connection signal="text_submitted" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_submitted"]
 [connection signal="pressed" from="MainLayout/ButtonLayout/CancelBtn" to="." method="_on_CancelBtn_pressed"]
 [connection signal="pressed" from="MainLayout/ButtonLayout/CreateBtn" to="." method="_on_CreateBtn_pressed"]

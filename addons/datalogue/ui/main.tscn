@@ -348,8 +348,8 @@ content_scale_mode = 1
 [node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 104.0
+offset_right = -720.0
+offset_bottom = -496.0
 
 [node name="RemoveDialog" type="PopupPanel" parent="."]
 title = "Remove Dialog"
@@ -360,8 +360,8 @@ always_on_top = true
 [node name="RemoveForm" parent="RemoveDialog" instance=ExtResource( "8_wn8wp" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 104.0
+offset_right = -720.0
+offset_bottom = -496.0
 
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="request_copy_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_copy_form"]
