@@ -3,15 +3,20 @@ class_name DatalogueCreateForm
 extends Control
 
 
+enum {CREATE_MODE_NEW, CREATE_MODE_RENAME, CREATE_MODE_COPY}
+
+
 signal request_close()
-signal submitted(id: String, old_id: String)
+signal submitted(id: String, mode: int, origin: String)
 
 
 @onready var _id_edit: LineEdit = $MainLayout/IdEdit
 @onready var _error_lbl: Label = $MainLayout/ErrorLbl
 @onready var _create_btn: Button = $MainLayout/ButtonLayout/CreateBtn
 
-var _old_id := ""
+
+var _mode := CREATE_MODE_NEW
+var _origin := ""
 
 
 func clear() -> void:
@@ -20,13 +25,18 @@ func clear() -> void:
 	_clear_error()
 
 
-func set_old_id(id: String) -> void:
-	_old_id = id
-	_id_edit.text = id
-	if id.is_empty():
-		_create_btn.text = "Create"
-	else:
-		_create_btn.text = "Rename"
+func set_mode(mode: int, origin: String) -> void:
+	_mode = mode
+	_origin = origin
+	_id_edit.text = origin
+	
+	match mode:
+		CREATE_MODE_NEW:
+			_create_btn.text = "Create"
+		CREATE_MODE_RENAME:
+			_create_btn.text = "Rename"
+		CREATE_MODE_COPY:
+			_create_btn.text = "Duplicate"
 
 
 func _clear_field() -> void:
@@ -44,7 +54,7 @@ func _on_CreateBtn_pressed() -> void:
 	if not error.is_empty():
 		_error_lbl.text = error
 	else:
-		emit_signal("submitted", _id_edit.text, _old_id)
+		emit_signal("submitted", _id_edit.text, _mode, _origin)
 		emit_signal("request_close")
 
 
@@ -53,7 +63,7 @@ func _on_CancelBtn_pressed() -> void:
 
 
 func _on_IdEdit_text_changed(new_text) -> void:
-	if new_text.is_empty() or new_text == _old_id:
+	if new_text.is_empty() or new_text == _origin:
 		_create_btn.disabled = true
 	else:
 		_create_btn.disabled = false
