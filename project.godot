@@ -14,38 +14,38 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/datalogue/ui/forms/create_form.gd"
 }, {
-"base": "RefCounted",
-"class": &"DatalogueDb",
-"language": &"GDScript",
-"path": "res://addons/datalogue/core/database.gd"
-}, {
-"base": "RefCounted",
-"class": &"DatalogueItem",
-"language": &"GDScript",
-"path": "res://addons/datalogue/core/item.gd"
-}, {
 "base": "Control",
 "class": &"DatalogueRemoveForm",
 "language": &"GDScript",
 "path": "res://addons/datalogue/ui/forms/remove_form.gd"
 }, {
+"base": "RefCounted",
+"class": &"DlDatabase",
+"language": &"GDScript",
+"path": "res://addons/datalogue/core/database.gd"
+}, {
+"base": "RefCounted",
+"class": &"DlItem",
+"language": &"GDScript",
+"path": "res://addons/datalogue/core/item.gd"
+}, {
 "base": "Control",
-"class": &"DatalogueUi",
+"class": &"DlUi",
 "language": &"GDScript",
 "path": "res://addons/datalogue/ui/main.gd"
 }, {
 "base": "RefCounted",
-"class": &"DatalogueUtils",
+"class": &"DlUtils",
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/utils.gd"
 }]
 _global_script_class_icons={
 "DatalogueCreateForm": "",
-"DatalogueDb": "",
-"DatalogueItem": "",
 "DatalogueRemoveForm": "",
-"DatalogueUi": "",
-"DatalogueUtils": ""
+"DlDatabase": "",
+"DlItem": "",
+"DlUi": "",
+"DlUtils": ""
 }
 
 [application]

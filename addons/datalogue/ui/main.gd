@@ -1,5 +1,5 @@
 @tool
-class_name DatalogueUi
+class_name DlUi
 extends Control
 
 

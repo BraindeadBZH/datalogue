@@ -1,5 +1,5 @@
 @tool
-class_name DatalogueItem
+class_name DlItem
 extends RefCounted
 
 
@@ -24,7 +24,7 @@ func set_id(new_id: String) -> void:
 	_id = new_id
 
 
-func duplicate() -> DatalogueItem:
+func duplicate() -> DlItem:
 	var copy = get_script().new(id)
 	copy._classif  = _classif.duplicate()
 	copy._values = _values.duplicate()

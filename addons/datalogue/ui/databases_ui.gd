@@ -5,7 +5,7 @@ extends VBoxContainer
 signal request_create_form(mode: int)
 signal request_rename_form(mode: int, id: String)
 signal request_remove_form(mode: int)
-signal database_selected(db: DatalogueDb)
+signal database_selected(db: DlDatabase)
 
 
 @onready var _db_list: ItemList = $DatabasesList
@@ -13,7 +13,7 @@ signal database_selected(db: DatalogueDb)
 @onready var _delete_btn: Button = $DatabasesTools/RemoveDatabaseBtn
 
 
-var _selected_db: DatalogueDb = null
+var _selected_db: DlDatabase = null
 
 
 func _ready() -> void:
@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 func create_database(id: String) -> void:
-	Datalogue.create_database(DatalogueDb.new(id))
+	Datalogue.create_database(DlDatabase.new(id))
 
 
 func rename_selected_database(new_id: String, old_id: String) -> void:
@@ -48,7 +48,7 @@ func _display_databases() -> void:
 
 	var databases := Datalogue.databases()
 	for id in databases:
-		var db: DatalogueDb = databases[id]
+		var db: DlDatabase = databases[id]
 		_db_list.add_item("%s (%d items)" % [db.id(), db.count()])
 		_db_list.set_item_metadata(_db_list.get_item_count()-1, db.id())
 
@@ -57,7 +57,7 @@ func _on_database_added() -> void:
 	_display_databases()
 
 
-func _on_database_updated(db: DatalogueDb) -> void:
+func _on_database_updated(db: DlDatabase) -> void:
 	for idx in range(_db_list.items_count):
 		if db.id() == _db_list.get_item_metadata(idx):
 			_db_list.set_item_text(idx, "%s (%d items)" % [db.id(), db.count()])

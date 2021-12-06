@@ -3,7 +3,7 @@ extends Node
 
 
 signal database_added()
-signal database_updated(db: DatalogueDb)
+signal database_updated(db: DlDatabase)
 signal database_removed()
 
 
@@ -30,7 +30,7 @@ func validate_id(id: String) -> String:
 	if _databases.has(id):
 		return "ID must be unique"
 	
-	if not DatalogueUtils.is_id_valid(id):
+	if not DlUtils.is_id_valid(id):
 		return "ID cannot contains space or special characters"
 	
 	return ""
@@ -40,20 +40,20 @@ func databases() -> Dictionary:
 	return _databases;
 
 
-func create_database(db: DatalogueDb) -> void:
+func create_database(db: DlDatabase) -> void:
 	_databases[db.id()] = db
 	_write_database(db)
 	emit_signal("database_added")
 
 
-func get_database(id: String) -> DatalogueDb:
+func get_database(id: String) -> DlDatabase:
 	if _databases.has(id):
 		return _databases[id]
 	else:
 		return null
 
 
-func update_database(modified_db: DatalogueDb, old_id: String = "") -> void:
+func update_database(modified_db: DlDatabase, old_id: String = "") -> void:
 	_databases[modified_db.id()] = modified_db
 	_write_database(modified_db)
 	emit_signal("database_updated", modified_db)
@@ -80,7 +80,7 @@ func _load_databases() -> void:
 		dir.list_dir_begin(true, true)
 		var filename := dir.get_next()
 		while filename != "":
-			if DatalogueUtils.is_db_file(filename):
+			if DlUtils.is_db_file(filename):
 				var db := _read_database(filename)
 				_databases[db.id()] = db
 			filename = dir.get_next()
@@ -88,7 +88,7 @@ func _load_databases() -> void:
 		emit_signal("database_added")
 
 
-func _write_database(db: DatalogueDb):
+func _write_database(db: DlDatabase):
 	var file := ConfigFile.new()
 
 	file.set_value("meta", "id", db.id())
@@ -107,7 +107,7 @@ func _write_database(db: DatalogueDb):
 		return
 
 
-func _read_database(filename: String) -> DatalogueDb:
+func _read_database(filename: String) -> DlDatabase:
 	var path := FMT_FILE_PATH % [FOLDER_PATH, filename]
 	var file := ConfigFile.new()
 
@@ -116,11 +116,11 @@ func _read_database(filename: String) -> DatalogueDb:
 		printerr("Error while loading database")
 		return null
 
-	var db := DatalogueDb.new(file.get_value("meta", "id", "noid"))
+	var db := DlDatabase.new(file.get_value("meta", "id", "noid"))
 
 	if file.has_section("items"):
 		for entry in file.get_section_keys("items"):
-			var item := DatalogueItem.new(entry)
+			var item := DlItem.new(entry)
 			var data = file.get_value("items", entry)
 			item.set_classifications(data["classifications"])
 			item.set_values(data["values"])

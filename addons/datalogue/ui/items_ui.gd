@@ -13,8 +13,8 @@ signal request_remove_form(mode: int)
 @onready var _delete_btn: Button = $ItemsTools/RemoveItemBtn
 
 
-var _selected_db: DatalogueDb = null
-var _selected_item: DatalogueItem = null
+var _selected_db: DlDatabase = null
+var _selected_item: DlItem = null
 
 
 func clear() -> void:
@@ -31,7 +31,7 @@ func clear() -> void:
 
 func create_item(id: String) -> void:
 	if _selected_db != null:
-		_selected_db.add_item(DatalogueItem.new(id))
+		_selected_db.add_item(DlItem.new(id))
 		Datalogue.update_database(_selected_db)
 
 
@@ -58,12 +58,12 @@ func _display_items() -> void:
 
 	var items := _selected_db.items()
 	for id in items:
-		var item: DatalogueItem = items[id]
+		var item: DlItem = items[id]
 		_items_list.add_item("%s" % item.id())
 		_items_list.set_item_metadata(_items_list.get_item_count()-1, item.id())
 
 
-func _on_database_selected(db: DatalogueDb) -> void:
+func _on_database_selected(db: DlDatabase) -> void:
 	if _selected_db != db:
 		if _selected_db != null:
 			_selected_db.disconnect("changed", Callable(self, "_on_database_changed"))
