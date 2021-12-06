@@ -75,12 +75,12 @@ func _on_DatabasesList_item_selected(index: int) -> void:
 
 
 func _on_DatabasesList_item_activated(index: int) -> void:
-	emit_signal("request_rename_form", DatalogueUi.CREATE_MODE_DB, _selected_db.id())
+	emit_signal("request_rename_form", DlEnums.OBJECT_MODE_DB, _selected_db.id())
 
 
 func _on_AddDatabaseBtn_pressed() -> void:
-	emit_signal("request_create_form", DatalogueUi.RENAME_MODE_DB)
+	emit_signal("request_create_form", DlEnums.OBJECT_MODE_DB)
 
 
 func _on_RemoveDatabaseBtn_pressed() -> void:
-	emit_signal("request_remove_form", DatalogueUi.REMOVE_MODE_DB)
+	emit_signal("request_remove_form", DlEnums.OBJECT_MODE_DB)

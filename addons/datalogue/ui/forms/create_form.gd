@@ -3,9 +3,6 @@ class_name DatalogueCreateForm
 extends Control
 
 
-enum {CREATE_MODE_NEW, CREATE_MODE_RENAME, CREATE_MODE_COPY}
-
-
 signal request_close()
 signal submitted(id: String, mode: int, origin: String)
 
@@ -15,7 +12,7 @@ signal submitted(id: String, mode: int, origin: String)
 @onready var _create_btn: Button = $MainLayout/ButtonLayout/CreateBtn
 
 
-var _mode := CREATE_MODE_NEW
+var _mode := DlEnums.CREATE_MODE_NEW
 var _origin := ""
 
 
@@ -31,11 +28,11 @@ func set_mode(mode: int, origin: String) -> void:
 	_id_edit.text = origin
 	
 	match mode:
-		CREATE_MODE_NEW:
+		DlEnums.CREATE_MODE_NEW:
 			_create_btn.text = "Create"
-		CREATE_MODE_RENAME:
+		DlEnums.CREATE_MODE_RENAME:
 			_create_btn.text = "Rename"
-		CREATE_MODE_COPY:
+		DlEnums.CREATE_MODE_COPY:
 			_create_btn.text = "Duplicate"
 
 

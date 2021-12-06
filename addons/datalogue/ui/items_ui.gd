@@ -85,12 +85,12 @@ func _on_ItemsList_item_selected(index: int) -> void:
 
 
 func _on_ItemsList_item_activated(index: int) -> void:
-	emit_signal("request_rename_form", DatalogueUi.RENAME_MODE_ITEM, _selected_item.id())
+	emit_signal("request_rename_form", DlEnums.OBJECT_MODE_ITEM, _selected_item.id())
 
 
 func _on_AddItemBtn_pressed() -> void:
-	emit_signal("request_create_form", DatalogueUi.CREATE_MODE_ITEM)
+	emit_signal("request_create_form", DlEnums.OBJECT_MODE_ITEM)
 
 
 func _on_RemoveItemBtn_pressed() -> void:
-	emit_signal("request_remove_form", DatalogueUi.REMOVE_MODE_ITEM)
+	emit_signal("request_remove_form", DlEnums.OBJECT_MODE_ITEM)

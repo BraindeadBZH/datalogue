@@ -25,6 +25,11 @@ _global_script_classes=[{
 "path": "res://addons/datalogue/core/database.gd"
 }, {
 "base": "RefCounted",
+"class": &"DlEnums",
+"language": &"GDScript",
+"path": "res://addons/datalogue/core/enums.gd"
+}, {
+"base": "RefCounted",
 "class": &"DlItem",
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/item.gd"
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "DatalogueCreateForm": "",
 "DatalogueRemoveForm": "",
 "DlDatabase": "",
+"DlEnums": "",
 "DlItem": "",
 "DlUi": "",
 "DlUtils": ""

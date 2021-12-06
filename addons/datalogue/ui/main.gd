@@ -3,9 +3,6 @@ class_name DlUi
 extends Control
 
 
-enum {OBJECT_MODE_DB, OBJECT_MODE_ITEM}
-
-
 @onready var _create_dlg: PopupPanel = $CreateDialog
 @onready var _create_form: DatalogueCreateForm = $CreateDialog/CreateForm
 @onready var _remove_dlg: PopupPanel = $RemoveDialog
@@ -14,7 +11,7 @@ enum {OBJECT_MODE_DB, OBJECT_MODE_ITEM}
 @onready var _item_ui := $Borders/MainLayout/ViewLayout/ItemsLayout
 
 
-var _object_mode := OBJECT_MODE_DB
+var _object_mode := DlEnums.OBJECT_MODE_DB
 
 
 func _show_create_dialog(title: String, obj_mode: int, create_mode: int, origin: String = "") -> void:
@@ -32,25 +29,25 @@ func _show_remove_dialog(title: String, mode: int) -> void:
 
 func _on_request_create_form(mode: int) -> void:
 	match mode:
-		OBJECT_MODE_DB:
-			_show_create_dialog("Create a new database", mode, DatalogueCreateForm.CREATE_MODE_NEW)
-		OBJECT_MODE_ITEM:
-			_show_create_dialog("Create a new item", mode, DatalogueCreateForm.CREATE_MODE_NEW)
+		DlEnums.OBJECT_MODE_DB:
+			_show_create_dialog("Create a new database", mode, DlEnums.CREATE_MODE_NEW)
+		DlEnums.OBJECT_MODE_ITEM:
+			_show_create_dialog("Create a new item", mode, DlEnums.CREATE_MODE_NEW)
 
 
 func _on_request_rename_form(mode: int, id: String) -> void:
 	match mode:
-		OBJECT_MODE_DB:
-			_show_create_dialog("Rename a database", mode, DatalogueCreateForm.CREATE_MODE_RENAME, id)
-		OBJECT_MODE_ITEM:
-			_show_create_dialog("Rename a item", mode, DatalogueCreateForm.CREATE_MODE_RENAME, id)
+		DlEnums.OBJECT_MODE_DB:
+			_show_create_dialog("Rename a database", mode, DlEnums.CREATE_MODE_RENAME, id)
+		DlEnums.OBJECT_MODE_ITEM:
+			_show_create_dialog("Rename a item", mode, DlEnums.CREATE_MODE_RENAME, id)
 
 
 func _on_request_remove_form(mode: int) -> void:
 	match mode:
-		OBJECT_MODE_DB:
+		DlEnums.OBJECT_MODE_DB:
 			_show_remove_dialog("Remove a database", mode)
-		OBJECT_MODE_ITEM:
+		DlEnums.OBJECT_MODE_ITEM:
 			_show_remove_dialog("Remove a item", mode)
 
 
@@ -64,29 +61,29 @@ func _on_CreateForm_request_close() -> void:
 
 func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 	match mode:
-		DatalogueCreateForm.CREATE_MODE_NEW:
+		DlEnums.CREATE_MODE_NEW:
 			match _object_mode:
-				OBJECT_MODE_DB:
+				DlEnums.OBJECT_MODE_DB:
 					print("Create database")
 					_db_ui.create_database(id)
 					_item_ui.clear()
-				OBJECT_MODE_ITEM:
+				DlEnums.OBJECT_MODE_ITEM:
 					print("Create item")
 					_item_ui.create_item(id)
-		DatalogueCreateForm.CREATE_MODE_RENAME:
+		DlEnums.CREATE_MODE_RENAME:
 			match _object_mode:
-				OBJECT_MODE_DB:
+				DlEnums.OBJECT_MODE_DB:
 					print("Rename database %s to %s" % [origin, id])
 					_db_ui.rename_selected_database(id, origin)
 					_item_ui.clear()
-				OBJECT_MODE_ITEM:
+				DlEnums.OBJECT_MODE_ITEM:
 					print("Rename item %s to %s" % [origin, id])
 					_item_ui.rename_selected_item(id, origin)
-		DatalogueCreateForm.CREATE_MODE_COPY:
+		DlEnums.CREATE_MODE_COPY:
 			match _object_mode:
-				OBJECT_MODE_DB:
+				DlEnums.OBJECT_MODE_DB:
 					print("Copy database %s to %s" % [origin, id])
-				OBJECT_MODE_ITEM:
+				DlEnums.OBJECT_MODE_ITEM:
 					print("Copy item %s to %s" % [origin, id])
 
 
@@ -100,10 +97,10 @@ func _on_RemoveForm_request_close() -> void:
 
 func _on_RemoveForm_submitted() -> void:
 	match _object_mode:
-		OBJECT_MODE_DB:
+		DlEnums.OBJECT_MODE_DB:
 			print("Remove database")
 			_db_ui.delete_selected()
 			_item_ui.clear()
-		OBJECT_MODE_ITEM:
+		DlEnums.OBJECT_MODE_ITEM:
 			print("Remove item")
 			_item_ui.delete_selected()
