@@ -7,8 +7,11 @@ extends Control
 @onready var _create_form: DatalogueCreateForm = $CreateDialog/CreateForm
 @onready var _remove_dlg: PopupPanel = $RemoveDialog
 @onready var _remove_form: DatalogueRemoveForm = $RemoveDialog/RemoveForm
+@onready var _classif_dlg: PopupPanel = $ClassifDialog
+@onready var _classif_form: DatalogueClassifForm = $ClassifDialog/ClassifForm
 @onready var _db_ui := $Borders/MainLayout/ViewLayout/DatabasesLayout
 @onready var _item_ui := $Borders/MainLayout/ViewLayout/ItemsLayout
+@onready var _classif_ui := $Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout
 
 
 var _object_mode := DlEnums.OBJECT_MODE_DB
@@ -25,6 +28,11 @@ func _show_remove_dialog(title: String, mode: int) -> void:
 	_object_mode = mode
 	_remove_dlg.title = title
 	_remove_dlg.popup_centered()
+
+
+func _show_classif_dialog(title: String, mode: int) -> void:
+	_classif_dlg.title = title
+	_classif_dlg.popup_centered()
 
 
 func _on_request_create_form(mode: int) -> void:
@@ -75,27 +83,33 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 					print("Create database %s" % id)
 					_db_ui.create_database(id)
 					_item_ui.clear()
+					_classif_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Create item %s" % id)
 					_item_ui.create_item(id)
+					_classif_ui.clear()
 		DlEnums.CREATE_MODE_RENAME:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Rename database %s to %s" % [origin, id])
 					_db_ui.rename_selected_database(id, origin)
 					_item_ui.clear()
+					_classif_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Rename item %s to %s" % [origin, id])
 					_item_ui.rename_selected_item(id, origin)
+					_classif_ui.clear()
 		DlEnums.CREATE_MODE_COPY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Copy database %s to %s" % [origin, id])
 					_db_ui.copy_selected_database(id)
 					_item_ui.clear()
+					_classif_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Copy item %s to %s" % [origin, id])
 					_item_ui.copy_selected_item(id)
+					_classif_ui.clear()
 
 
 func _on_RemoveDialog_about_to_popup() -> void:
@@ -112,6 +126,24 @@ func _on_RemoveForm_submitted() -> void:
 			print("Remove database %s" % _db_ui.selected_id())
 			_db_ui.delete_selected()
 			_item_ui.clear()
+			_classif_ui.clear()
 		DlEnums.OBJECT_MODE_ITEM:
 			print("Remove item %s" % _item_ui.selected_id())
 			_item_ui.delete_selected()
+			_classif_ui.clear()
+
+
+func _on_request_classif_form(mode: int) -> void:
+	_show_classif_dialog("Create a new classification", mode)
+
+
+func _on_ClassifDialog_about_to_popup() -> void:
+	_classif_form.clear()
+
+
+func _on_ClassifForm_request_close() -> void:
+	_classif_dlg.hide()
+
+
+func _on_ClassifForm_submitted() -> void:
+	pass

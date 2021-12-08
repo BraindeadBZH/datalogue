@@ -6,6 +6,7 @@ signal request_create_form(mode: int)
 signal request_rename_form(mode: int, id: String)
 signal request_copy_form(mode: int, id: String)
 signal request_remove_form(mode: int)
+signal item_selected(item: DlItem)
 
 
 @onready var _items_list: ItemList = $ItemsList
@@ -102,6 +103,7 @@ func _on_ItemsList_item_selected(index: int) -> void:
 	_selected_item = _selected_db.get_item(_items_list.get_item_metadata(index))
 	_dup_btn.disabled = false
 	_delete_btn.disabled = false
+	emit_signal("item_selected", _selected_item)
 
 
 func _on_ItemsList_item_activated(index: int) -> void:

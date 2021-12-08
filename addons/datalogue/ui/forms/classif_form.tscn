@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://o53wgdfajjdo"]
+
+[ext_resource type="Script" path="res://addons/datalogue/ui/forms/classif_form.gd" id="1_cjuoh"]
+[ext_resource type="Texture2D" uid="uid://cjhme6ts8armj" path="res://addons/datalogue/ui/assets/add.svg" id="2_tlu7l"]
+[ext_resource type="Texture2D" uid="uid://csytqo75pf64x" path="res://addons/datalogue/ui/assets/remove.svg" id="3_3dus4"]
+
+[node name="ClassifForm" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -724.0
+offset_bottom = -400.0
+rect_min_size = Vector2(300, 300)
+script = ExtResource( "1_cjuoh" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IdEdit" type="LineEdit" parent="MainLayout"]
+offset_right = 300.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Enter a unique class ID"
+
+[node name="InputLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 37.0
+offset_right = 300.0
+offset_bottom = 70.0
+
+[node name="ValueEdit" type="LineEdit" parent="MainLayout/InputLayout"]
+offset_right = 268.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Enter a unique class value"
+
+[node name="AddClassifBtn" type="Button" parent="MainLayout/InputLayout"]
+offset_left = 272.0
+offset_right = 300.0
+offset_bottom = 33.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+disabled = true
+icon = ExtResource( "2_tlu7l" )
+
+[node name="ListLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 74.0
+offset_right = 300.0
+offset_bottom = 233.0
+size_flags_vertical = 3
+
+[node name="ClassifList" type="ItemList" parent="MainLayout/ListLayout"]
+offset_right = 268.0
+offset_bottom = 159.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ClassifTools" type="VBoxContainer" parent="MainLayout/ListLayout"]
+offset_left = 272.0
+offset_right = 300.0
+offset_bottom = 159.0
+
+[node name="RemoveClassifBtn" type="Button" parent="MainLayout/ListLayout/ClassifTools"]
+modulate = Color(1, 0.25098, 0.121569, 1)
+offset_right = 28.0
+offset_bottom = 159.0
+size_flags_vertical = 3
+disabled = true
+icon = ExtResource( "3_3dus4" )
+
+[node name="ErrorLbl" type="Label" parent="MainLayout"]
+modulate = Color(0.84, 0.21, 0.21, 1)
+offset_top = 237.0
+offset_right = 300.0
+offset_bottom = 267.0
+rect_min_size = Vector2(0, 30)
+text = "Error!"
+valign = 1
+
+[node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 271.0
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_right = 100.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+theme_override_font_sizes/font_size = 16
+text = "Cancel"
+
+[node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]
+offset_left = 104.0
+offset_right = 196.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+
+[node name="CreateBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_left = 200.0
+offset_right = 300.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+theme_override_font_sizes/font_size = 16
+disabled = true
+text = "Create"
+
+[connection signal="pressed" from="MainLayout/ButtonLayout/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="MainLayout/ButtonLayout/CreateBtn" to="." method="_on_CreateBtn_pressed"]

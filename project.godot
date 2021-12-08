@@ -10,6 +10,11 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Control",
+"class": &"DatalogueClassifForm",
+"language": &"GDScript",
+"path": "res://addons/datalogue/ui/forms/classif_form.gd"
+}, {
+"base": "Control",
 "class": &"DatalogueCreateForm",
 "language": &"GDScript",
 "path": "res://addons/datalogue/ui/forms/create_form.gd"
@@ -45,6 +50,7 @@ _global_script_classes=[{
 "path": "res://addons/datalogue/core/utils.gd"
 }]
 _global_script_class_icons={
+"DatalogueClassifForm": "",
 "DatalogueCreateForm": "",
 "DatalogueRemoveForm": "",
 "DlDatabase": "",
