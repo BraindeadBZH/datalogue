@@ -41,8 +41,14 @@ func create_item(id: String) -> void:
 	if _selected_db != null:
 		_selected_db.add_item(DlItem.new(id))
 		Datalogue.update_database(_selected_db)
-		
-		
+
+
+func validate_id(id: String) -> String:
+	if _selected_db != null:
+		return _selected_db.validate_item_id(id)
+	else:
+		return ""
+
 func copy_selected_item(id: String):
 	if _selected_db != null:
 		_selected_db.copy_item(_selected_item, id)

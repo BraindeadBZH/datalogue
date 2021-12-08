@@ -14,11 +14,11 @@ extends Control
 var _object_mode := DlEnums.OBJECT_MODE_DB
 
 
-func _show_create_dialog(title: String, obj_mode: int, create_mode: int, origin: String = "") -> void:
+func _show_create_dialog(title: String, obj_mode: int, create_mode: int, validation: Callable, origin: String = "") -> void:
 	_object_mode = obj_mode
 	_create_dlg.title = title
 	_create_dlg.popup_centered()
-	_create_form.set_mode(create_mode, origin)
+	_create_form.set_mode(create_mode, origin, validation)
 
 
 func _show_remove_dialog(title: String, mode: int) -> void:
@@ -30,25 +30,25 @@ func _show_remove_dialog(title: String, mode: int) -> void:
 func _on_request_create_form(mode: int) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
-			_show_create_dialog("Create a new database", mode, DlEnums.CREATE_MODE_NEW)
+			_show_create_dialog("Create a new database", mode, DlEnums.CREATE_MODE_NEW, Datalogue.validate_id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Create a new item", mode, DlEnums.CREATE_MODE_NEW)
+			_show_create_dialog("Create a new item", mode, DlEnums.CREATE_MODE_NEW, _item_ui.validate_id)
 
 
 func _on_request_copy_form(mode, id) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
-			_show_create_dialog("Copy a database", mode, DlEnums.CREATE_MODE_COPY, id)
+			_show_create_dialog("Copy a database", mode, DlEnums.CREATE_MODE_COPY, Datalogue.validate_id, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Copy an item", mode, DlEnums.CREATE_MODE_COPY, id)
+			_show_create_dialog("Copy an item", mode, DlEnums.CREATE_MODE_COPY, _item_ui.validate_id, id)
 
 
 func _on_request_rename_form(mode: int, id: String) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
-			_show_create_dialog("Rename a database", mode, DlEnums.CREATE_MODE_RENAME, id)
+			_show_create_dialog("Rename a database", mode, DlEnums.CREATE_MODE_RENAME, Datalogue.validate_id, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Rename an item", mode, DlEnums.CREATE_MODE_RENAME, id)
+			_show_create_dialog("Rename an item", mode, DlEnums.CREATE_MODE_RENAME, _item_ui.validate_id, id)
 
 
 func _on_request_remove_form(mode: int) -> void:

@@ -14,6 +14,7 @@ signal submitted(id: String, mode: int, origin: String)
 
 var _mode := DlEnums.CREATE_MODE_NEW
 var _origin := ""
+var _validation: Callable = _default_validation
 
 
 func clear() -> void:
@@ -22,10 +23,11 @@ func clear() -> void:
 	_clear_error()
 
 
-func set_mode(mode: int, origin: String) -> void:
+func set_mode(mode: int, origin: String, validation: Callable = _default_validation) -> void:
 	_mode = mode
 	_origin = origin
 	_id_edit.text = origin
+	_validation = validation
 	
 	match mode:
 		DlEnums.CREATE_MODE_NEW:
@@ -47,12 +49,16 @@ func _clear_error() -> void:
 func _submit() -> void:
 	_clear_error()
 	
-	var error := Datalogue.validate_id(_id_edit.text)
+	var error: String = _validation.call(_id_edit.text)
 	if not error.is_empty():
 		_error_lbl.text = error
 	else:
 		emit_signal("submitted", _id_edit.text, _mode, _origin)
 		emit_signal("request_close")
+
+
+func _default_validation() -> String:
+	return "Internal error"
 
 
 func _on_CreateBtn_pressed() -> void:

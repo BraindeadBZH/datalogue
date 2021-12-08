@@ -42,6 +42,19 @@ func items() -> Dictionary:
 	return _items
 
 
+func validate_item_id(id: String) -> String:
+	if id.is_empty():
+		return "ID cannot be empty"
+	
+	if _items.has(id):
+		return "ID must be unique"
+	
+	if not DlUtils.is_id_valid(id):
+		return "ID cannot contains space or special characters"
+	
+	return ""
+
+
 func add_item(item: DlItem) -> void:
 	_items[item.id()] = item
 	emit_signal("changed")
