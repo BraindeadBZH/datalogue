@@ -30,10 +30,10 @@ func _show_remove_dialog(title: String, mode: int) -> void:
 	_remove_dlg.popup_centered()
 
 
-func _show_classif_dialog(title: String, mode: int) -> void:
+func _show_classif_dialog(title: String, mode: int, origin: String, values: Array) -> void:
 	_classif_dlg.title = title
 	_classif_dlg.popup_centered()
-	_classif_form.set_mode(mode, _item_ui.validate_classification)
+	_classif_form.set_mode(mode, _item_ui.validate_classification, origin, values)
 
 
 func _on_request_create_form(mode: int) -> void:
@@ -139,14 +139,14 @@ func _on_RemoveForm_submitted() -> void:
 			_classif_ui.delete_selected()
 
 
-func _on_request_classif_form(mode: int) -> void:
+func _on_request_classif_form(mode: int, origin: String, values: Array) -> void:
 	match mode:
 		DlEnums.FORM_MODE_NEW:
-			_show_classif_dialog("Create a new classification", mode)
+			_show_classif_dialog("Create a new classification", mode, origin, values)
 		DlEnums.FORM_MODE_MODIFY:
-			_show_classif_dialog("Modify a classification", mode)
+			_show_classif_dialog("Modify a classification", mode, origin, values)
 		DlEnums.FORM_MODE_COPY:
-			_show_classif_dialog("Copy a classification", mode)
+			_show_classif_dialog("Copy a classification", mode, origin, values)
 
 
 func _on_ClassifDialog_about_to_popup() -> void:
@@ -157,12 +157,16 @@ func _on_ClassifForm_request_close() -> void:
 	_classif_dlg.hide()
 
 
-func _on_ClassifForm_submitted(id: String, values: Array[String], mode: int) -> void:
+func _on_ClassifForm_submitted(id: String, values: Array[String], mode: int, origin: String) -> void:
 	match mode:
 		DlEnums.FORM_MODE_NEW:
 			print("Create classification %s with value(s) " % id, values)
 			_classif_ui.create_classif(id, values)
 		DlEnums.FORM_MODE_MODIFY:
-			pass
+			if id != origin:
+				print("Modify classification from %s to %s with value(s) " % [id, origin], values)
+			else:
+				print("Modify classification %s with value(s) " % id, values)
+			_classif_ui.modify_selected(id, values)
 		DlEnums.FORM_MODE_COPY:
 			pass

@@ -51,9 +51,9 @@ func validate_id(id: String) -> String:
 		return ""
 
 
-func validate_classification(id: String, values: Array[String]) -> String:
+func validate_classification(id: String, values: Array[String], origin: String) -> String:
 	if _selected_item != null:
-		return _selected_item.validate_classification(id, values)
+		return _selected_item.validate_classification(id, values, origin)
 	else:
 		return ""
 

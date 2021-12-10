@@ -32,7 +32,6 @@ offset_right = 300.0
 offset_bottom = 67.0
 rect_min_size = Vector2(0, 30)
 text = "Error!"
-valign = 1
 
 [node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
 offset_top = 71.0

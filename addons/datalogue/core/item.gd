@@ -35,11 +35,11 @@ func duplicate(new_id: String = "") -> DlItem:
 	return copy
 
 
-func validate_classification(id: String, values: Array[String]) -> String:
+func validate_classification(id: String, values: Array[String], origin: String) -> String:
 	if id.is_empty():
 		return "ID cannot be empty"
 	
-	if _classif.has(id):
+	if id != origin and _classif.has(id):
 		return "ID must be unique"
 	
 	if not DlUtils.is_id_valid(id):

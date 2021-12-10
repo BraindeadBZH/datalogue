@@ -26,7 +26,6 @@ offset_right = 300.0
 offset_bottom = 30.0
 rect_min_size = Vector2(0, 30)
 text = "This action cannot be reverted"
-valign = 1
 
 [node name="ValidateSw" type="CheckButton" parent="MainLayout"]
 offset_top = 34.0

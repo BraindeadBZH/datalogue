@@ -4,7 +4,7 @@ extends Control
 
 
 signal request_close()
-signal submitted(id: String, values: Array[String], mode: int)
+signal submitted(id: String, values: Array[String], mode: int, origin: String)
 
 
 @onready var _id_edit: LineEdit = $MainLayout/IdEdit
@@ -19,6 +19,7 @@ signal submitted(id: String, values: Array[String], mode: int)
 var _mode := DlEnums.FORM_MODE_NEW
 var _validation: Callable = _default_validation
 var _selected := -1
+var _origin := ""
 
 
 func clear() -> void:
@@ -32,9 +33,15 @@ func clear() -> void:
 	_selected = -1
 
 
-func set_mode(mode: int, validation: Callable) -> void:
+func set_mode(mode: int, validation: Callable, origin: String, values: Array) -> void:
 	_mode = mode
 	_validation = validation
+	_origin = origin
+	
+	_id_edit.text = origin
+	
+	for value in values:
+		_value_list.add_item(value)
 	
 	match mode:
 		DlEnums.FORM_MODE_NEW:
@@ -49,11 +56,11 @@ func _submit() -> void:
 	_error_lbl.text = ""
 	
 	var values :=  _values_to_array()
-	var error: String = _validation.call(_id_edit.text, values)
+	var error: String = _validation.call(_id_edit.text, values, _origin)
 	if not error.is_empty():
 		_error_lbl.text = error
 	else:
-		emit_signal("submitted", _id_edit.text, values, _mode)
+		emit_signal("submitted", _id_edit.text, values, _mode, _origin)
 		emit_signal("request_close")
 
 
@@ -84,7 +91,7 @@ func _values_to_array() -> Array[String]:
 	return result
 
 
-func _default_validation(id: String, values: Array[String]) -> String:
+func _default_validation(id: String, values: Array[String], origin: String) -> String:
 	return "Internal error"
 
 
