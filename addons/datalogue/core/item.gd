@@ -35,12 +35,20 @@ func duplicate(new_id: String = "") -> DlItem:
 	return copy
 
 
-func validate_classification(id: String, values: Array[String], origin: String) -> String:
+func validate_classification(id: String, values: Array[String], mode: int, origin: String) -> String:
 	if id.is_empty():
 		return "ID cannot be empty"
 	
-	if id != origin and _classif.has(id):
-		return "ID must be unique"
+	match mode:
+		DlEnums.FORM_MODE_NEW:
+			if _classif.has(id):
+				return "ID must be unique"
+		DlEnums.FORM_MODE_MODIFY:
+			if id != origin and _classif.has(id):
+				return "ID must be unique"
+		DlEnums.FORM_MODE_COPY:
+			if _classif.has(id):
+				return "ID must be unique"
 	
 	if not DlUtils.is_id_valid(id):
 		return "ID cannot contains space or special characters"

@@ -397,6 +397,7 @@ offset_bottom = -296.0
 [connection signal="item_activated" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifList" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_ClassifList_item_activated"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifList" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_ClassifList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/AddClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_AddClassifBtn_pressed"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/DupClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_DupClassifBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/RemoveClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_RemoveClassifBtn_pressed"]
 [connection signal="about_to_popup" from="CreateDialog" to="." method="_on_CreateDialog_about_to_popup"]
 [connection signal="request_close" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_request_close"]

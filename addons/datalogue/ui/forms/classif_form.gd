@@ -56,7 +56,7 @@ func _submit() -> void:
 	_error_lbl.text = ""
 	
 	var values :=  _values_to_array()
-	var error: String = _validation.call(_id_edit.text, values, _origin)
+	var error: String = _validation.call(_id_edit.text, values, _mode, _origin)
 	if not error.is_empty():
 		_error_lbl.text = error
 	else:
@@ -78,6 +78,8 @@ func _add_value() -> void:
 func _update_create_btn() -> void:
 	if _id_edit.text.is_empty() or _value_list.item_count <= 0:
 		_create_btn.disabled = true
+	elif _mode == DlEnums.FORM_MODE_COPY and _id_edit.text == _origin:
+		_create_btn.disabled = true
 	else:
 		_create_btn.disabled = false
 
@@ -91,7 +93,7 @@ func _values_to_array() -> Array[String]:
 	return result
 
 
-func _default_validation(id: String, values: Array[String], origin: String) -> String:
+func _default_validation(id: String, values: Array[String], mode: int, origin: String) -> String:
 	return "Internal error"
 
 

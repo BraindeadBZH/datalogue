@@ -164,9 +164,10 @@ func _on_ClassifForm_submitted(id: String, values: Array[String], mode: int, ori
 			_classif_ui.create_classif(id, values)
 		DlEnums.FORM_MODE_MODIFY:
 			if id != origin:
-				print("Modify classification from %s to %s with value(s) " % [id, origin], values)
+				print("Modify classification from %s to %s with value(s) " % [origin, id], values)
 			else:
 				print("Modify classification %s with value(s) " % id, values)
 			_classif_ui.modify_selected(id, values)
 		DlEnums.FORM_MODE_COPY:
-			pass
+			print("Copy classification %s to %s with value(s) " % [origin, id], values)
+			_classif_ui.copy_selected(id, values)

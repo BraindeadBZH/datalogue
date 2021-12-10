@@ -51,6 +51,12 @@ func modify_selected(id: String, values: Array[String]) -> void:
 		Datalogue.update_database(_selected_db)
 
 
+func copy_selected(id: String, values: Array[String]) -> void:
+	if _selected_db != null and _selected_item != null:
+		_selected_item.add_classification(id, values)
+		Datalogue.update_database(_selected_db)
+
+
 func delete_selected() -> void:
 	if _selected_db != null and _selected_item != null and not _selected_classif.is_empty():
 		_selected_item.remove_classification(_selected_classif)
@@ -94,6 +100,11 @@ func _on_item_changed():
 
 func _on_AddClassifBtn_pressed() -> void:
 	emit_signal("request_classif_form", DlEnums.FORM_MODE_NEW, "", [])
+
+
+func _on_DupClassifBtn_pressed() -> void:
+	var values := _selected_item.get_classification(_selected_classif)
+	emit_signal("request_classif_form", DlEnums.FORM_MODE_COPY, _selected_classif, values)
 
 
 func _on_RemoveClassifBtn_pressed() -> void:
