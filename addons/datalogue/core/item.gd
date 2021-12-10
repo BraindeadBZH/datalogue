@@ -35,6 +35,22 @@ func duplicate(new_id: String = "") -> DlItem:
 	return copy
 
 
+func validate_classification(id: String, values: Array[String]) -> String:
+	if id.is_empty():
+		return "ID cannot be empty"
+	
+	if _classif.has(id):
+		return "ID must be unique"
+	
+	if not DlUtils.is_id_valid(id):
+		return "ID cannot contains space or special characters"
+	
+	if values.is_empty():
+		return "At least 1 value must be provided"
+	
+	return ""
+
+
 func classifications() -> Dictionary:
 	return _classif
 

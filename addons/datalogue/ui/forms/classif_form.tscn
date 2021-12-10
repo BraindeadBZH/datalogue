@@ -40,7 +40,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 placeholder_text = "Enter a unique class value"
 
-[node name="AddClassifBtn" type="Button" parent="MainLayout/InputLayout"]
+[node name="AddValueBtn" type="Button" parent="MainLayout/InputLayout"]
 offset_left = 272.0
 offset_right = 300.0
 offset_bottom = 33.0
@@ -49,24 +49,24 @@ theme_override_font_sizes/font_size = 16
 disabled = true
 icon = ExtResource( "2_tlu7l" )
 
-[node name="ListLayout" type="HBoxContainer" parent="MainLayout"]
+[node name="ValueLayout" type="HBoxContainer" parent="MainLayout"]
 offset_top = 74.0
 offset_right = 300.0
 offset_bottom = 233.0
 size_flags_vertical = 3
 
-[node name="ClassifList" type="ItemList" parent="MainLayout/ListLayout"]
+[node name="ValueList" type="ItemList" parent="MainLayout/ValueLayout"]
 offset_right = 268.0
 offset_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ClassifTools" type="VBoxContainer" parent="MainLayout/ListLayout"]
+[node name="ValueTools" type="VBoxContainer" parent="MainLayout/ValueLayout"]
 offset_left = 272.0
 offset_right = 300.0
 offset_bottom = 159.0
 
-[node name="RemoveClassifBtn" type="Button" parent="MainLayout/ListLayout/ClassifTools"]
+[node name="RemoveValueBtn" type="Button" parent="MainLayout/ValueLayout/ValueTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
 offset_right = 28.0
 offset_bottom = 159.0
@@ -110,5 +110,14 @@ theme_override_font_sizes/font_size = 16
 disabled = true
 text = "Create"
 
+[connection signal="text_change_rejected" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_change_rejected"]
+[connection signal="text_changed" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_changed"]
+[connection signal="text_submitted" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_submitted"]
+[connection signal="text_change_rejected" from="MainLayout/InputLayout/ValueEdit" to="." method="_on_ValueEdit_text_change_rejected"]
+[connection signal="text_changed" from="MainLayout/InputLayout/ValueEdit" to="." method="_on_ValueEdit_text_changed"]
+[connection signal="text_submitted" from="MainLayout/InputLayout/ValueEdit" to="." method="_on_ValueEdit_text_submitted"]
+[connection signal="pressed" from="MainLayout/InputLayout/AddValueBtn" to="." method="_on_AddValueBtn_pressed"]
+[connection signal="item_selected" from="MainLayout/ValueLayout/ValueList" to="." method="_on_ValueList_item_selected"]
+[connection signal="pressed" from="MainLayout/ValueLayout/ValueTools/RemoveValueBtn" to="." method="_on_RemoveValueBtn_pressed"]
 [connection signal="pressed" from="MainLayout/ButtonLayout/CancelBtn" to="." method="_on_CancelBtn_pressed"]
 [connection signal="pressed" from="MainLayout/ButtonLayout/CreateBtn" to="." method="_on_CreateBtn_pressed"]

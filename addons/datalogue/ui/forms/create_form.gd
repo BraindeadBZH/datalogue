@@ -32,7 +32,7 @@ func set_mode(mode: int, origin: String, validation: Callable = _default_validat
 	match mode:
 		DlEnums.CREATE_MODE_NEW:
 			_create_btn.text = "Create"
-		DlEnums.CREATE_MODE_RENAME:
+		DlEnums.CREATE_MODE_MODIFY:
 			_create_btn.text = "Rename"
 		DlEnums.CREATE_MODE_COPY:
 			_create_btn.text = "Duplicate"

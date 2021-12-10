@@ -33,6 +33,7 @@ func _show_remove_dialog(title: String, mode: int) -> void:
 func _show_classif_dialog(title: String, mode: int) -> void:
 	_classif_dlg.title = title
 	_classif_dlg.popup_centered()
+	_classif_form.set_mode(mode, _item_ui.validate_classification)
 
 
 func _on_request_create_form(mode: int) -> void:
@@ -54,9 +55,9 @@ func _on_request_copy_form(mode, id) -> void:
 func _on_request_rename_form(mode: int, id: String) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
-			_show_create_dialog("Rename a database", mode, DlEnums.CREATE_MODE_RENAME, Datalogue.validate_id, id)
+			_show_create_dialog("Rename a database", mode, DlEnums.CREATE_MODE_MODIFY, Datalogue.validate_id, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Rename an item", mode, DlEnums.CREATE_MODE_RENAME, _item_ui.validate_id, id)
+			_show_create_dialog("Rename an item", mode, DlEnums.CREATE_MODE_MODIFY, _item_ui.validate_id, id)
 
 
 func _on_request_remove_form(mode: int) -> void:
@@ -88,7 +89,7 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 					print("Create item %s" % id)
 					_item_ui.create_item(id)
 					_classif_ui.clear()
-		DlEnums.CREATE_MODE_RENAME:
+		DlEnums.CREATE_MODE_MODIFY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Rename database %s to %s" % [origin, id])
@@ -134,7 +135,13 @@ func _on_RemoveForm_submitted() -> void:
 
 
 func _on_request_classif_form(mode: int) -> void:
-	_show_classif_dialog("Create a new classification", mode)
+	match mode:
+		DlEnums.CREATE_MODE_NEW:
+			_show_classif_dialog("Create a new classification", mode)
+		DlEnums.CREATE_MODE_MODIFY:
+			_show_classif_dialog("Modify a classification", mode)
+		DlEnums.CREATE_MODE_COPY:
+			_show_classif_dialog("Copy a classification", mode)
 
 
 func _on_ClassifDialog_about_to_popup() -> void:
@@ -145,5 +152,12 @@ func _on_ClassifForm_request_close() -> void:
 	_classif_dlg.hide()
 
 
-func _on_ClassifForm_submitted() -> void:
-	pass
+func _on_ClassifForm_submitted(id: String, values: Array[String], mode: int) -> void:
+	match mode:
+		DlEnums.CREATE_MODE_NEW:
+			print("Create classification %s with value(s) " % id, values)
+			_classif_ui.create_classif(id, values)
+		DlEnums.CREATE_MODE_MODIFY:
+			pass
+		DlEnums.CREATE_MODE_COPY:
+			pass

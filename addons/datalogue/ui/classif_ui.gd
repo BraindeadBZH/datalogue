@@ -27,6 +27,12 @@ func clear() -> void:
 	_delete_btn.disabled = true
 
 
+func create_classif(id: String, values: Array[String]) -> void:
+	if _selected_db != null and _selected_item != null:
+		_selected_item.add_classification(id, values)
+		Datalogue.update_database(_selected_db)
+
+
 func _display_classifs() -> void:
 	if _classif_list == null:
 		return
@@ -59,7 +65,7 @@ func _on_item_selected(item: DlItem) -> void:
 
 
 func _on_item_changed():
-	pass
+	_display_classifs()
 
 
 func _on_AddClassifBtn_pressed() -> void:
