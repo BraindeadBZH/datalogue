@@ -69,7 +69,7 @@ func _add_value() -> void:
 
 
 func _update_create_btn() -> void:
-	if _id_edit.text.is_empty() or _value_list.items_count <= 0:
+	if _id_edit.text.is_empty() or _value_list.item_count <= 0:
 		_create_btn.disabled = true
 	else:
 		_create_btn.disabled = false
@@ -78,7 +78,7 @@ func _update_create_btn() -> void:
 func _values_to_array() -> Array[String]:
 	var result: Array[String]
 	
-	for i in range(_value_list.items_count):
+	for i in range(_value_list.item_count):
 		result.append(_value_list.get_item_text(i))
 	
 	return result

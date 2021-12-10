@@ -70,7 +70,7 @@ func _on_database_added() -> void:
 
 
 func _on_database_updated(db: DlDatabase) -> void:
-	for idx in range(_db_list.items_count):
+	for idx in range(_db_list.item_count):
 		if db.id() == _db_list.get_item_metadata(idx):
 			_db_list.set_item_text(idx, "%s (%d items)" % [db.id(), db.count()])
 
