@@ -61,8 +61,6 @@ offset_right = 335.0
 offset_bottom = 30.0
 rect_min_size = Vector2(0, 30)
 text = "Databases"
-align = 1
-valign = 1
 
 [node name="Separator" type="HSeparator" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
 offset_top = 34.0
@@ -86,7 +84,7 @@ offset_bottom = 29.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 icon = ExtResource( "2_oanak" )
-icon_align = 1
+icon_alignment = 1
 
 [node name="DupDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
 offset_left = 113.0
@@ -96,7 +94,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 disabled = true
 icon = ExtResource( "3_n8033" )
-icon_align = 1
+icon_alignment = 1
 
 [node name="RemoveDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
@@ -106,7 +104,7 @@ offset_bottom = 29.0
 size_flags_horizontal = 3
 disabled = true
 icon = ExtResource( "4_gdjpx" )
-icon_align = 1
+icon_alignment = 1
 
 [node name="ItemsLayout" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout"]
 offset_left = 339.0
@@ -121,8 +119,6 @@ offset_right = 335.0
 offset_bottom = 30.0
 rect_min_size = Vector2(0, 30)
 text = "Items"
-align = 1
-valign = 1
 
 [node name="ItemFilterBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/Title"]
 anchor_left = 1.0
@@ -158,7 +154,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 disabled = true
 icon = ExtResource( "2_oanak" )
-icon_align = 1
+icon_alignment = 1
 
 [node name="DupItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
 offset_left = 113.0
@@ -167,7 +163,7 @@ offset_bottom = 29.0
 size_flags_horizontal = 3
 disabled = true
 icon = ExtResource( "3_n8033" )
-icon_align = 1
+icon_alignment = 1
 
 [node name="RemoveItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
@@ -178,7 +174,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 disabled = true
 icon = ExtResource( "4_gdjpx" )
-icon_align = 1
+icon_alignment = 1
 
 [node name="ItemLayout" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout"]
 offset_left = 678.0
@@ -192,8 +188,6 @@ offset_right = 336.0
 offset_bottom = 30.0
 rect_min_size = Vector2(0, 30)
 text = "Item data"
-align = 1
-valign = 1
 
 [node name="Separator" type="HSeparator" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
 offset_top = 34.0
@@ -351,8 +345,8 @@ content_scale_mode = 1
 [node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 104.0
+offset_right = -720.0
+offset_bottom = -496.0
 
 [node name="RemoveDialog" type="PopupPanel" parent="."]
 title = "Remove Dialog"
@@ -363,8 +357,8 @@ always_on_top = true
 [node name="RemoveForm" parent="RemoveDialog" instance=ExtResource( "8_wn8wp" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 104.0
+offset_right = -720.0
+offset_bottom = -496.0
 
 [node name="ClassifDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -374,8 +368,8 @@ always_on_top = true
 [node name="ClassifForm" parent="ClassifDialog" instance=ExtResource( "10_ll3bf" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 304.0
+offset_right = -720.0
+offset_bottom = -296.0
 
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_database_selected"]
@@ -400,6 +394,7 @@ offset_bottom = 304.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/RemoveItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_RemoveItemBtn_pressed"]
 [connection signal="request_classif_form" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" to="." method="_on_request_classif_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" to="." method="_on_request_remove_form"]
+[connection signal="item_activated" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifList" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_ClassifList_item_activated"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifList" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_ClassifList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/AddClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_AddClassifBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/RemoveClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_RemoveClassifBtn_pressed"]
