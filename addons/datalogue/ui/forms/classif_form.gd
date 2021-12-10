@@ -117,7 +117,10 @@ func _on_ValueEdit_text_changed(new_text: String) -> void:
 
 
 func _on_ValueEdit_text_submitted(new_text: String) -> void:
-	_add_value()
+	if new_text.is_empty() and not _create_btn.disabled:
+		_submit()
+	else:
+		_add_value()
 
 
 func _on_AddValueBtn_pressed() -> void:
