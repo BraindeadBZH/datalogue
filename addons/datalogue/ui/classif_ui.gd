@@ -82,7 +82,7 @@ func _on_item_changed():
 
 
 func _on_AddClassifBtn_pressed() -> void:
-	emit_signal("request_classif_form", DlEnums.CREATE_MODE_NEW)
+	emit_signal("request_classif_form", DlEnums.FORM_MODE_NEW)
 
 
 func _on_RemoveClassifBtn_pressed() -> void:

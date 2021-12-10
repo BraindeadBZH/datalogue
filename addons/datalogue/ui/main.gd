@@ -39,25 +39,25 @@ func _show_classif_dialog(title: String, mode: int) -> void:
 func _on_request_create_form(mode: int) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
-			_show_create_dialog("Create a new database", mode, DlEnums.CREATE_MODE_NEW, Datalogue.validate_id)
+			_show_create_dialog("Create a new database", mode, DlEnums.FORM_MODE_NEW, Datalogue.validate_id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Create a new item", mode, DlEnums.CREATE_MODE_NEW, _item_ui.validate_id)
+			_show_create_dialog("Create a new item", mode, DlEnums.FORM_MODE_NEW, _item_ui.validate_id)
 
 
 func _on_request_copy_form(mode, id) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
-			_show_create_dialog("Copy a database", mode, DlEnums.CREATE_MODE_COPY, Datalogue.validate_id, id)
+			_show_create_dialog("Copy a database", mode, DlEnums.FORM_MODE_COPY, Datalogue.validate_id, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Copy an item", mode, DlEnums.CREATE_MODE_COPY, _item_ui.validate_id, id)
+			_show_create_dialog("Copy an item", mode, DlEnums.FORM_MODE_COPY, _item_ui.validate_id, id)
 
 
 func _on_request_rename_form(mode: int, id: String) -> void:
 	match mode:
 		DlEnums.OBJECT_MODE_DB:
-			_show_create_dialog("Rename a database", mode, DlEnums.CREATE_MODE_MODIFY, Datalogue.validate_id, id)
+			_show_create_dialog("Rename a database", mode, DlEnums.FORM_MODE_MODIFY, Datalogue.validate_id, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Rename an item", mode, DlEnums.CREATE_MODE_MODIFY, _item_ui.validate_id, id)
+			_show_create_dialog("Rename an item", mode, DlEnums.FORM_MODE_MODIFY, _item_ui.validate_id, id)
 
 
 func _on_request_remove_form(mode: int) -> void:
@@ -80,7 +80,7 @@ func _on_CreateForm_request_close() -> void:
 
 func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 	match mode:
-		DlEnums.CREATE_MODE_NEW:
+		DlEnums.FORM_MODE_NEW:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Create database %s" % id)
@@ -91,7 +91,7 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 					print("Create item %s" % id)
 					_item_ui.create_item(id)
 					_classif_ui.clear()
-		DlEnums.CREATE_MODE_MODIFY:
+		DlEnums.FORM_MODE_MODIFY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Rename database %s to %s" % [origin, id])
@@ -102,7 +102,7 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 					print("Rename item %s to %s" % [origin, id])
 					_item_ui.rename_selected_item(id, origin)
 					_classif_ui.clear()
-		DlEnums.CREATE_MODE_COPY:
+		DlEnums.FORM_MODE_COPY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Copy database %s to %s" % [origin, id])
@@ -141,11 +141,11 @@ func _on_RemoveForm_submitted() -> void:
 
 func _on_request_classif_form(mode: int) -> void:
 	match mode:
-		DlEnums.CREATE_MODE_NEW:
+		DlEnums.FORM_MODE_NEW:
 			_show_classif_dialog("Create a new classification", mode)
-		DlEnums.CREATE_MODE_MODIFY:
+		DlEnums.FORM_MODE_MODIFY:
 			_show_classif_dialog("Modify a classification", mode)
-		DlEnums.CREATE_MODE_COPY:
+		DlEnums.FORM_MODE_COPY:
 			_show_classif_dialog("Copy a classification", mode)
 
 
@@ -159,10 +159,10 @@ func _on_ClassifForm_request_close() -> void:
 
 func _on_ClassifForm_submitted(id: String, values: Array[String], mode: int) -> void:
 	match mode:
-		DlEnums.CREATE_MODE_NEW:
+		DlEnums.FORM_MODE_NEW:
 			print("Create classification %s with value(s) " % id, values)
 			_classif_ui.create_classif(id, values)
-		DlEnums.CREATE_MODE_MODIFY:
+		DlEnums.FORM_MODE_MODIFY:
 			pass
-		DlEnums.CREATE_MODE_COPY:
+		DlEnums.FORM_MODE_COPY:
 			pass
