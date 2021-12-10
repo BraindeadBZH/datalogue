@@ -66,6 +66,8 @@ func _on_request_remove_form(mode: int) -> void:
 			_show_remove_dialog("Remove a database", mode)
 		DlEnums.OBJECT_MODE_ITEM:
 			_show_remove_dialog("Remove an item", mode)
+		DlEnums.OBJECT_MODE_CLASSIF:
+			_show_remove_dialog("Remove a classification", mode)
 
 
 func _on_CreateDialog_about_to_popup() -> void:
@@ -132,6 +134,9 @@ func _on_RemoveForm_submitted() -> void:
 			print("Remove item %s" % _item_ui.selected_id())
 			_item_ui.delete_selected()
 			_classif_ui.clear()
+		DlEnums.OBJECT_MODE_CLASSIF:
+			print("Remove classification %s" % _classif_ui.selected_id())
+			_classif_ui.delete_selected()
 
 
 func _on_request_classif_form(mode: int) -> void:

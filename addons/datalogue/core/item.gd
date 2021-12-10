@@ -89,7 +89,7 @@ func get_classification(id: String) -> Array[String]:
 		return []
 
 
-func remove_category(id: String) -> void:
+func remove_classification(id: String) -> void:
 	_classif.erase(id)
 	mark_changed()
 

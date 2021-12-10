@@ -351,8 +351,8 @@ content_scale_mode = 1
 [node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -496.0
+offset_right = 304.0
+offset_bottom = 104.0
 
 [node name="RemoveDialog" type="PopupPanel" parent="."]
 title = "Remove Dialog"
@@ -363,8 +363,8 @@ always_on_top = true
 [node name="RemoveForm" parent="RemoveDialog" instance=ExtResource( "8_wn8wp" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -496.0
+offset_right = 304.0
+offset_bottom = 104.0
 
 [node name="ClassifDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -374,8 +374,8 @@ always_on_top = true
 [node name="ClassifForm" parent="ClassifDialog" instance=ExtResource( "10_ll3bf" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -296.0
+offset_right = 304.0
+offset_bottom = 304.0
 
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_database_selected"]
@@ -399,7 +399,10 @@ offset_bottom = -296.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/DupItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_DupItemBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/RemoveItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_RemoveItemBtn_pressed"]
 [connection signal="request_classif_form" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" to="." method="_on_request_classif_form"]
+[connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" to="." method="_on_request_remove_form"]
+[connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifList" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_ClassifList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/AddClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_AddClassifBtn_pressed"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/RemoveClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_RemoveClassifBtn_pressed"]
 [connection signal="about_to_popup" from="CreateDialog" to="." method="_on_CreateDialog_about_to_popup"]
 [connection signal="request_close" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_request_close"]
 [connection signal="submitted" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_submitted"]

@@ -3,6 +3,7 @@ extends HBoxContainer
 
 
 signal request_classif_form(mode: int)
+signal request_remove_form(mode: int)
 
 
 @onready var _classif_list: ItemList = $ClassifList
@@ -13,6 +14,7 @@ signal request_classif_form(mode: int)
 
 var _selected_db: DlDatabase = null
 var _selected_item: DlItem = null
+var _selected_classif: String = ""
 
 
 func clear() -> void:
@@ -21,15 +23,26 @@ func clear() -> void:
 		_selected_item = null
 	
 	_classif_list.clear()
+	_selected_classif = ""
 	
 	_add_btn.disabled = true
 	_dup_btn.disabled = true
 	_delete_btn.disabled = true
 
 
+func selected_id() -> String:
+	return _selected_classif
+
+
 func create_classif(id: String, values: Array[String]) -> void:
 	if _selected_db != null and _selected_item != null:
 		_selected_item.add_classification(id, values)
+		Datalogue.update_database(_selected_db)
+
+
+func delete_selected() -> void:
+	if _selected_db != null and _selected_item != null and not _selected_classif.is_empty():
+		_selected_item.remove_classification(_selected_classif)
 		Datalogue.update_database(_selected_db)
 
 
@@ -70,3 +83,13 @@ func _on_item_changed():
 
 func _on_AddClassifBtn_pressed() -> void:
 	emit_signal("request_classif_form", DlEnums.CREATE_MODE_NEW)
+
+
+func _on_RemoveClassifBtn_pressed() -> void:
+	emit_signal("request_remove_form", DlEnums.OBJECT_MODE_CLASSIF)
+
+
+func _on_ClassifList_item_selected(index: int) -> void:
+	_selected_classif = _classif_list.get_item_metadata(index)
+	_dup_btn.disabled = false
+	_delete_btn.disabled = false
