@@ -51,7 +51,7 @@ func validate_classification(id: String, values: Array[String], mode: int, origi
 				return "ID must be unique"
 	
 	if not DlUtils.is_id_valid(id):
-		return "ID cannot contains space or special characters"
+		return "ID can only contains letters, numbers or _"
 	
 	if values.is_empty():
 		return "At least 1 value must be provided"

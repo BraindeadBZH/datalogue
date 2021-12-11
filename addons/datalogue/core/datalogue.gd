@@ -31,7 +31,7 @@ func validate_id(id: String) -> String:
 		return "ID must be unique"
 	
 	if not DlUtils.is_id_valid(id):
-		return "ID cannot contains space or special characters"
+		return "ID can only contains letters, numbers or _"
 	
 	return ""
 
