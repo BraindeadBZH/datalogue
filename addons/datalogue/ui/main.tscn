@@ -199,7 +199,7 @@ offset_top = 42.0
 offset_right = 336.0
 offset_bottom = 68.0
 theme_override_font_sizes/font_size = 16
-text = "Classifications"
+text = "Categorise your item"
 
 [node name="ClassifLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
 offset_top = 72.0
@@ -247,7 +247,7 @@ icon = ExtResource( "4_gdjpx" )
 offset_top = 226.0
 offset_right = 336.0
 offset_bottom = 252.0
-text = "Values"
+text = "Add numerical values"
 
 [node name="ValuesLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
 offset_top = 256.0
@@ -293,7 +293,7 @@ icon = ExtResource( "4_gdjpx" )
 offset_top = 410.0
 offset_right = 336.0
 offset_bottom = 436.0
-text = "Texts"
+text = "Add textual values"
 
 [node name="TextsLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
 offset_top = 440.0
