@@ -26,7 +26,7 @@ __meta__ = {
 offset_right = 300.0
 offset_bottom = 33.0
 theme_override_font_sizes/font_size = 16
-placeholder_text = "Enter a unique class ID"
+placeholder_text = "Enter a unique ID"
 
 [node name="InputLayout" type="HBoxContainer" parent="MainLayout"]
 offset_top = 37.0
@@ -38,7 +38,7 @@ offset_right = 268.0
 offset_bottom = 33.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-placeholder_text = "Enter a unique class value"
+placeholder_text = "Add a value"
 
 [node name="AddValueBtn" type="Button" parent="MainLayout/InputLayout"]
 offset_left = 272.0
