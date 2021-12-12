@@ -210,7 +210,6 @@ offset_bottom = 42.0
 offset_top = 46.0
 offset_right = 336.0
 offset_bottom = 72.0
-theme_override_font_sizes/font_size = 16
 text = "Categorise your item"
 
 [node name="ClassifLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
