@@ -155,6 +155,27 @@ func remove_value(id: String) -> void:
 	mark_changed()
 
 
+func validate_text(id: String, mode: int, origin: String) -> String:
+	if id.is_empty():
+		return "ID cannot be empty"
+	
+	match mode:
+		DlEnums.FORM_MODE_NEW:
+			if _values.has(id):
+				return "ID must be unique"
+		DlEnums.FORM_MODE_MODIFY:
+			if id != origin and _values.has(id):
+				return "ID must be unique"
+		DlEnums.FORM_MODE_COPY:
+			if _values.has(id):
+				return "ID must be unique"
+	
+	if not DlUtils.is_id_valid(id):
+		return "ID can only contains letters, numbers or _"
+	
+	return ""
+
+
 func texts() -> Dictionary:
 	return _texts
 

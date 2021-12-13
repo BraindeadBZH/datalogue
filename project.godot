@@ -25,6 +25,11 @@ _global_script_classes=[{
 "path": "res://addons/datalogue/ui/forms/remove_form.gd"
 }, {
 "base": "Control",
+"class": &"DatalogueTextForm",
+"language": &"GDScript",
+"path": "res://addons/datalogue/ui/forms/text_form.gd"
+}, {
+"base": "Control",
 "class": &"DatalogueValueForm",
 "language": &"GDScript",
 "path": "res://addons/datalogue/ui/forms/value_form.gd"
@@ -58,6 +63,7 @@ _global_script_class_icons={
 "DatalogueClassifForm": "",
 "DatalogueCreateForm": "",
 "DatalogueRemoveForm": "",
+"DatalogueTextForm": "",
 "DatalogueValueForm": "",
 "DlDatabase": "",
 "DlEnums": "",

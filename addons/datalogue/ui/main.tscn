@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcqixxculuipw"]
+[gd_scene load_steps=16 format=3 uid="uid://dcqixxculuipw"]
 
 [ext_resource type="Script" path="res://addons/datalogue/ui/main.gd" id="1_qojb5"]
 [ext_resource type="Script" path="res://addons/datalogue/ui/databases_ui.gd" id="2_bbge7"]
@@ -11,8 +11,10 @@
 [ext_resource type="Script" path="res://addons/datalogue/ui/classif_ui.gd" id="8_vioch"]
 [ext_resource type="PackedScene" uid="uid://ddbxamso0dywb" path="res://addons/datalogue/ui/forms/remove_form.tscn" id="8_wn8wp"]
 [ext_resource type="Script" path="res://addons/datalogue/ui/values_ui.gd" id="9_6e7tw"]
+[ext_resource type="Script" path="res://addons/datalogue/ui/texts_ui.gd" id="10_gmmfh"]
 [ext_resource type="PackedScene" uid="uid://o53wgdfajjdo" path="res://addons/datalogue/ui/forms/classif_form.tscn" id="10_ll3bf"]
 [ext_resource type="PackedScene" uid="uid://ds88ehki41uee" path="res://addons/datalogue/ui/forms/value_form.tscn" id="12_78t0f"]
+[ext_resource type="PackedScene" uid="uid://cgopslvmytbs2" path="res://addons/datalogue/ui/forms/text_form.tscn" id="14_jenmu"]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
@@ -314,6 +316,7 @@ offset_top = 441.0
 offset_right = 336.0
 offset_bottom = 590.0
 size_flags_vertical = 3
+script = ExtResource( "10_gmmfh" )
 
 [node name="TextsList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout"]
 offset_right = 304.0
@@ -397,9 +400,21 @@ offset_top = 4.0
 offset_right = -720.0
 offset_bottom = -456.0
 
+[node name="TextDialog" type="PopupPanel" parent="."]
+exclusive = true
+borderless = false
+always_on_top = true
+
+[node name="TextForm" parent="TextDialog" instance=ExtResource( "14_jenmu" )]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -720.0
+offset_bottom = -396.0
+
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_database_selected"]
+[connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_database_selected"]
 [connection signal="request_copy_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_copy_form"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_remove_form"]
@@ -411,6 +426,7 @@ offset_bottom = -456.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/RemoveDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_RemoveDatabaseBtn_pressed"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_item_selected"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_item_selected"]
+[connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_item_selected"]
 [connection signal="request_copy_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_copy_form"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_remove_form"]
@@ -434,6 +450,13 @@ offset_bottom = -456.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools/AddValueBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_AddValueBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools/DupValueBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_DupValueBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools/RemoveValueBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_RemoveValueBtn_pressed"]
+[connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" to="." method="_on_request_remove_form"]
+[connection signal="request_text_form" from="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" to="." method="_on_request_text_form"]
+[connection signal="item_activated" from="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsList" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_TextsList_item_activated"]
+[connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsList" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_TextsList_item_selected"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools/AddTextBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_AddTextBtn_pressed"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools/DupTextBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_DupTextBtn_pressed"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools/RemoveTextBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_RemoveTextBtn_pressed"]
 [connection signal="about_to_popup" from="CreateDialog" to="." method="_on_CreateDialog_about_to_popup"]
 [connection signal="request_close" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_request_close"]
 [connection signal="submitted" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_submitted"]
@@ -446,3 +469,6 @@ offset_bottom = -456.0
 [connection signal="about_to_popup" from="ValueDialog" to="." method="_on_ValueDialog_about_to_popup"]
 [connection signal="request_close" from="ValueDialog/ValueForm" to="." method="_on_ValueForm_request_close"]
 [connection signal="submitted" from="ValueDialog/ValueForm" to="." method="_on_ValueForm_submitted"]
+[connection signal="about_to_popup" from="TextDialog" to="." method="_on_TextDialog_about_to_popup"]
+[connection signal="request_close" from="TextDialog/TextForm" to="." method="_on_TextForm_request_close"]
+[connection signal="submitted" from="TextDialog/TextForm" to="." method="_on_TextForm_submitted"]
