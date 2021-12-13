@@ -7,7 +7,7 @@ signal changed()
 
 
 var _id := ""
-var _items: Dictionary = {}
+var _items := {}
 
 
 func _init(id: String):
@@ -27,9 +27,9 @@ func duplicate(new_id: String = "") -> DlDatabase:
 	if new_id.is_empty():
 		new_id = _id
 	
-	var copy: DlDatabase = get_script().new(new_id)
+	var copy := get_script().new(new_id) as DlDatabase
 	for item_id in _items:
-		var item: DlItem = _items[item_id]
+		var item := _items[item_id] as DlItem
 		copy.add_item(item.duplicate())
 	return copy
 

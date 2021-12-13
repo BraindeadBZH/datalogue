@@ -3,14 +3,14 @@ class_name DlUi
 extends Control
 
 
-@onready var _create_dlg: PopupPanel = $CreateDialog
-@onready var _create_form: DatalogueCreateForm = $CreateDialog/CreateForm
-@onready var _remove_dlg: PopupPanel = $RemoveDialog
-@onready var _remove_form: DatalogueRemoveForm = $RemoveDialog/RemoveForm
-@onready var _classif_dlg: PopupPanel = $ClassifDialog
-@onready var _classif_form: DatalogueClassifForm = $ClassifDialog/ClassifForm
-@onready var _value_dlg: PopupPanel = $ValueDialog
-@onready var _value_form: DatalogueValueForm = $ValueDialog/ValueForm
+@onready var _create_dlg := $CreateDialog
+@onready var _create_form := $CreateDialog/CreateForm
+@onready var _remove_dlg := $RemoveDialog
+@onready var _remove_form := $RemoveDialog/RemoveForm
+@onready var _classif_dlg := $ClassifDialog
+@onready var _classif_form := $ClassifDialog/ClassifForm
+@onready var _value_dlg := $ValueDialog
+@onready var _value_form := $ValueDialog/ValueForm
 @onready var _db_ui := $Borders/MainLayout/ViewLayout/DatabasesLayout
 @onready var _items_ui := $Borders/MainLayout/ViewLayout/ItemsLayout
 @onready var _classif_ui := $Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout

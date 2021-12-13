@@ -7,14 +7,14 @@ signal request_close()
 signal submitted(id: String, value: float, mode: int, origin: String)
 
 
-@onready var _id_edit: LineEdit = $MainLayout/IdEdit
-@onready var _value_edit: SpinBox = $MainLayout/ValueEdit
-@onready var _error_lbl: Label = $MainLayout/ErrorLbl
-@onready var _create_btn: Button = $MainLayout/ButtonLayout/CreateBtn
+@onready var _id_edit := $MainLayout/IdEdit
+@onready var _value_edit := $MainLayout/ValueEdit
+@onready var _error_lbl := $MainLayout/ErrorLbl
+@onready var _create_btn := $MainLayout/ButtonLayout/CreateBtn
 
 
 var _mode := DlEnums.FORM_MODE_NEW
-var _validation: Callable = _default_validation
+var _validation := _default_validation
 var _origin := ""
 var _saved_value := 0.0
 
@@ -47,7 +47,7 @@ func set_mode(mode: int, validation: Callable, origin: String, value: float) -> 
 func _submit() -> void:
 	_error_lbl.text = ""
 	
-	var error: String = _validation.call(_id_edit.text, _mode, _origin)
+	var error := _validation.call(_id_edit.text, _mode, _origin) as String
 	if not error.is_empty():
 		_error_lbl.text = error
 	else:

@@ -9,10 +9,10 @@ signal request_remove_form(mode: int)
 signal item_selected(item: DlItem)
 
 
-@onready var _items_list: ItemList = $ItemsList
-@onready var _add_btn: Button = $ItemsTools/AddItemBtn
-@onready var _dup_btn: Button = $ItemsTools/DupItemBtn
-@onready var _delete_btn: Button = $ItemsTools/RemoveItemBtn
+@onready var _items_list := $ItemsList
+@onready var _add_btn := $ItemsTools/AddItemBtn
+@onready var _dup_btn := $ItemsTools/DupItemBtn
+@onready var _delete_btn := $ItemsTools/RemoveItemBtn
 
 
 var _selected_db: DlDatabase = null
@@ -94,7 +94,7 @@ func _display_items() -> void:
 
 	var items := _selected_db.items()
 	for id in items:
-		var item: DlItem = items[id]
+		var item := items[id] as DlItem
 		_items_list.add_item("%s" % item.id())
 		_items_list.set_item_metadata(_items_list.get_item_count()-1, item.id())
 

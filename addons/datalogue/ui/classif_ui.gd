@@ -6,15 +6,15 @@ signal request_classif_form(mode: int, origin: String, values: Array)
 signal request_remove_form(mode: int)
 
 
-@onready var _classif_list: ItemList = $ClassifList
-@onready var _add_btn: Button = $ClassifTools/AddClassifBtn
-@onready var _dup_btn: Button = $ClassifTools/DupClassifBtn
-@onready var _delete_btn: Button = $ClassifTools/RemoveClassifBtn
+@onready var _classif_list := $ClassifList
+@onready var _add_btn := $ClassifTools/AddClassifBtn
+@onready var _dup_btn := $ClassifTools/DupClassifBtn
+@onready var _delete_btn := $ClassifTools/RemoveClassifBtn
 
 
 var _selected_db: DlDatabase = null
 var _selected_item: DlItem = null
-var _selected_classif: String = ""
+var _selected_classif := ""
 
 
 func clear() -> void:
@@ -73,7 +73,7 @@ func _display_classifs() -> void:
 
 	var classifs := _selected_item.classifications()
 	for id in classifs:
-		var classif: Array[String] = classifs[id]
+		var classif := classifs[id] as Array[String]
 		_classif_list.add_item("%s: %s" % [id, ", ".join(classif)])
 		_classif_list.set_item_metadata(_classif_list.get_item_count()-1, id)
 
@@ -118,7 +118,7 @@ func _on_ClassifList_item_selected(index: int) -> void:
 
 
 func _on_ClassifList_item_activated(index: int) -> void:
-	var id: String = _classif_list.get_item_metadata(index)
+	var id := _classif_list.get_item_metadata(index) as String
 	var values := _selected_item.get_classification(id)
 	
 	emit_signal("request_classif_form", DlEnums.FORM_MODE_MODIFY, id, values)

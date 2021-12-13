@@ -7,17 +7,17 @@ signal request_close()
 signal submitted(id: String, values: Array[String], mode: int, origin: String)
 
 
-@onready var _id_edit: LineEdit = $MainLayout/IdEdit
-@onready var _value_edit: LineEdit = $MainLayout/InputLayout/ValueEdit
-@onready var _value_list: ItemList = $MainLayout/ValueLayout/ValueList
-@onready var _add_value_btn: Button = $MainLayout/InputLayout/AddValueBtn
-@onready var _remove_value_btn: Button = $MainLayout/ValueLayout/ValueTools/RemoveValueBtn
-@onready var _error_lbl: Label = $MainLayout/ErrorLbl
-@onready var _create_btn: Button = $MainLayout/ButtonLayout/CreateBtn
+@onready var _id_edit := $MainLayout/IdEdit
+@onready var _value_edit := $MainLayout/InputLayout/ValueEdit
+@onready var _value_list := $MainLayout/ValueLayout/ValueList
+@onready var _add_value_btn := $MainLayout/InputLayout/AddValueBtn
+@onready var _remove_value_btn := $MainLayout/ValueLayout/ValueTools/RemoveValueBtn
+@onready var _error_lbl := $MainLayout/ErrorLbl
+@onready var _create_btn := $MainLayout/ButtonLayout/CreateBtn
 
 
 var _mode := DlEnums.FORM_MODE_NEW
-var _validation: Callable = _default_validation
+var _validation := _default_validation
 var _selected := -1
 var _origin := ""
 
@@ -56,7 +56,7 @@ func _submit() -> void:
 	_error_lbl.text = ""
 	
 	var values :=  _values_to_array()
-	var error: String = _validation.call(_id_edit.text, values, _mode, _origin)
+	var error := _validation.call(_id_edit.text, values, _mode, _origin) as String
 	if not error.is_empty():
 		_error_lbl.text = error
 	else:

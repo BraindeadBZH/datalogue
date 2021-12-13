@@ -128,7 +128,7 @@ func _read_database(filename: String) -> DlDatabase:
 	if file.has_section("items"):
 		for entry in file.get_section_keys("items"):
 			var item := DlItem.new(entry)
-			var data = file.get_value("items", entry)
+			var data := file.get_value("items", entry) as Dictionary
 			item.set_classifications(data["classifications"])
 			item.set_values(data["values"])
 			item.set_texts(data["texts"])

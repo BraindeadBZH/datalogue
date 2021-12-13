@@ -12,7 +12,7 @@ static func is_db_file(filename: String) -> bool:
 
 
 static func is_valid_for_regex(value: String, regex: String) -> bool:
-	var validation = RegEx.new()
+	var validation := RegEx.new()
 	validation.compile(regex)
 	if validation.search(value) != null:
 		return true

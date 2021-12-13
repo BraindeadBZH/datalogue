@@ -6,15 +6,15 @@ signal request_value_form(mode: int, origin: String, value: float)
 signal request_remove_form(mode: int)
 
 
-@onready var _value_list: ItemList = $ValueList
-@onready var _add_btn: Button = $ValuesTools/AddValueBtn
-@onready var _dup_btn: Button = $ValuesTools/DupValueBtn
-@onready var _delete_btn: Button = $ValuesTools/RemoveValueBtn
+@onready var _value_list := $ValueList
+@onready var _add_btn := $ValuesTools/AddValueBtn
+@onready var _dup_btn := $ValuesTools/DupValueBtn
+@onready var _delete_btn := $ValuesTools/RemoveValueBtn
 
 
 var _selected_db: DlDatabase = null
 var _selected_item: DlItem = null
-var _selected_value: String = ""
+var _selected_value := ""
 
 
 func clear() -> void:
@@ -73,7 +73,7 @@ func _display_classifs() -> void:
 
 	var values := _selected_item.values()
 	for id in values:
-		var value: float = values[id]
+		var value := values[id] as float
 		_value_list.add_item("%s: %f" % [id, value])
 		_value_list.set_item_metadata(_value_list.get_item_count()-1, id)
 
@@ -98,7 +98,6 @@ func _on_item_changed():
 	_display_classifs()
 
 
-
 func _on_AddValueBtn_pressed() -> void:
 	emit_signal("request_value_form", DlEnums.FORM_MODE_NEW, "", 0)
 
@@ -119,7 +118,7 @@ func _on_ValueList_item_selected(index: int) -> void:
 
 
 func _on_ValueList_item_activated(index: int) -> void:
-	var id: String = _value_list.get_item_metadata(index)
+	var id := _value_list.get_item_metadata(index) as String
 	var value := _selected_item.get_value(id)
 	
 	emit_signal("request_value_form", DlEnums.FORM_MODE_MODIFY, id, value)

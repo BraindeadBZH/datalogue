@@ -9,9 +9,9 @@ signal request_remove_form(mode: int)
 signal database_selected(db: DlDatabase)
 
 
-@onready var _db_list: ItemList = $DatabasesList
-@onready var _dup_btn: Button = $DatabasesTools/DupDatabaseBtn
-@onready var _delete_btn: Button = $DatabasesTools/RemoveDatabaseBtn
+@onready var _db_list := $DatabasesList
+@onready var _dup_btn := $DatabasesTools/DupDatabaseBtn
+@onready var _delete_btn := $DatabasesTools/RemoveDatabaseBtn
 
 
 var _selected_db: DlDatabase = null
@@ -60,7 +60,7 @@ func _display_databases() -> void:
 
 	var databases := Datalogue.databases()
 	for id in databases:
-		var db: DlDatabase = databases[id]
+		var db := databases[id] as DlDatabase
 		_db_list.add_item("%s (%d items)" % [db.id(), db.count()])
 		_db_list.set_item_metadata(_db_list.get_item_count()-1, db.id())
 

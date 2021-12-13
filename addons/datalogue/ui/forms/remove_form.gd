@@ -7,8 +7,8 @@ signal request_close()
 signal submitted()
 
 
-@onready var _validate_sw: CheckButton = $MainLayout/ValidateSw
-@onready var _delete_btn: Button = $MainLayout/ButtonLayout/DeleteBtn
+@onready var _validate_sw := $MainLayout/ValidateSw
+@onready var _delete_btn := $MainLayout/ButtonLayout/DeleteBtn
 
 
 func clear() -> void:
