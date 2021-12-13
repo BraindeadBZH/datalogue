@@ -98,10 +98,12 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 					_db_ui.create_database(id)
 					_items_ui.clear()
 					_classif_ui.clear()
+					_values_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Create item %s" % id)
 					_items_ui.create_item(id)
 					_classif_ui.clear()
+					_values_ui.clear()
 		DlEnums.FORM_MODE_MODIFY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
@@ -109,10 +111,12 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 					_db_ui.rename_selected_database(id, origin)
 					_items_ui.clear()
 					_classif_ui.clear()
+					_values_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Rename item %s to %s" % [origin, id])
 					_items_ui.rename_selected_item(id, origin)
 					_classif_ui.clear()
+					_values_ui.clear()
 		DlEnums.FORM_MODE_COPY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
@@ -120,10 +124,12 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 					_db_ui.copy_selected_database(id)
 					_items_ui.clear()
 					_classif_ui.clear()
+					_values_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Copy item %s to %s" % [origin, id])
 					_items_ui.copy_selected_item(id)
 					_classif_ui.clear()
+					_values_ui.clear()
 
 
 func _on_RemoveDialog_about_to_popup() -> void:
@@ -141,10 +147,12 @@ func _on_RemoveForm_submitted() -> void:
 			_db_ui.delete_selected()
 			_items_ui.clear()
 			_classif_ui.clear()
+			_values_ui.clear()
 		DlEnums.OBJECT_MODE_ITEM:
 			print("Remove item %s" % _items_ui.selected_id())
 			_items_ui.delete_selected()
 			_classif_ui.clear()
+			_values_ui.clear()
 		DlEnums.OBJECT_MODE_CLASSIF:
 			print("Remove classification %s" % _classif_ui.selected_id())
 			_classif_ui.delete_selected()
