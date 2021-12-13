@@ -58,6 +58,13 @@ func validate_classification(id: String, values: Array[String], mode: int, origi
 		return ""
 
 
+func validate_value(id: String, mode: int, origin: String) -> String:
+	if _selected_item != null:
+		return _selected_item.validate_value(id, mode, origin)
+	else:
+		return ""
+
+
 func copy_selected_item(id: String):
 	if _selected_db != null:
 		_selected_db.copy_item(_selected_item, id)

@@ -9,9 +9,12 @@ extends Control
 @onready var _remove_form: DatalogueRemoveForm = $RemoveDialog/RemoveForm
 @onready var _classif_dlg: PopupPanel = $ClassifDialog
 @onready var _classif_form: DatalogueClassifForm = $ClassifDialog/ClassifForm
+@onready var _value_dlg: PopupPanel = $ValueDialog
+@onready var _value_form: DatalogueValueForm = $ValueDialog/ValueForm
 @onready var _db_ui := $Borders/MainLayout/ViewLayout/DatabasesLayout
-@onready var _item_ui := $Borders/MainLayout/ViewLayout/ItemsLayout
+@onready var _items_ui := $Borders/MainLayout/ViewLayout/ItemsLayout
 @onready var _classif_ui := $Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout
+@onready var _values_ui := $Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout
 
 
 var _object_mode := DlEnums.OBJECT_MODE_DB
@@ -33,7 +36,13 @@ func _show_remove_dialog(title: String, mode: int) -> void:
 func _show_classif_dialog(title: String, mode: int, origin: String, values: Array) -> void:
 	_classif_dlg.title = title
 	_classif_dlg.popup_centered()
-	_classif_form.set_mode(mode, _item_ui.validate_classification, origin, values)
+	_classif_form.set_mode(mode, _items_ui.validate_classification, origin, values)
+
+
+func _show_value_dialog(title: String, mode: int, origin: String, value: float) -> void:
+	_value_dlg.title = title
+	_value_dlg.popup_centered()
+	_value_form.set_mode(mode, _items_ui.validate_value, origin, value)
 
 
 func _on_request_create_form(mode: int) -> void:
@@ -41,7 +50,7 @@ func _on_request_create_form(mode: int) -> void:
 		DlEnums.OBJECT_MODE_DB:
 			_show_create_dialog("Create a new database", mode, DlEnums.FORM_MODE_NEW, Datalogue.validate_id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Create a new item", mode, DlEnums.FORM_MODE_NEW, _item_ui.validate_id)
+			_show_create_dialog("Create a new item", mode, DlEnums.FORM_MODE_NEW, _items_ui.validate_id)
 
 
 func _on_request_copy_form(mode, id) -> void:
@@ -49,7 +58,7 @@ func _on_request_copy_form(mode, id) -> void:
 		DlEnums.OBJECT_MODE_DB:
 			_show_create_dialog("Copy a database", mode, DlEnums.FORM_MODE_COPY, Datalogue.validate_id, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Copy an item", mode, DlEnums.FORM_MODE_COPY, _item_ui.validate_id, id)
+			_show_create_dialog("Copy an item", mode, DlEnums.FORM_MODE_COPY, _items_ui.validate_id, id)
 
 
 func _on_request_rename_form(mode: int, id: String) -> void:
@@ -57,7 +66,7 @@ func _on_request_rename_form(mode: int, id: String) -> void:
 		DlEnums.OBJECT_MODE_DB:
 			_show_create_dialog("Rename a database", mode, DlEnums.FORM_MODE_MODIFY, Datalogue.validate_id, id)
 		DlEnums.OBJECT_MODE_ITEM:
-			_show_create_dialog("Rename an item", mode, DlEnums.FORM_MODE_MODIFY, _item_ui.validate_id, id)
+			_show_create_dialog("Rename an item", mode, DlEnums.FORM_MODE_MODIFY, _items_ui.validate_id, id)
 
 
 func _on_request_remove_form(mode: int) -> void:
@@ -68,6 +77,8 @@ func _on_request_remove_form(mode: int) -> void:
 			_show_remove_dialog("Remove an item", mode)
 		DlEnums.OBJECT_MODE_CLASSIF:
 			_show_remove_dialog("Remove a classification", mode)
+		DlEnums.OBJECT_MODE_VALUE:
+			_show_remove_dialog("Remove a value", mode)
 
 
 func _on_CreateDialog_about_to_popup() -> void:
@@ -85,33 +96,33 @@ func _on_CreateForm_submitted(id: String, mode: int, origin: String) -> void:
 				DlEnums.OBJECT_MODE_DB:
 					print("Create database %s" % id)
 					_db_ui.create_database(id)
-					_item_ui.clear()
+					_items_ui.clear()
 					_classif_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Create item %s" % id)
-					_item_ui.create_item(id)
+					_items_ui.create_item(id)
 					_classif_ui.clear()
 		DlEnums.FORM_MODE_MODIFY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Rename database %s to %s" % [origin, id])
 					_db_ui.rename_selected_database(id, origin)
-					_item_ui.clear()
+					_items_ui.clear()
 					_classif_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Rename item %s to %s" % [origin, id])
-					_item_ui.rename_selected_item(id, origin)
+					_items_ui.rename_selected_item(id, origin)
 					_classif_ui.clear()
 		DlEnums.FORM_MODE_COPY:
 			match _object_mode:
 				DlEnums.OBJECT_MODE_DB:
 					print("Copy database %s to %s" % [origin, id])
 					_db_ui.copy_selected_database(id)
-					_item_ui.clear()
+					_items_ui.clear()
 					_classif_ui.clear()
 				DlEnums.OBJECT_MODE_ITEM:
 					print("Copy item %s to %s" % [origin, id])
-					_item_ui.copy_selected_item(id)
+					_items_ui.copy_selected_item(id)
 					_classif_ui.clear()
 
 
@@ -128,15 +139,18 @@ func _on_RemoveForm_submitted() -> void:
 		DlEnums.OBJECT_MODE_DB:
 			print("Remove database %s" % _db_ui.selected_id())
 			_db_ui.delete_selected()
-			_item_ui.clear()
+			_items_ui.clear()
 			_classif_ui.clear()
 		DlEnums.OBJECT_MODE_ITEM:
-			print("Remove item %s" % _item_ui.selected_id())
-			_item_ui.delete_selected()
+			print("Remove item %s" % _items_ui.selected_id())
+			_items_ui.delete_selected()
 			_classif_ui.clear()
 		DlEnums.OBJECT_MODE_CLASSIF:
 			print("Remove classification %s" % _classif_ui.selected_id())
 			_classif_ui.delete_selected()
+		DlEnums.OBJECT_MODE_VALUE:
+			print("Remove value %s" % _values_ui.selected_id())
+			_values_ui.delete_selected()
 
 
 func _on_request_classif_form(mode: int, origin: String, values: Array) -> void:
@@ -171,3 +185,37 @@ func _on_ClassifForm_submitted(id: String, values: Array[String], mode: int, ori
 		DlEnums.FORM_MODE_COPY:
 			print("Copy classification %s to %s with value(s) " % [origin, id], values)
 			_classif_ui.copy_selected(id, values)
+
+
+func _on_request_value_form(mode: int, origin: String, value: float) -> void:
+	match mode:
+		DlEnums.FORM_MODE_NEW:
+			_show_value_dialog("Create a new value", mode, origin, value)
+		DlEnums.FORM_MODE_MODIFY:
+			_show_value_dialog("Modify a value", mode, origin, value)
+		DlEnums.FORM_MODE_COPY:
+			_show_value_dialog("Copy a value", mode, origin, value)
+
+
+func _on_ValueDialog_about_to_popup() -> void:
+	_value_form.clear()
+
+
+func _on_ValueForm_request_close() -> void:
+	_value_dlg.hide()
+
+
+func _on_ValueForm_submitted(id: String, value: float, mode: int, origin: String) -> void:
+	match mode:
+		DlEnums.FORM_MODE_NEW:
+			print("Create value %s with %f " % [id, value])
+			_values_ui.create_value(id, value)
+		DlEnums.FORM_MODE_MODIFY:
+			if id != origin:
+				print("Modify value from %s to %s with %f " % [origin, id, value])
+			else:
+				print("Modify value %s with %f " % [id, value])
+			_values_ui.modify_selected(id, value)
+		DlEnums.FORM_MODE_COPY:
+			print("Copy value %s to %s with %f " % [origin, id, value])
+			_values_ui.copy_selected(id, value)

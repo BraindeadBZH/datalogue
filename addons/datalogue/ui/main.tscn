@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcqixxculuipw"]
+[gd_scene load_steps=14 format=3 uid="uid://dcqixxculuipw"]
 
 [ext_resource type="Script" path="res://addons/datalogue/ui/main.gd" id="1_qojb5"]
 [ext_resource type="Script" path="res://addons/datalogue/ui/databases_ui.gd" id="2_bbge7"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://qdqlhdyxoycs" path="res://addons/datalogue/ui/forms/create_form.tscn" id="6_t0t4a"]
 [ext_resource type="Script" path="res://addons/datalogue/ui/classif_ui.gd" id="8_vioch"]
 [ext_resource type="PackedScene" uid="uid://ddbxamso0dywb" path="res://addons/datalogue/ui/forms/remove_form.tscn" id="8_wn8wp"]
+[ext_resource type="Script" path="res://addons/datalogue/ui/values_ui.gd" id="9_6e7tw"]
 [ext_resource type="PackedScene" uid="uid://o53wgdfajjdo" path="res://addons/datalogue/ui/forms/classif_form.tscn" id="10_ll3bf"]
+[ext_resource type="PackedScene" uid="uid://ds88ehki41uee" path="res://addons/datalogue/ui/forms/value_form.tscn" id="12_78t0f"]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
@@ -265,6 +267,7 @@ offset_top = 258.0
 offset_right = 336.0
 offset_bottom = 407.0
 size_flags_vertical = 3
+script = ExtResource( "9_6e7tw" )
 
 [node name="ValueList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout"]
 offset_right = 304.0
@@ -357,8 +360,8 @@ content_scale_mode = 1
 [node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -496.0
+offset_right = 304.0
+offset_bottom = 104.0
 
 [node name="RemoveDialog" type="PopupPanel" parent="."]
 title = "Remove Dialog"
@@ -369,8 +372,8 @@ always_on_top = true
 [node name="RemoveForm" parent="RemoveDialog" instance=ExtResource( "8_wn8wp" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -496.0
+offset_right = 304.0
+offset_bottom = 104.0
 
 [node name="ClassifDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -380,11 +383,23 @@ always_on_top = true
 [node name="ClassifForm" parent="ClassifDialog" instance=ExtResource( "10_ll3bf" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -296.0
+offset_right = 304.0
+offset_bottom = 304.0
+
+[node name="ValueDialog" type="PopupPanel" parent="."]
+exclusive = true
+borderless = false
+always_on_top = true
+
+[node name="ValueForm" parent="ValueDialog" instance=ExtResource( "12_78t0f" )]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 304.0
+offset_bottom = 144.0
 
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_database_selected"]
+[connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_database_selected"]
 [connection signal="request_copy_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_copy_form"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_request_remove_form"]
@@ -395,6 +410,7 @@ offset_bottom = -296.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/DupDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_DupDatabaseBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools/RemoveDatabaseBtn" to="Borders/MainLayout/ViewLayout/DatabasesLayout" method="_on_RemoveDatabaseBtn_pressed"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_item_selected"]
+[connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_item_selected"]
 [connection signal="request_copy_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_copy_form"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_create_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_remove_form"]
@@ -411,6 +427,13 @@ offset_bottom = -296.0
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/AddClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_AddClassifBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/DupClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_DupClassifBtn_pressed"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools/RemoveClassifBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_RemoveClassifBtn_pressed"]
+[connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" to="." method="_on_request_remove_form"]
+[connection signal="request_value_form" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" to="." method="_on_request_value_form"]
+[connection signal="item_activated" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValueList" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_ValueList_item_activated"]
+[connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValueList" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_ValueList_item_selected"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools/AddValueBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_AddValueBtn_pressed"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools/DupValueBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_DupValueBtn_pressed"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools/RemoveValueBtn" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_RemoveValueBtn_pressed"]
 [connection signal="about_to_popup" from="CreateDialog" to="." method="_on_CreateDialog_about_to_popup"]
 [connection signal="request_close" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_request_close"]
 [connection signal="submitted" from="CreateDialog/CreateForm" to="." method="_on_CreateForm_submitted"]
@@ -420,3 +443,6 @@ offset_bottom = -296.0
 [connection signal="about_to_popup" from="ClassifDialog" to="." method="_on_ClassifDialog_about_to_popup"]
 [connection signal="request_close" from="ClassifDialog/ClassifForm" to="." method="_on_ClassifForm_request_close"]
 [connection signal="submitted" from="ClassifDialog/ClassifForm" to="." method="_on_ClassifForm_submitted"]
+[connection signal="about_to_popup" from="ValueDialog" to="." method="_on_ValueDialog_about_to_popup"]
+[connection signal="request_close" from="ValueDialog/ValueForm" to="." method="_on_ValueForm_request_close"]
+[connection signal="submitted" from="ValueDialog/ValueForm" to="." method="_on_ValueForm_submitted"]

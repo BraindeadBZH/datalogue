@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds88ehki41uee"]
+
+[ext_resource type="Script" path="res://addons/datalogue/ui/forms/value_form.gd" id="1_ku8y0"]
+
+[node name="ValueForm" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -724.0
+offset_bottom = -470.0
+rect_min_size = Vector2(300, 140)
+script = ExtResource( "1_ku8y0" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IdEdit" type="LineEdit" parent="MainLayout"]
+offset_right = 300.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Enter a unique ID"
+
+[node name="ValueEdit" type="SpinBox" parent="MainLayout"]
+offset_top = 37.0
+offset_right = 300.0
+offset_bottom = 70.0
+step = 0.0
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="ErrorLbl" type="Label" parent="MainLayout"]
+modulate = Color(0.84, 0.21, 0.21, 1)
+offset_top = 74.0
+offset_right = 300.0
+offset_bottom = 104.0
+rect_min_size = Vector2(0, 30)
+text = "Error!"
+
+[node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 108.0
+offset_right = 300.0
+offset_bottom = 137.0
+
+[node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_right = 100.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+theme_override_font_sizes/font_size = 16
+text = "Cancel"
+
+[node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]
+offset_left = 104.0
+offset_right = 196.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+
+[node name="CreateBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_left = 200.0
+offset_right = 300.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+theme_override_font_sizes/font_size = 16
+disabled = true
+text = "Create"
+
+[connection signal="text_change_rejected" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_change_rejected"]
+[connection signal="text_changed" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_changed"]
+[connection signal="text_submitted" from="MainLayout/IdEdit" to="." method="_on_IdEdit_text_submitted"]
+[connection signal="value_changed" from="MainLayout/ValueEdit" to="." method="_on_ValueEdit_value_changed"]
+[connection signal="pressed" from="MainLayout/ButtonLayout/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="MainLayout/ButtonLayout/CreateBtn" to="." method="_on_CreateBtn_pressed"]
