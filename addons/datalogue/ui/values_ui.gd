@@ -63,7 +63,7 @@ func delete_selected() -> void:
 		Datalogue.update_database(_selected_db)
 
 
-func _display_classifs() -> void:
+func _display_values() -> void:
 	if _value_list == null:
 		return
 
@@ -91,11 +91,11 @@ func _on_item_selected(item: DlItem) -> void:
 		_selected_item = item
 		_add_btn.disabled = false
 		_selected_item.connect("changed", Callable(self, "_on_item_changed"))
-		_display_classifs()
+		_display_values()
 
 
 func _on_item_changed():
-	_display_classifs()
+	_display_values()
 
 
 func _on_AddValueBtn_pressed() -> void:
