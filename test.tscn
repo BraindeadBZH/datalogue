@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://d8tkbxrlnc0v"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_jpich"]
+
+[node name="TestUI" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_jpich" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLayout" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TestBtn" type="Button" parent="MainLayout"]
+offset_left = 460.0
+offset_top = 285.0
+offset_right = 564.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 16
+text = "Launch Test"
+
+[connection signal="pressed" from="MainLayout/TestBtn" to="." method="_on_TestBtn_pressed"]

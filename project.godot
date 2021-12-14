@@ -49,6 +49,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/item.gd"
 }, {
+"base": "RefCounted",
+"class": &"DlQuery",
+"language": &"GDScript",
+"path": "res://addons/datalogue/core/query.gd"
+}, {
 "base": "Control",
 "class": &"DlUi",
 "language": &"GDScript",
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "DlDatabase": "",
 "DlEnums": "",
 "DlItem": "",
+"DlQuery": "",
 "DlUi": "",
 "DlUtils": ""
 }
@@ -75,6 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Datalogue"
+run/main_scene="res://test.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0")
 
