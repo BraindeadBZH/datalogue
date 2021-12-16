@@ -31,6 +31,7 @@ offset_top = 37.0
 offset_right = 300.0
 offset_bottom = 133.0
 size_flags_vertical = 3
+wrap_mode = 1
 
 [node name="ErrorLbl" type="Label" parent="MainLayout"]
 modulate = Color(0.84, 0.21, 0.21, 1)
