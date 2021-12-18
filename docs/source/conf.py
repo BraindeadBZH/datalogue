@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Datalogue'
+copyright = '2021, Olivier Boucard'
+author = 'Olivier Boucard'
 
 release = '0.1'
 version = '0.1.0'
