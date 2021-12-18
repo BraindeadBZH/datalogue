@@ -36,4 +36,4 @@ Quick start:
 
 
 # Documentation
-Coming soon
+[Go to Read the Docs](https://datalogue.readthedocs.io/en/latest/)
