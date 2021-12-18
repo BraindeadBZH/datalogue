@@ -13,3 +13,5 @@ export_presets.cfg
 .directory
 *~
 _datalogue/
+docs/source/_build/
+.vscode/

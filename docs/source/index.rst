@@ -1,4 +1,6 @@
-Welcome to Datalogue's documentation!
-===================================
+Datalogue's documentation
+=========================
 
-** Comoing Soon... **
+Datalogue is a data management plugin for the Godot Engine.
+
+Coming Soon...
