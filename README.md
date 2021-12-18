@@ -1,6 +1,8 @@
 # Datalogue
 Datalogue is a simple data management plugin made for the Godot Engine.
 
+![Main UI](/screenshots/main_ui.png)
+
 ## Why using Datalogue?
 When storing static data, there is multiple approaches possible. One can use a SQL database, like SQLite, use text files like JSON or use structure in the source code like a Dictionary.
 All this solutions come with advantages and drawbacks, Datalogue tries to keep the firsts while avoiding the lasts.
