@@ -13,6 +13,7 @@ signal item_selected(item: DlItem)
 @onready var _add_btn := $ItemsTools/AddItemBtn
 @onready var _dup_btn := $ItemsTools/DupItemBtn
 @onready var _delete_btn := $ItemsTools/RemoveItemBtn
+@onready var _filter_btn := $Title/ItemFilterBtn
 
 
 var _selected_db: DlDatabase = null
@@ -29,6 +30,7 @@ func clear() -> void:
 	_add_btn.disabled = true
 	_dup_btn.disabled = true
 	_delete_btn.disabled = true
+	_filter_btn.disabled = true
 
 
 func selected_id() -> String:
@@ -113,6 +115,7 @@ func _on_database_selected(db: DlDatabase) -> void:
 		
 		_selected_db = db
 		_add_btn.disabled = false
+		_filter_btn.disabled = false
 		_selected_db.connect("changed", Callable(self, "_on_database_changed"))
 		_display_items()
 
