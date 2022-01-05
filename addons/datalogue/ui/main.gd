@@ -13,6 +13,8 @@ extends Control
 @onready var _value_form := $ValueDialog/ValueForm
 @onready var _text_dlg := $TextDialog
 @onready var _text_form := $TextDialog/TextForm
+@onready var _filter_dlg := $FilterDialog
+@onready var _filter_form := $FilterDialog/FilterForm
 @onready var _db_ui := $Borders/MainLayout/ViewLayout/DatabasesLayout
 @onready var _items_ui := $Borders/MainLayout/ViewLayout/ItemsLayout
 @onready var _classif_ui := $Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout
@@ -52,6 +54,10 @@ func _show_text_dialog(title: String, mode: int, origin: String, text: String) -
 	_text_dlg.title = title
 	_text_dlg.popup_centered()
 	_text_form.set_mode(mode, _items_ui.validate_text, origin, text)
+
+
+func _show_filter_form() -> void:
+	_filter_dlg.popup_centered()
 
 
 func _on_request_create_form(mode: int) -> void:
@@ -283,3 +289,23 @@ func _on_TextForm_submitted(id: String, text: String, mode: int, origin: String)
 		DlEnums.FORM_MODE_COPY:
 			print("Copy text %s to %s with %s " % [origin, id, text])
 			_texts_ui.copy_selected(id, text)
+
+
+func _on_database_selected(db: DlDatabase) -> void:
+	_filter_form.set_filtered_database(db)
+
+
+func _on_request_filter_form() -> void:
+	_show_filter_form()
+
+
+func _on_FilterForm_request_close() -> void:
+	_filter_dlg.hide()
+
+
+func _on_FilterForm_submitted(filters: Dictionary) -> void:
+	_filter_dlg.hide()
+	_items_ui.set_filters(filters)
+	_classif_ui.clear()
+	_values_ui.clear()
+	_texts_ui.clear()

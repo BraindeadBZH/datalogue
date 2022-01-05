@@ -6,6 +6,7 @@ signal request_create_form(mode: int)
 signal request_rename_form(mode: int, id: String)
 signal request_copy_form(mode: int, id: String)
 signal request_remove_form(mode: int)
+signal request_filter_form()
 signal item_selected(item: DlItem)
 
 
@@ -18,6 +19,7 @@ signal item_selected(item: DlItem)
 
 var _selected_db: DlDatabase = null
 var _selected_item: DlItem = null
+var _filter_query: DlQuery = null
 
 
 func clear() -> void:
@@ -92,6 +94,38 @@ func delete_selected() -> void:
 		Datalogue.update_database(_selected_db)
 
 
+func set_filters(filters: Dictionary) -> void:
+	_filter_query = null
+	
+	if not filters.is_empty():
+		_filter_query = DlQuery.new()
+		
+		if filters.has("classif"):
+			var statement := ""
+			
+			for pair in filters["classif"]:
+				for id in pair:
+					var val := pair[id] as String
+					statement += "%s:%s," % [id, val]
+			
+			_filter_query.from([statement])
+		
+		if filters.has("value"):
+			var id := filters["value"]["id"] as String
+			var op := DlUtils.operand_to_string(filters["value"]["op"])
+			var val := filters["value"]["val"] as float
+			
+			_filter_query.where(["%s %s %f" % [id, op, val]])
+		
+		if filters.has("text"):
+			var id := filters["text"]["id"] as String
+			var contains := filters["text"]["contains"] as String
+			
+			_filter_query.contains(["%s:%s" % [id, contains]])
+		
+	_display_items()
+
+
 func _display_items() -> void:
 	if _items_list == null:
 		return
@@ -102,7 +136,16 @@ func _display_items() -> void:
 	_delete_btn.disabled = true
 
 	var items := _selected_db.items()
+	var filtered := []
+	
+	if _filter_query != null:
+		filtered = _filter_query.execute(_selected_db)
+	
 	for id in items:
+		if _filter_query != null:
+			if not filtered.has(id):
+				continue
+		
 		var item := items[id] as DlItem
 		_items_list.add_item("%s" % item.id())
 		_items_list.set_item_metadata(_items_list.get_item_count()-1, item.id())
@@ -116,6 +159,7 @@ func _on_database_selected(db: DlDatabase) -> void:
 		_selected_db = db
 		_add_btn.disabled = false
 		_filter_btn.disabled = false
+		_filter_query = null
 		_selected_db.connect("changed", Callable(self, "_on_database_changed"))
 		_display_items()
 
@@ -145,3 +189,7 @@ func _on_RemoveItemBtn_pressed() -> void:
 
 func _on_DupItemBtn_pressed() -> void:
 	emit_signal("request_copy_form", DlEnums.OBJECT_MODE_ITEM, _selected_item.id())
+
+
+func _on_ItemFilterBtn_pressed() -> void:
+	emit_signal("request_filter_form")

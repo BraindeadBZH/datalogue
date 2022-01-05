@@ -104,6 +104,7 @@ func _init_stats() -> void:
 	_statistics.clear()
 	
 	_statistics = {
+		"items": count(),
 		# <class id> -> <items with class>
 		"classes": {},
 		# <class id> -> <class value> -> <items with class value>

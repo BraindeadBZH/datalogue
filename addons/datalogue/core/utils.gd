@@ -18,3 +18,19 @@ static func is_valid_for_regex(value: String, regex: String) -> bool:
 		return true
 	else:
 		return false
+
+
+static func operand_to_string(op: int) -> String:
+	match op:
+		OP_EQUAL:
+			return "="
+		OP_GREATER:
+			return ">"
+		OP_GREATER_EQUAL:
+			return ">="
+		OP_LESS:
+			return "<"
+		OP_LESS_EQUAL:
+			return "<="
+		_:
+			return ""

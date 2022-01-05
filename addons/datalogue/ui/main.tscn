@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcqixxculuipw"]
+[gd_scene load_steps=17 format=3 uid="uid://dcqixxculuipw"]
 
 [ext_resource type="Script" path="res://addons/datalogue/ui/main.gd" id="1_qojb5"]
 [ext_resource type="Script" path="res://addons/datalogue/ui/databases_ui.gd" id="2_bbge7"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://o53wgdfajjdo" path="res://addons/datalogue/ui/forms/classif_form.tscn" id="10_ll3bf"]
 [ext_resource type="PackedScene" uid="uid://ds88ehki41uee" path="res://addons/datalogue/ui/forms/value_form.tscn" id="12_78t0f"]
 [ext_resource type="PackedScene" uid="uid://cgopslvmytbs2" path="res://addons/datalogue/ui/forms/text_form.tscn" id="14_jenmu"]
+[ext_resource type="PackedScene" uid="uid://cgopslvmytbs2" path="res://addons/datalogue/ui/forms/filter_form.tscn" id="16_boyfh"]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
@@ -411,6 +412,19 @@ offset_top = 4.0
 offset_right = -720.0
 offset_bottom = -396.0
 
+[node name="FilterDialog" type="PopupPanel" parent="."]
+title = "Filter items"
+exclusive = true
+borderless = false
+always_on_top = true
+
+[node name="FilterForm" parent="FilterDialog" instance=ExtResource( "16_boyfh" )]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -670.0
+offset_bottom = -96.0
+
+[connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout" method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout" method="_on_database_selected"]
@@ -429,8 +443,10 @@ offset_bottom = -396.0
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout" method="_on_item_selected"]
 [connection signal="request_copy_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_copy_form"]
 [connection signal="request_create_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_create_form"]
+[connection signal="request_filter_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_filter_form"]
 [connection signal="request_remove_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_remove_form"]
 [connection signal="request_rename_form" from="Borders/MainLayout/ViewLayout/ItemsLayout" to="." method="_on_request_rename_form"]
+[connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/Title/ItemFilterBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_ItemFilterBtn_pressed"]
 [connection signal="item_activated" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsList" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_ItemsList_item_activated"]
 [connection signal="item_selected" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsList" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_ItemsList_item_selected"]
 [connection signal="pressed" from="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools/AddItemBtn" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_AddItemBtn_pressed"]
@@ -472,3 +488,5 @@ offset_bottom = -396.0
 [connection signal="about_to_popup" from="TextDialog" to="." method="_on_TextDialog_about_to_popup"]
 [connection signal="request_close" from="TextDialog/TextForm" to="." method="_on_TextForm_request_close"]
 [connection signal="submitted" from="TextDialog/TextForm" to="." method="_on_TextForm_submitted"]
+[connection signal="request_close" from="FilterDialog/FilterForm" to="." method="_on_FilterForm_request_close"]
+[connection signal="submitted" from="FilterDialog/FilterForm" to="." method="_on_FilterForm_submitted"]

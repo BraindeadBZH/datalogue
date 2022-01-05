@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgopslvmytbs2"]
+
+[ext_resource type="Script" path="res://addons/datalogue/ui/forms/filter_form.gd" id="1_u1w78"]
+
+[node name="FilterForm" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -674.0
+offset_bottom = -250.0
+rect_min_size = Vector2(350, 500)
+script = ExtResource( "1_u1w78" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClassifTitle" type="Label" parent="MainLayout"]
+offset_right = 350.0
+offset_bottom = 26.0
+text = "Filter by classification"
+
+[node name="ClassifLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 30.0
+offset_right = 350.0
+offset_bottom = 309.0
+size_flags_vertical = 3
+
+[node name="ClassifTree" type="Tree" parent="MainLayout/ClassifLayout"]
+offset_right = 350.0
+offset_bottom = 279.0
+size_flags_horizontal = 3
+select_mode = 2
+
+[node name="ValueTitle" type="Label" parent="MainLayout"]
+offset_top = 313.0
+offset_right = 350.0
+offset_bottom = 339.0
+text = "Filter by value"
+
+[node name="ValueLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 343.0
+offset_right = 350.0
+offset_bottom = 376.0
+
+[node name="ValueId" type="OptionButton" parent="MainLayout/ValueLayout"]
+offset_right = 114.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="ValueOp" type="OptionButton" parent="MainLayout/ValueLayout"]
+offset_left = 118.0
+offset_right = 232.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="ValueVal" type="SpinBox" parent="MainLayout/ValueLayout"]
+offset_left = 236.0
+offset_right = 350.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="TextTitle" type="Label" parent="MainLayout"]
+offset_top = 380.0
+offset_right = 350.0
+offset_bottom = 406.0
+text = "Filter by text"
+
+[node name="TextLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 410.0
+offset_right = 350.0
+offset_bottom = 443.0
+
+[node name="TextId" type="OptionButton" parent="MainLayout/TextLayout"]
+offset_right = 173.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="TextValue" type="LineEdit" parent="MainLayout/TextLayout"]
+offset_left = 177.0
+offset_right = 350.0
+offset_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="MainLayout"]
+offset_top = 447.0
+offset_right = 350.0
+offset_bottom = 467.0
+rect_min_size = Vector2(0, 20)
+
+[node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
+offset_top = 471.0
+offset_right = 350.0
+offset_bottom = 500.0
+
+[node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_right = 114.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Cancel"
+
+[node name="ClearBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_left = 118.0
+offset_right = 232.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Clear"
+
+[node name="ApplyBtn" type="Button" parent="MainLayout/ButtonLayout"]
+offset_left = 236.0
+offset_right = 350.0
+offset_bottom = 29.0
+rect_min_size = Vector2(100, 0)
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Apply"
+
+[connection signal="pressed" from="MainLayout/ButtonLayout/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="MainLayout/ButtonLayout/ClearBtn" to="." method="_on_ClearBtn_pressed"]
+[connection signal="pressed" from="MainLayout/ButtonLayout/ApplyBtn" to="." method="_on_ApplyBtn_pressed"]
