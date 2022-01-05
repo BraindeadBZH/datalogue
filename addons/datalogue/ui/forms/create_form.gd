@@ -36,6 +36,8 @@ func set_mode(mode: int, origin: String, validation: Callable = _default_validat
 			_create_btn.text = "Rename"
 		DlEnums.FORM_MODE_COPY:
 			_create_btn.text = "Duplicate"
+			_create_btn.disabled = false
+			_id_edit.text = "%s_copy" % origin
 
 
 func _clear_field() -> void:
