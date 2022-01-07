@@ -84,7 +84,7 @@ func delete_database(id: String):
 func _load_databases() -> void:
 	var dir := Directory.new()
 	if dir.open(FOLDER_PATH) == OK:
-		dir.list_dir_begin(true, true)
+		dir.list_dir_begin()
 		var filename := dir.get_next()
 		while filename != "":
 			if DlUtils.is_db_file(filename):
