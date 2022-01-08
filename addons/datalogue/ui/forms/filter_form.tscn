@@ -20,10 +20,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClassifTitle" type="Label" parent="MainLayout"]
+[node name="ClassifTitleLayout" type="HBoxContainer" parent="MainLayout"]
 offset_right = 350.0
 offset_bottom = 26.0
+
+[node name="ClassifTitle" type="Label" parent="MainLayout/ClassifTitleLayout"]
+offset_right = 173.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
 text = "Filter by classification"
+vertical_alignment = 3
+
+[node name="ClassifHint" type="Label" parent="MainLayout/ClassifTitleLayout"]
+offset_left = 177.0
+offset_right = 350.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "(Ctrl+click to multi-select)"
+vertical_alignment = 1
 
 [node name="ClassifLayout" type="HBoxContainer" parent="MainLayout"]
 offset_top = 30.0
@@ -41,6 +60,7 @@ select_mode = 2
 offset_top = 313.0
 offset_right = 350.0
 offset_bottom = 339.0
+theme_override_font_sizes/font_size = 16
 text = "Filter by value"
 
 [node name="ValueLayout" type="HBoxContainer" parent="MainLayout"]
