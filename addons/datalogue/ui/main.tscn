@@ -14,8 +14,8 @@
 [ext_resource type="Script" path="res://addons/datalogue/ui/texts_ui.gd" id="10_gmmfh"]
 [ext_resource type="PackedScene" uid="uid://o53wgdfajjdo" path="res://addons/datalogue/ui/forms/classif_form.tscn" id="10_ll3bf"]
 [ext_resource type="PackedScene" uid="uid://ds88ehki41uee" path="res://addons/datalogue/ui/forms/value_form.tscn" id="12_78t0f"]
-[ext_resource type="PackedScene" uid="uid://cgopslvmytbs2" path="res://addons/datalogue/ui/forms/text_form.tscn" id="15_woy8m"]
-[ext_resource type="PackedScene" uid="uid://cgopslvmytbs2" path="res://addons/datalogue/ui/forms/filter_form.tscn" id="16_wadom"]
+[ext_resource type="PackedScene" uid="uid://cgopslvmytbs2" path="res://addons/datalogue/ui/forms/filter_form.tscn" id="16_16ohk"]
+[ext_resource type="PackedScene" uid="uid://cgopslvmytbs2" path="res://addons/datalogue/ui/forms/text_form.tscn" id="16_wadom"]
 
 [node name="Root" type="Control"]
 anchor_right = 1.0
@@ -215,7 +215,7 @@ offset_bottom = 42.0
 offset_top = 46.0
 offset_right = 336.0
 offset_bottom = 72.0
-text = "Categorise your item"
+text = "Classify your item"
 vertical_alignment = 2
 
 [node name="ClassifLayout" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
@@ -409,7 +409,7 @@ exclusive = true
 borderless = false
 always_on_top = true
 
-[node name="TextForm" parent="TextDialog" instance=ExtResource( "15_woy8m" )]
+[node name="TextForm" parent="TextDialog" instance=ExtResource( "16_wadom" )]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = -720.0
@@ -421,7 +421,7 @@ exclusive = true
 borderless = false
 always_on_top = true
 
-[node name="FilterForm" parent="FilterDialog" instance=ExtResource( "16_wadom" )]
+[node name="FilterForm" parent="FilterDialog" instance=ExtResource( "16_16ohk" )]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = -670.0
