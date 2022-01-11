@@ -19,8 +19,14 @@ func from(classif_id: String, queried_value: String) -> DlQuery:
 	return self
 
 
-func where(value_id: String, operator: String, right_operand: float) -> DlQuery:
-	_stmts[_or_index].append(DlWhere.new(value_id, DlUtils.string_to_operator(operator), right_operand))
+func where(value_id: String, operator, right_operand: float) -> DlQuery:
+	var op := OP_EQUAL
+	if operator is String:
+		op = DlUtils.string_to_operator(operator)
+	elif operator is int:
+		op = operator
+	
+	_stmts[_or_index].append(DlWhere.new(value_id, op, right_operand))
 	return self
 
 
