@@ -20,7 +20,23 @@ static func is_valid_for_regex(value: String, regex: String) -> bool:
 		return false
 
 
-static func operand_to_string(op: int) -> String:
+static func string_to_operator(input: String) -> int:
+	match input.strip_edges():
+		"=":
+			return OP_EQUAL
+		">":
+			return OP_GREATER
+		">=":
+			return OP_GREATER_EQUAL
+		"<":
+			return OP_LESS
+		"<=":
+			return OP_LESS_EQUAL
+		_:
+			return OP_EQUAL
+
+
+static func operator_to_string(op: int) -> String:
 	match op:
 		OP_EQUAL:
 			return "="

@@ -35,6 +35,16 @@ _global_script_classes=[{
 "path": "res://addons/datalogue/ui/forms/value_form.gd"
 }, {
 "base": "RefCounted",
+"class": &"DlAbstractStatement",
+"language": &"GDScript",
+"path": "res://addons/datalogue/query/abstract_statement.gd"
+}, {
+"base": "DlAbstractStatement",
+"class": &"DlContains",
+"language": &"GDScript",
+"path": "res://addons/datalogue/query/contains.gd"
+}, {
+"base": "RefCounted",
 "class": &"DlDatabase",
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/database.gd"
@@ -44,6 +54,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/enums.gd"
 }, {
+"base": "DlAbstractStatement",
+"class": &"DlFrom",
+"language": &"GDScript",
+"path": "res://addons/datalogue/query/from.gd"
+}, {
 "base": "RefCounted",
 "class": &"DlItem",
 "language": &"GDScript",
@@ -52,7 +67,7 @@ _global_script_classes=[{
 "base": "RefCounted",
 "class": &"DlQuery",
 "language": &"GDScript",
-"path": "res://addons/datalogue/core/query.gd"
+"path": "res://addons/datalogue/query/query.gd"
 }, {
 "base": "Control",
 "class": &"DlUi",
@@ -63,6 +78,11 @@ _global_script_classes=[{
 "class": &"DlUtils",
 "language": &"GDScript",
 "path": "res://addons/datalogue/core/utils.gd"
+}, {
+"base": "DlAbstractStatement",
+"class": &"DlWhere",
+"language": &"GDScript",
+"path": "res://addons/datalogue/query/where.gd"
 }]
 _global_script_class_icons={
 "DatalogueClassifForm": "",
@@ -70,12 +90,16 @@ _global_script_class_icons={
 "DatalogueRemoveForm": "",
 "DatalogueTextForm": "",
 "DatalogueValueForm": "",
+"DlAbstractStatement": "",
+"DlContains": "",
 "DlDatabase": "",
 "DlEnums": "",
+"DlFrom": "",
 "DlItem": "",
 "DlQuery": "",
 "DlUi": "",
-"DlUtils": ""
+"DlUtils": "",
+"DlWhere": ""
 }
 
 [application]

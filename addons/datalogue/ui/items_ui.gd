@@ -106,22 +106,21 @@ func set_filters(filters: Dictionary) -> void:
 			for pair in filters["classif"]:
 				for id in pair:
 					var val := pair[id] as String
+					_filter_query.from(id, val)
 					statement += "%s:%s," % [id, val]
-			
-			_filter_query.from([statement])
 		
 		if filters.has("value"):
 			var id := filters["value"]["id"] as String
-			var op := DlUtils.operand_to_string(filters["value"]["op"])
+			var op := DlUtils.operator_to_string(filters["value"]["op"])
 			var val := filters["value"]["val"] as float
 			
-			_filter_query.where(["%s %s %f" % [id, op, val]])
+			_filter_query.where(id, op, val)
 		
 		if filters.has("text"):
 			var id := filters["text"]["id"] as String
 			var contains := filters["text"]["contains"] as String
 			
-			_filter_query.contains(["%s:%s" % [id, contains]])
+			_filter_query.contains(id, contains)
 		
 	_display_items()
 

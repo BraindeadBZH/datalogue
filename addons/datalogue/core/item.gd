@@ -82,14 +82,6 @@ func has_classification(id: String) -> bool:
 	return _classif.has(id)
 
 
-func match_classification(id: String, value: String) -> bool:
-	if _classif.has(id):
-		var values := _classif[id] as Array[String]
-		if values.has(value):
-			return true
-	return false
-
-
 func get_classification(id: String) -> Array[String]:
 	if _classif.has(id):
 		return _classif[id]
