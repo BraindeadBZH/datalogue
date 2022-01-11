@@ -111,7 +111,7 @@ func set_filters(filters: Dictionary) -> void:
 		
 		if filters.has("value"):
 			var id := filters["value"]["id"] as String
-			var op := DlUtils.operator_to_string(filters["value"]["op"])
+			var op := filters["value"]["op"] as int
 			var val := filters["value"]["val"] as float
 			
 			_filter_query.where(id, op, val)
