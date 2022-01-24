@@ -79,17 +79,17 @@ offset_bottom = 42.0
 [node name="DatabasesList" type="ItemList" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
 offset_top = 46.0
 offset_right = 335.0
-offset_bottom = 557.0
+offset_bottom = 555.0
 size_flags_vertical = 3
 
 [node name="DatabasesTools" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
-offset_top = 561.0
+offset_top = 559.0
 offset_right = 335.0
 offset_bottom = 590.0
 
 [node name="AddDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
 offset_right = 109.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 icon = ExtResource( "2_oanak" )
@@ -98,7 +98,7 @@ icon_alignment = 1
 [node name="DupDatabaseBtn" type="Button" parent="Borders/MainLayout/ViewLayout/DatabasesLayout/DatabasesTools"]
 offset_left = 113.0
 offset_right = 222.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 disabled = true
@@ -109,7 +109,7 @@ icon_alignment = 1
 modulate = Color(1, 0.25098, 0.121569, 1)
 offset_left = 226.0
 offset_right = 335.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 disabled = true
 icon = ExtResource( "4_gdjpx" )
@@ -152,17 +152,17 @@ offset_bottom = 42.0
 [node name="ItemsList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
 offset_top = 46.0
 offset_right = 335.0
-offset_bottom = 557.0
+offset_bottom = 555.0
 size_flags_vertical = 3
 
 [node name="ItemsTools" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
-offset_top = 561.0
+offset_top = 559.0
 offset_right = 335.0
 offset_bottom = 590.0
 
 [node name="AddItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
 offset_right = 109.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 disabled = true
@@ -172,7 +172,7 @@ icon_alignment = 1
 [node name="DupItemBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemsLayout/ItemsTools"]
 offset_left = 113.0
 offset_right = 222.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 disabled = true
 icon = ExtResource( "3_n8033" )
@@ -182,7 +182,7 @@ icon_alignment = 1
 modulate = Color(1, 0.25098, 0.121569, 1)
 offset_left = 226.0
 offset_right = 335.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 disabled = true
@@ -226,17 +226,17 @@ size_flags_vertical = 3
 script = ExtResource( "8_vioch" )
 
 [node name="ClassifList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout"]
-offset_right = 304.0
+offset_right = 308.0
 offset_bottom = 148.0
 size_flags_horizontal = 3
 
 [node name="ClassifTools" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout"]
-offset_left = 308.0
+offset_left = 312.0
 offset_right = 336.0
 offset_bottom = 148.0
 
 [node name="AddClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 46.0
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 16
@@ -245,7 +245,7 @@ icon = ExtResource( "2_oanak" )
 
 [node name="DupClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
 offset_top = 50.0
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 97.0
 size_flags_vertical = 3
 disabled = true
@@ -254,7 +254,7 @@ icon = ExtResource( "3_n8033" )
 [node name="RemoveClassifBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ClassifLayout/ClassifTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
 offset_top = 101.0
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 148.0
 size_flags_vertical = 3
 disabled = true
@@ -275,17 +275,17 @@ size_flags_vertical = 3
 script = ExtResource( "9_6e7tw" )
 
 [node name="ValueList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout"]
-offset_right = 304.0
+offset_right = 308.0
 offset_bottom = 149.0
 size_flags_horizontal = 3
 
 [node name="ValuesTools" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout"]
-offset_left = 308.0
+offset_left = 312.0
 offset_right = 336.0
 offset_bottom = 149.0
 
 [node name="AddValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 47.0
 size_flags_vertical = 3
 disabled = true
@@ -293,7 +293,7 @@ icon = ExtResource( "2_oanak" )
 
 [node name="DupValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
 offset_top = 51.0
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 98.0
 size_flags_vertical = 3
 disabled = true
@@ -302,7 +302,7 @@ icon = ExtResource( "3_n8033" )
 [node name="RemoveValueBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/ValuesLayout/ValuesTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
 offset_top = 102.0
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 149.0
 size_flags_vertical = 3
 disabled = true
@@ -323,17 +323,17 @@ size_flags_vertical = 3
 script = ExtResource( "10_gmmfh" )
 
 [node name="TextsList" type="ItemList" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout"]
-offset_right = 304.0
+offset_right = 308.0
 offset_bottom = 149.0
 size_flags_horizontal = 3
 
 [node name="TextsTools" type="VBoxContainer" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout"]
-offset_left = 308.0
+offset_left = 312.0
 offset_right = 336.0
 offset_bottom = 149.0
 
 [node name="AddTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 47.0
 size_flags_vertical = 3
 disabled = true
@@ -341,7 +341,7 @@ icon = ExtResource( "2_oanak" )
 
 [node name="DupTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
 offset_top = 51.0
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 98.0
 size_flags_vertical = 3
 disabled = true
@@ -350,7 +350,7 @@ icon = ExtResource( "3_n8033" )
 [node name="RemoveTextBtn" type="Button" parent="Borders/MainLayout/ViewLayout/ItemLayout/TextsLayout/TextsTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
 offset_top = 102.0
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 149.0
 size_flags_vertical = 3
 disabled = true
@@ -367,8 +367,8 @@ content_scale_mode = 1
 [node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -496.0
+offset_right = 304.0
+offset_bottom = 104.0
 
 [node name="RemoveDialog" type="PopupPanel" parent="."]
 title = "Remove Dialog"
@@ -379,8 +379,8 @@ always_on_top = true
 [node name="RemoveForm" parent="RemoveDialog" instance=ExtResource( "8_wn8wp" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -496.0
+offset_right = 304.0
+offset_bottom = 104.0
 
 [node name="ClassifDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -390,8 +390,8 @@ always_on_top = true
 [node name="ClassifForm" parent="ClassifDialog" instance=ExtResource( "10_ll3bf" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -296.0
+offset_right = 304.0
+offset_bottom = 304.0
 
 [node name="ValueDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -401,8 +401,8 @@ always_on_top = true
 [node name="ValueForm" parent="ValueDialog" instance=ExtResource( "12_78t0f" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -456.0
+offset_right = 304.0
+offset_bottom = 144.0
 
 [node name="TextDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -412,8 +412,8 @@ always_on_top = true
 [node name="TextForm" parent="TextDialog" instance=ExtResource( "16_wadom" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -720.0
-offset_bottom = -396.0
+offset_right = 304.0
+offset_bottom = 204.0
 
 [node name="FilterDialog" type="PopupPanel" parent="."]
 title = "Filter items"
@@ -424,8 +424,8 @@ always_on_top = true
 [node name="FilterForm" parent="FilterDialog" instance=ExtResource( "16_16ohk" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -670.0
-offset_bottom = -96.0
+offset_right = 354.0
+offset_bottom = 504.0
 
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]

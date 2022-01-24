@@ -18,10 +18,10 @@ __meta__ = {
 }
 
 [node name="TestBtn" type="Button" parent="MainLayout"]
-offset_left = 460.0
-offset_top = 285.0
-offset_right = 564.0
-offset_bottom = 314.0
+offset_left = 462.0
+offset_top = 284.0
+offset_right = 562.0
+offset_bottom = 315.0
 theme_override_font_sizes/font_size = 16
 text = "Launch Test"
 
