@@ -37,12 +37,12 @@ func set_mode(mode: int, validation: Callable, origin: String, values: Array) ->
 	_mode = mode
 	_validation = validation
 	_origin = origin
-	
+
 	_id_edit.text = origin
-	
+
 	for value in values:
 		_value_list.add_item(value)
-	
+
 	match mode:
 		DlEnums.FORM_MODE_NEW:
 			_create_btn.text = "Create"
@@ -54,7 +54,7 @@ func set_mode(mode: int, validation: Callable, origin: String, values: Array) ->
 
 func _submit() -> void:
 	_error_lbl.text = ""
-	
+
 	var values :=  _values_to_array()
 	var error := _validation.call(_id_edit.text, values, _mode, _origin) as String
 	if not error.is_empty():
@@ -86,10 +86,10 @@ func _update_create_btn() -> void:
 
 func _values_to_array() -> Array[String]:
 	var result: Array[String]
-	
+
 	for i in range(_value_list.item_count):
 		result.append(_value_list.get_item_text(i))
-	
+
 	return result
 
 

@@ -23,7 +23,7 @@ func get_classification(id: String) -> Array[String]:
 
 func get_value(id: String) -> float:
 	return _origin_data.get_value(id)
-	
-	
+
+
 func get_text(id: String) -> String:
 	return _origin_data.get_text(id)

@@ -27,7 +27,7 @@ func set_id(new_id: String) -> void:
 func duplicate(new_id: String = "") -> DlItem:
 	if new_id.is_empty():
 		new_id = _id
-	
+
 	var copy := get_script().new(new_id) as DlItem
 	copy._classif  = _classif.duplicate()
 	copy._values = _values.duplicate()
@@ -38,7 +38,7 @@ func duplicate(new_id: String = "") -> DlItem:
 func validate_classification(id: String, values: Array[String], mode: int, origin: String) -> String:
 	if id.is_empty():
 		return "ID cannot be empty"
-	
+
 	match mode:
 		DlEnums.FORM_MODE_NEW:
 			if _classif.has(id):
@@ -49,13 +49,13 @@ func validate_classification(id: String, values: Array[String], mode: int, origi
 		DlEnums.FORM_MODE_COPY:
 			if _classif.has(id):
 				return "ID must be unique"
-	
+
 	if not DlUtils.is_id_valid(id):
 		return "ID can only contains letters, numbers or _"
-	
+
 	if values.is_empty():
 		return "At least 1 value must be provided"
-	
+
 	return ""
 
 
@@ -97,7 +97,7 @@ func remove_classification(id: String) -> void:
 func validate_value(id: String, mode: int, origin: String) -> String:
 	if id.is_empty():
 		return "ID cannot be empty"
-	
+
 	match mode:
 		DlEnums.FORM_MODE_NEW:
 			if _values.has(id):
@@ -108,10 +108,10 @@ func validate_value(id: String, mode: int, origin: String) -> String:
 		DlEnums.FORM_MODE_COPY:
 			if _values.has(id):
 				return "ID must be unique"
-	
+
 	if not DlUtils.is_id_valid(id):
 		return "ID can only contains letters, numbers or _"
-	
+
 	return ""
 
 
@@ -150,7 +150,7 @@ func remove_value(id: String) -> void:
 func validate_text(id: String, mode: int, origin: String) -> String:
 	if id.is_empty():
 		return "ID cannot be empty"
-	
+
 	match mode:
 		DlEnums.FORM_MODE_NEW:
 			if _values.has(id):
@@ -161,10 +161,10 @@ func validate_text(id: String, mode: int, origin: String) -> String:
 		DlEnums.FORM_MODE_COPY:
 			if _values.has(id):
 				return "ID must be unique"
-	
+
 	if not DlUtils.is_id_valid(id):
 		return "ID can only contains letters, numbers or _"
-	
+
 	return ""
 
 

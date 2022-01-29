@@ -26,9 +26,9 @@ func clear() -> void:
 	if _selected_db != null:
 		_selected_db.disconnect("changed", Callable(self, "_on_database_changed"))
 		_selected_db = null
-	
+
 	_items_list.clear()
-	
+
 	_add_btn.disabled = true
 	_dup_btn.disabled = true
 	_delete_btn.disabled = true
@@ -96,32 +96,32 @@ func delete_selected() -> void:
 
 func set_filters(filters: Dictionary) -> void:
 	_filter_query = null
-	
+
 	if not filters.is_empty():
 		_filter_query = DlQuery.new()
-		
+
 		if filters.has("classif"):
 			var statement := ""
-			
+
 			for pair in filters["classif"]:
 				for id in pair:
 					var val := pair[id] as String
 					_filter_query.from(id, val)
 					statement += "%s:%s," % [id, val]
-		
+
 		if filters.has("value"):
 			var id := filters["value"]["id"] as String
 			var op := filters["value"]["op"] as int
 			var val := filters["value"]["val"] as float
-			
+
 			_filter_query.where(id, op, val)
-		
+
 		if filters.has("text"):
 			var id := filters["text"]["id"] as String
 			var contains := filters["text"]["contains"] as String
-			
+
 			_filter_query.contains(id, contains)
-		
+
 	_display_items()
 
 
@@ -136,15 +136,15 @@ func _display_items() -> void:
 
 	var items := _selected_db.items()
 	var filtered := []
-	
+
 	if _filter_query != null:
 		filtered = _filter_query.execute(_selected_db)
-	
+
 	for id in items:
 		if _filter_query != null:
 			if not filtered.has(id):
 				continue
-		
+
 		var item := items[id] as DlItem
 		_items_list.add_item("%s" % item.id())
 		_items_list.set_item_metadata(_items_list.get_item_count()-1, item.id())
@@ -154,7 +154,7 @@ func _on_database_selected(db: DlDatabase) -> void:
 	if _selected_db != db:
 		if _selected_db != null:
 			_selected_db.disconnect("changed", Callable(self, "_on_database_changed"))
-		
+
 		_selected_db = db
 		_add_btn.disabled = false
 		_filter_btn.disabled = false

@@ -11,6 +11,7 @@ func _init(value_id: String, query_op: int, query_value: float) -> void:
 	op = query_op
 	value = query_value
 
+
 func _eval(item: DlItem) -> bool:
 	if item.has_value(id):
 		var item_val := item.get_value(id)
@@ -26,5 +27,5 @@ func _eval(item: DlItem) -> bool:
 				return item_val >= value
 			OP_GREATER:
 				return item_val > value
-	
+
 	return false

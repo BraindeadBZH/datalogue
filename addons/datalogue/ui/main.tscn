@@ -81,6 +81,10 @@ offset_top = 46.0
 offset_right = 335.0
 offset_bottom = 555.0
 size_flags_vertical = 3
+item_count = 3
+item_0/text = "enemies (12 items)"
+item_1/text = "spells (8 items)"
+item_2/text = "weapons (6 items)"
 
 [node name="DatabasesTools" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
 offset_top = 559.0

@@ -26,13 +26,13 @@ func _exit_tree():
 func validate_id(id: String) -> String:
 	if id.is_empty():
 		return "ID cannot be empty"
-	
+
 	if _databases.has(id):
 		return "ID must be unique"
-	
+
 	if not DlUtils.is_id_valid(id):
 		return "ID can only contains letters, numbers or _"
-	
+
 	return ""
 
 
@@ -57,7 +57,7 @@ func update_database(modified_db: DlDatabase, old_id: String = "") -> void:
 	_databases[modified_db.id()] = modified_db
 	_write_database(modified_db)
 	emit_signal("database_updated", modified_db)
-	
+
 	if not old_id.is_empty():
 		delete_database(old_id)
 

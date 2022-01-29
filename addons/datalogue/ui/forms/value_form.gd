@@ -31,10 +31,10 @@ func set_mode(mode: int, validation: Callable, origin: String, value: float) -> 
 	_validation = validation
 	_origin = origin
 	_saved_value = value
-	
+
 	_id_edit.text = origin
 	_value_edit.value = value
-	
+
 	match mode:
 		DlEnums.FORM_MODE_NEW:
 			_create_btn.text = "Create"
@@ -46,7 +46,7 @@ func set_mode(mode: int, validation: Callable, origin: String, value: float) -> 
 
 func _submit() -> void:
 	_error_lbl.text = ""
-	
+
 	var error := _validation.call(_id_edit.text, _mode, _origin) as String
 	if not error.is_empty():
 		_error_lbl.text = error
@@ -60,7 +60,7 @@ func _update_create_btn() -> void:
 		_create_btn.disabled = true
 	elif _mode == DlEnums.FORM_MODE_COPY and _id_edit.text == _origin:
 		_create_btn.disabled = true
-	elif _mode == DlEnums.FORM_MODE_MODIFY and _id_edit.text == _origin and _value_edit.value == _saved_value: 
+	elif _mode == DlEnums.FORM_MODE_MODIFY and _id_edit.text == _origin and _value_edit.value == _saved_value:
 		_create_btn.disabled = true
 	else:
 		_create_btn.disabled = false

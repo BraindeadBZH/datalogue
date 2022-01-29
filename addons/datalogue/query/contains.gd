@@ -13,5 +13,5 @@ func _init(text_id: String, contained_value: String) -> void:
 func _eval(item: DlItem) -> bool:
 	if item.has_text(id):
 		return item.get_text(id).to_lower().find(contained) != -1
-	
+
 	return false

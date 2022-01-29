@@ -21,10 +21,10 @@ func clear() -> void:
 	if _selected_item != null:
 		_selected_item.disconnect("changed", Callable(self, "_on_item_changed"))
 		_selected_item = null
-	
+
 	_value_list.clear()
 	_selected_value = ""
-	
+
 	_add_btn.disabled = true
 	_dup_btn.disabled = true
 	_delete_btn.disabled = true
@@ -47,7 +47,7 @@ func modify_selected(id: String, value: float) -> void:
 		else:
 			_selected_item.add_value(id, value)
 			_selected_item.remove_value(_selected_value)
-		
+
 		Datalogue.update_database(_selected_db)
 
 
@@ -87,7 +87,7 @@ func _on_item_selected(item: DlItem) -> void:
 	if _selected_item != item:
 		if _selected_item != null:
 			_selected_item.disconnect("changed", Callable(self, "_on_item_changed"))
-		
+
 		_selected_item = item
 		_add_btn.disabled = false
 		_selected_item.connect("changed", Callable(self, "_on_item_changed"))
@@ -120,5 +120,5 @@ func _on_ValueList_item_selected(index: int) -> void:
 func _on_ValueList_item_activated(index: int) -> void:
 	var id := _value_list.get_item_metadata(index) as String
 	var value := _selected_item.get_value(id)
-	
+
 	emit_signal("request_value_form", DlEnums.FORM_MODE_MODIFY, id, value)

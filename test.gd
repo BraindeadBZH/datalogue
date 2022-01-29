@@ -3,16 +3,16 @@ extends Panel
 
 func _on_TestBtn_pressed() -> void:
 	print("Test launched")
-	
+
 	var db := Datalogue.get_database("weapons")
 	var query := DlQuery.new()
-	
+
 	var result := query.execute(db)
 	print("All: ", result)
-	
+
 	result = query.from("combat_type", "melee").execute(db)
 	print("Melee weapons: ", result)
-	
+
 	result = query.clear().from("combat_type", "launchers").execute(db)
 	print("Launchers weapons: ", result)
 
@@ -51,39 +51,39 @@ func _on_TestBtn_pressed() -> void:
 
 	result = query.clear().from("combat_type", "melee").where("damage", ">=", 10).contains("desc", "sword").execute(db)
 	print("Melee weapons with damage >= 10 and description contains sword: ", result)
-	
+
 	var store := DlStore.new()
 	store.insert_back_multi(DlStore.instantiate_query(db, DlQuery.new()))
-	
+
 	print("insert_back_multi:")
 	for inst in store.instances():
 		print("  - %s (%X) " % [inst.id(), inst.ref()])
-	
+
 	var scimitar := db.get_item("scimitar")
 	store.insert_front_multi(DlStore.instanciate_multi(scimitar, 5))
-	
+
 	print("insert_front_multi:")
 	for inst in store.instances():
 		print("  - %s (%X) " % [inst.id(), inst.ref()])
-		
+
 	store.set_rng_seed("ABC123DEF")
 	store.shuffle()
-	
+
 	print("shuffle:")
 	for inst in store.instances():
 		print("  - %s (%X) " % [inst.id(), inst.ref()])
-	
+
 	var back := store.pop_back()
 	print("pop_back: %s (%X) " % [back.id(), back.ref()])
-	
+
 	var front := store.pop_front()
 	print("pop_front: %s (%X) " % [front.id(), front.ref()])
-	
+
 	var random := store.pop_random()
 	print("pop_random: %s (%X) " % [random.id(), random.ref()])
-	
+
 	print("Final store state:")
 	for inst in store.instances():
 		print("  - %s (%X) " % [inst.id(), inst.ref()])
-	
+
 	print("Test finished")

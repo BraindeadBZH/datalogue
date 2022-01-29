@@ -28,7 +28,7 @@ func set_mode(mode: int, origin: String, validation: Callable = _default_validat
 	_origin = origin
 	_id_edit.text = origin
 	_validation = validation
-	
+
 	match mode:
 		DlEnums.FORM_MODE_NEW:
 			_create_btn.text = "Create"
@@ -50,7 +50,7 @@ func _clear_error() -> void:
 
 func _submit() -> void:
 	_clear_error()
-	
+
 	var error := _validation.call(_id_edit.text) as String
 	if not error.is_empty():
 		_error_lbl.text = error

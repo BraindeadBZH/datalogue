@@ -25,7 +25,7 @@ func where(value_id: String, operator, right_operand: float) -> DlQuery:
 		op = DlUtils.string_to_operator(operator)
 	elif operator is int:
 		op = operator
-	
+
 	_stmts[_or_index].append(DlWhere.new(value_id, op, right_operand))
 	return self
 
