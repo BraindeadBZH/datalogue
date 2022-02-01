@@ -90,4 +90,14 @@ func _on_TestBtn_pressed() -> void:
 	for inst in store.instances_filtered(query.clear().from("combat_type", "melee").from("type", "magical")):
 		print("  - %s (%X) " % [inst.id(), inst.ref()])
 
+	store.sort_by_value(["value", "damage"])
+	print("Store sorted by value and damage:")
+	for inst in store.instances():
+		print("  - %s (%X) " % [inst.id(), inst.ref()])
+
+	store.sort_by_text(["name"], false)
+	print("Store sorted by name in reverse alphabetical order:")
+	for inst in store.instances():
+		print("  - %s (%X) " % [inst.id(), inst.ref()])
+
 	print("Test finished")

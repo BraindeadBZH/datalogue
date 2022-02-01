@@ -2,6 +2,62 @@ class_name DlStore
 extends RefCounted
 
 
+class ValueSorter:
+	var _values := []
+	var _asc := true
+
+	func _init(values: Array, asc: bool) -> void:
+		_values = values
+		_asc = asc
+
+	func sort(left: DlInstance, right: DlInstance) -> bool:
+		return _recurive_sort(left.data(), right.data())
+
+
+	func _recurive_sort(ldata: DlItem, rdata: DlItem, depth: int = 0) -> bool:
+		if depth >= _values.size():
+			return false
+
+		var value_id = _values[depth]
+
+		if ldata.get_value(value_id) == rdata.get_value(value_id):
+			return _recurive_sort(ldata, rdata, depth+1)
+		elif _asc and ldata.get_value(value_id) < rdata.get_value(value_id):
+			return true
+		elif not _asc and ldata.get_value(value_id) > rdata.get_value(value_id):
+			return true
+
+		return false
+
+
+class TextSorter:
+	var _texts := []
+	var _asc := true
+
+	func _init(texts: Array, asc: bool) -> void:
+		_texts = texts
+		_asc = asc
+
+	func sort(left: DlInstance, right: DlInstance) -> bool:
+		return _recurive_sort(left.data(), right.data())
+
+
+	func _recurive_sort(ldata: DlItem, rdata: DlItem, depth: int = 0) -> bool:
+		if depth >= _texts.size():
+			return false
+
+		var text_id = _texts[depth]
+
+		if ldata.get_text(text_id).casecmp_to(rdata.get_text(text_id)) == 0:
+			return _recurive_sort(ldata, rdata, depth+1)
+		elif _asc and ldata.get_text(text_id).casecmp_to(rdata.get_text(text_id)) == -1:
+			return true
+		elif not _asc and ldata.get_text(text_id).casecmp_to(rdata.get_text(text_id)) == 1:
+			return true
+
+		return false
+
+
 signal changed()
 signal inserted(item: DlItem)
 signal removed(item: DlItem)
@@ -62,6 +118,14 @@ func is_empty() -> bool:
 
 func size() -> int:
 	return _content.size()
+
+
+func sort_by_value(values: Array, asc: bool = true) -> void:
+	_content.sort_custom(Callable(ValueSorter.new(values, asc), "sort"))
+
+
+func sort_by_text(texts: Array, asc: bool = true) -> void:
+	_content.sort_custom(Callable(TextSorter.new(texts, asc), "sort"))
 
 
 func shuffle() -> void:
