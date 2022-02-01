@@ -17,6 +17,10 @@ func id() -> String:
 	return _origin_data.id()
 
 
+func data() -> DlItem:
+	return _origin_data
+
+
 func get_classification(id: String) -> Array[String]:
 	return _origin_data.get_classification(id)
 

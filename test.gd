@@ -86,4 +86,8 @@ func _on_TestBtn_pressed() -> void:
 	for inst in store.instances():
 		print("  - %s (%X) " % [inst.id(), inst.ref()])
 
+	print("Store filtered:")
+	for inst in store.instances_filtered(query.clear().from("combat_type", "melee").from("type", "magical")):
+		print("  - %s (%X) " % [inst.id(), inst.ref()])
+
 	print("Test finished")

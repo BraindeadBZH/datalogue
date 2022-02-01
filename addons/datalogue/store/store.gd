@@ -46,6 +46,16 @@ func instances() -> Array[DlInstance]:
 	return _content
 
 
+func instances_filtered(filter: DlQuery) -> Array[DlInstance]:
+	var filtered: Array[DlInstance] = []
+
+	for instance in _content:
+		if filter.match_item(instance.data()):
+			filtered.append(instance)
+
+	return filtered
+
+
 func is_empty() -> bool:
 	return _content.is_empty()
 
