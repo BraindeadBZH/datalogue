@@ -12,7 +12,7 @@ signal submitted()
 
 
 func clear() -> void:
-	_validate_sw.pressed = false
+	_validate_sw.button_pressed = false
 
 
 func _on_ValidateSw_toggled(button_pressed: bool) -> void:

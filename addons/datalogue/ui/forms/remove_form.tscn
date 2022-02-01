@@ -30,30 +30,30 @@ text = "This action cannot be reverted"
 [node name="ValidateSw" type="CheckButton" parent="MainLayout"]
 offset_top = 34.0
 offset_right = 300.0
-offset_bottom = 74.0
+offset_bottom = 65.0
 text = "Validate delete"
 
 [node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
-offset_top = 78.0
+offset_top = 69.0
 offset_right = 300.0
-offset_bottom = 107.0
+offset_bottom = 100.0
 
 [node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
 offset_right = 100.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 rect_min_size = Vector2(100, 0)
 text = "Cancel"
 
 [node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]
 offset_left = 104.0
 offset_right = 196.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="DeleteBtn" type="Button" parent="MainLayout/ButtonLayout"]
 offset_left = 200.0
 offset_right = 300.0
-offset_bottom = 29.0
+offset_bottom = 31.0
 rect_min_size = Vector2(100, 0)
 theme_override_font_sizes/font_size = 16
 disabled = true
