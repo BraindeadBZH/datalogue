@@ -30,8 +30,6 @@ Using the UI
 
 .. image:: https://github.com/BraindeadBZH/datalogue/raw/master/screenshots/main_ui.png
 
-|
-
 The UI is split into 3 mains sections displayed in columns:
 
 * The first column is to manage your databases
