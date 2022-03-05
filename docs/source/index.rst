@@ -25,10 +25,12 @@ All this solutions come with advantages and drawbacks, Datalogue tries to keep t
 
 Here's why you would want to use Datalogue:
 
-- Flexibility of the data structure, you don't need to define what the data should look like
-- Query language, you can quickly and easily retrieve the data you are looking for
-- GDScript API, you can interact with your data directly from your scripts
-- Integrated UI, you can manage your data without leaving the Godot Editor
+* Flexibility of the data structure, you don't need to define what the data should look like
+* Query language, you can quickly and easily retrieve the data you are looking for
+* GDScript API, you can interact with your data directly from your scripts
+* Integrated UI, you can manage your data without leaving the Godot Editor
+* The database file are VCS friendly
+
 
 
 When to use Datalogue?
@@ -49,23 +51,23 @@ You just need the files under ``/addons/datalogue`` to be copied into any Godot 
 
 Quick start:
 
-1. The Datalogue UI is accessible by switching to the "Data" view at the top of the window
-2. Add a database by pressing the + button at the bottom of the first column
-3. Select the newly created database in the list
-4. Add an item by pressing the + button at the bottom of the middle column
-5. Select the newly created item
-6. Add some data using the + buttons on the side of the last column
-7. You can retrieve a database in your GDScript by using ``Datalogue.get_database("database_id")``
-8. You can retrieve item data by using ``item.get_classification("classification_id")``, ``item.get_value("value_id")`` or ``item.get_text("text_id")``
+#. The Datalogue UI is accessible by switching to the "Data" view at the top of the window
+#. Add a database by pressing the + button at the bottom of the first column
+#. Select the newly created database in the list
+#. Add an item by pressing the + button at the bottom of the middle column
+#. Select the newly created item
+#. Add some data using the + buttons on the side of the last column
+#. You can retrieve a database in your GDScript by using ``Datalogue.get_database("database_id")``
+#. You can retrieve item data by using ``item.get_classification("classification_id")``, ``item.get_value("value_id")`` or ``item.get_text("text_id")``
 
 
-Advanced usage
+Detailed usage
 --------------
 
-Go to :doc:`the usage page <usage>` .
+Go to :doc:`the usage page <usage>`.
 
 
 Api reference
 -------------
 
-Go to :doc:`the API reference page <api>` .
+Go to :doc:`the API reference page <api>`.
