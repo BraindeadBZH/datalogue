@@ -9,6 +9,7 @@ Installation
 ------------
 
 There is two way to install:
+
 * Using the Godot's AssetLib:
   * Search for "Datalogue" directly from the Godot Editor AssetLib tool
   * Press "Download"
@@ -29,21 +30,23 @@ Using the UI
 |
 
 The UI is split into 3 mains sections displayed in columns:
+
 * The first column is to manage your databases
 * The second column is to manage your database's items
 * The third column is to manage your item's data, it is split into 3 sub-sections, displayed in rows:
- * The first row is to manage classifications for your item
- * The second row is to manage numerical values for your item
- * The third row is to manage textual values for your items
+  * The first row is to manage classifications for your item
+  * The second row is to manage numerical values for your item
+  * The third row is to manage textual values for your items
 
 All the sections work on the same model:
+
 * A list which display the content:
   * A single click to select an object from the list
   * A double click to edit the selected object
-* 3 Buttons to manage the content:
-   * The first button is to create a new object
-   * The second button is to duplicate an object
-   * The third button is to delete an object
+* Three Buttons to manage the content:
+  * The first button is to create a new object
+  * The second button is to duplicate an object
+  * The third button is to delete an object
 
 (Note: be careful all modifications are definitive, there is no undo/redo)
 
