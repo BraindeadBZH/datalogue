@@ -29,7 +29,7 @@ Here's why you would want to use Datalogue:
 * Query language, you can quickly and easily retrieve the data you are looking for
 * GDScript API, you can interact with your data directly from your scripts
 * Integrated UI, you can manage your data without leaving the Godot Editor
-* The database file are VCS friendly
+* The database files are VCS friendly
 
 
 
