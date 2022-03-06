@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'Datalogue'
-copyright = '2021, Olivier Boucard'
+copyright = '2022, Olivier Boucard'
 author = 'Olivier Boucard'
 
 release = '0.1'
