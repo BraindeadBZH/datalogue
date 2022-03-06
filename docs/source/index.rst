@@ -46,7 +46,7 @@ It however offers the possibility to manipulate data in memory, which can be sav
 How to use Datalogue?
 ---------------------
 
-Datalogue can be installed by cloning this repository or from the Godot's AssetLib.
+Datalogue can be installed by downloading the code from the repository (https://github.com/BraindeadBZH/datalogue) or from the Godot's AssetLib.
 You just need the files under ``/addons/datalogue`` to be copied into any Godot project and then you need to enable the plugin inside the project settings.
 
 Quick start:
