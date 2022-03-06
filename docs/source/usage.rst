@@ -28,6 +28,8 @@ In both case, you need to enable the plugin in your project's settings, in the "
 Using the UI
 ------------
 
+You can access the Datalogue UI at any time by choosing the "Data" tool at the top-center of the project viewport.
+
 .. image:: https://github.com/BraindeadBZH/datalogue/raw/master/screenshots/main_ui.png
 
 The UI is split into 3 mains sections displayed in columns:
