@@ -203,14 +203,14 @@ func insert_at_random(inst: DlInstance) -> void:
 	insert_at(inst, _rng.random_range(0, _content.size()-1))
 
 
-func get(instance_ref: int) -> DlInstance:
+func get_instance(instance_ref: int) -> DlInstance:
 	if not _index.has(instance_ref):
 		return null
 
 	return _index[instance_ref]
 
 
-func get_random() -> DlInstance:
+func random_instance() -> DlInstance:
 	return _content[_rng.random_range(0, _content.size()-1)]
 
 
@@ -267,7 +267,7 @@ func remove(instance_ref: int) -> void:
 
 
 func remove_random() -> void:
-	var inst := get_random()
+	var inst := random_instance()
 	_index.erase(inst.ref())
 	_content.erase(inst)
 	emit_signal("removed", inst)

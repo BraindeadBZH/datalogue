@@ -62,9 +62,9 @@ size_flags_vertical = 3
 script = ExtResource( "2_bbge7" )
 
 [node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
+rect_min_size = Vector2(0, 30)
 offset_right = 335.0
 offset_bottom = 34.0
-rect_min_size = Vector2(0, 30)
 theme_override_colors/font_color = Color(1, 0.7825, 0.13, 1)
 theme_override_font_sizes/font_size = 22
 text = "Databases"
@@ -81,10 +81,11 @@ offset_top = 46.0
 offset_right = 335.0
 offset_bottom = 555.0
 size_flags_vertical = 3
-item_count = 3
+item_count = 4
 item_0/text = "enemies (12 items)"
 item_1/text = "spells (8 items)"
 item_2/text = "weapons (6 items)"
+item_3/text = "test (1 items)"
 
 [node name="DatabasesTools" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
 offset_top = 559.0
@@ -128,9 +129,9 @@ size_flags_vertical = 3
 script = ExtResource( "6_h4xjf" )
 
 [node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
+rect_min_size = Vector2(0, 30)
 offset_right = 335.0
 offset_bottom = 34.0
-rect_min_size = Vector2(0, 30)
 theme_override_colors/font_color = Color(0.36045, 0.89, 0.267, 1)
 theme_override_font_sizes/font_size = 22
 text = "Items"
@@ -201,9 +202,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
+rect_min_size = Vector2(0, 30)
 offset_right = 336.0
 offset_bottom = 34.0
-rect_min_size = Vector2(0, 30)
 theme_override_colors/font_color = Color(0.25, 0.625, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "Item data"
