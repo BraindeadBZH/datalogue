@@ -69,7 +69,7 @@ func copy_database(origin: DlDatabase, new_id: String) -> void:
 	emit_signal("database_added")
 
 
-func delete_database(id: String):
+func delete_database(id: String) -> void:
 	if !_databases.has(id): return
 
 	_databases.erase(id)
@@ -95,7 +95,7 @@ func _load_databases() -> void:
 		emit_signal("database_added")
 
 
-func _write_database(db: DlDatabase):
+func _write_database(db: DlDatabase) -> void:
 	var file := ConfigFile.new()
 
 	file.set_value("meta", "id", db.id())
