@@ -74,15 +74,3 @@ Quick start:
    ``item.get_classification("classification_id")``,
    ``item.get_value("value_id")`` or
    ``item.get_text("text_id")``
-
-
-Detailed usage
---------------
-
-Go to :doc:`the usage page <usage>`.
-
-
-Api reference
--------------
-
-Go to :doc:`the API reference page <api>`.
