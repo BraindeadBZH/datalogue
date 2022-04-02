@@ -1,5 +1,5 @@
-Datalogue's documentation
-=========================
+Introduction
+============
 
 .. attention::
   This plugin is **not** compatible with Godot 3.

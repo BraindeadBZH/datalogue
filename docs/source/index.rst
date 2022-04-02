@@ -1,3 +1,6 @@
+Datalogue's documentation
+=========================
+
 .. toctree::
   introduction
   usage
