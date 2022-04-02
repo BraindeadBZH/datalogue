@@ -22,13 +22,15 @@ There is two way to install:
   * Decompress the archive
   * Copy the addons folder to your project
 
-In both case, you need to enable the plugin in your project's settings, in the "Plugins" tab.
+In both case, you need to enable the plugin in your project's settings, in the
+"Plugins" tab.
 
 
 Using the UI
 ------------
 
-You can access the Datalogue UI at any time by choosing the "Data" tool at the top-center of the project viewport.
+You can access the Datalogue UI at any time by choosing the "Data" tool at the
+top-center of the project viewport.
 
 .. image:: https://github.com/BraindeadBZH/datalogue/raw/master/screenshots/main_ui.png
 
@@ -36,7 +38,8 @@ The UI is split into 3 mains sections displayed in columns:
 
 * The first column is to manage your databases
 * The second column is to manage your database's items
-* The third column is to manage your item's data, it is split into 3 sub-sections, displayed in rows:
+* The third column is to manage your item's data, it is split into 3
+  sub-sections, displayed in rows:
 
   * The first row is to manage classifications for your item
   * The second row is to manage numerical values for your item
@@ -57,7 +60,8 @@ All the sections work on the same model:
 
 (Note: be careful all modifications are definitive, there is no undo/redo)
 
-In addition you can press the button at the top-right of the "Items" section to filter the displayed items.
+In addition you can press the button at the top-right of the "Items" section to
+filter the displayed items.
 
 
 Using the API
