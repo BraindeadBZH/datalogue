@@ -1,6 +1,10 @@
 Datalogue's documentation
 =========================
 
+.. toctree::
+   usage
+   api
+
 .. attention::
   This plugin is **not** compatible with Godot 3.
   It uses features that are only available to the incoming Godot 4.
