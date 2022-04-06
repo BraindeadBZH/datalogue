@@ -3,59 +3,50 @@
 [ext_resource type="Script" path="res://addons/datalogue/ui/forms/create_form.gd" id="1_f4vkt"]
 
 [node name="CreateForm" type="Control"]
+minimum_size = Vector2(200, 100)
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1024.0
 offset_bottom = -600.0
-rect_min_size = Vector2(300, 100)
 script = ExtResource( "1_f4vkt" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MainLayout" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="IdEdit" type="LineEdit" parent="MainLayout"]
-offset_right = 300.0
-offset_bottom = 33.0
+offset_right = 200.0
+offset_bottom = 31.0
 placeholder_text = "Enter a unique ID"
 
 [node name="ErrorLbl" type="Label" parent="MainLayout"]
 modulate = Color(0.84, 0.21, 0.21, 1)
-offset_top = 37.0
-offset_right = 300.0
-offset_bottom = 67.0
-rect_min_size = Vector2(0, 30)
+offset_top = 35.0
+offset_right = 200.0
+offset_bottom = 61.0
 text = "Error!"
 
 [node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
-offset_top = 71.0
-offset_right = 300.0
-offset_bottom = 100.0
+offset_top = 65.0
+offset_right = 200.0
+offset_bottom = 96.0
 
 [node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
-offset_right = 100.0
-offset_bottom = 29.0
-rect_min_size = Vector2(100, 0)
+offset_right = 60.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 text = "Cancel"
 
 [node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]
-offset_left = 104.0
-offset_right = 196.0
-offset_bottom = 29.0
+offset_left = 64.0
+offset_right = 136.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="CreateBtn" type="Button" parent="MainLayout/ButtonLayout"]
-offset_left = 200.0
-offset_right = 300.0
-offset_bottom = 29.0
-rect_min_size = Vector2(100, 0)
+offset_left = 140.0
+offset_right = 200.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 disabled = true
 text = "Create"

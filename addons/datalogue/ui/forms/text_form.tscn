@@ -3,67 +3,58 @@
 [ext_resource type="Script" path="res://addons/datalogue/ui/forms/text_form.gd" id="1_e8f57"]
 
 [node name="TextForm" type="Control"]
+minimum_size = Vector2(200, 200)
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -724.0
 offset_bottom = -460.0
-rect_min_size = Vector2(300, 200)
 script = ExtResource( "1_e8f57" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MainLayout" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="IdEdit" type="LineEdit" parent="MainLayout"]
 offset_right = 300.0
-offset_bottom = 33.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 placeholder_text = "Enter a unique ID"
 
 [node name="TextEdit" type="TextEdit" parent="MainLayout"]
-offset_top = 37.0
+offset_top = 35.0
 offset_right = 300.0
-offset_bottom = 133.0
+offset_bottom = 135.0
 size_flags_vertical = 3
 wrap_mode = 1
 
 [node name="ErrorLbl" type="Label" parent="MainLayout"]
 modulate = Color(0.84, 0.21, 0.21, 1)
-offset_top = 137.0
+offset_top = 139.0
 offset_right = 300.0
-offset_bottom = 167.0
-rect_min_size = Vector2(0, 30)
+offset_bottom = 165.0
 text = "Error!"
 
 [node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
-offset_top = 171.0
+offset_top = 169.0
 offset_right = 300.0
 offset_bottom = 200.0
 
 [node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
-offset_right = 100.0
-offset_bottom = 29.0
-rect_min_size = Vector2(100, 0)
+offset_right = 60.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 text = "Cancel"
 
 [node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]
-offset_left = 104.0
-offset_right = 196.0
-offset_bottom = 29.0
+offset_left = 64.0
+offset_right = 236.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="CreateBtn" type="Button" parent="MainLayout/ButtonLayout"]
-offset_left = 200.0
+offset_left = 240.0
 offset_right = 300.0
-offset_bottom = 29.0
-rect_min_size = Vector2(100, 0)
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 disabled = true
 text = "Create"

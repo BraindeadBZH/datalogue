@@ -23,9 +23,6 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( "1_qojb5" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Borders" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -36,9 +33,6 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_bottom = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MainLayout" type="VBoxContainer" parent="Borders"]
 offset_left = 5.0
@@ -62,7 +56,6 @@ size_flags_vertical = 3
 script = ExtResource( "2_bbge7" )
 
 [node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
-rect_min_size = Vector2(0, 30)
 offset_right = 335.0
 offset_bottom = 34.0
 theme_override_colors/font_color = Color(1, 0.7825, 0.13, 1)
@@ -81,11 +74,10 @@ offset_top = 46.0
 offset_right = 335.0
 offset_bottom = 555.0
 size_flags_vertical = 3
-item_count = 4
+item_count = 3
 item_0/text = "enemies (12 items)"
 item_1/text = "spells (8 items)"
 item_2/text = "weapons (6 items)"
-item_3/text = "test (1 items)"
 
 [node name="DatabasesTools" type="HBoxContainer" parent="Borders/MainLayout/ViewLayout/DatabasesLayout"]
 offset_top = 559.0
@@ -129,7 +121,6 @@ size_flags_vertical = 3
 script = ExtResource( "6_h4xjf" )
 
 [node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
-rect_min_size = Vector2(0, 30)
 offset_right = 335.0
 offset_bottom = 34.0
 theme_override_colors/font_color = Color(0.36045, 0.89, 0.267, 1)
@@ -145,9 +136,6 @@ anchor_bottom = 1.0
 offset_left = -28.0
 disabled = true
 icon = ExtResource( "5_f2h61" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Separator" type="HSeparator" parent="Borders/MainLayout/ViewLayout/ItemsLayout"]
 offset_top = 38.0
@@ -202,7 +190,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Title" type="Label" parent="Borders/MainLayout/ViewLayout/ItemLayout"]
-rect_min_size = Vector2(0, 30)
 offset_right = 336.0
 offset_bottom = 34.0
 theme_override_colors/font_color = Color(0.25, 0.625, 1, 1)
@@ -384,8 +371,8 @@ always_on_top = true
 [node name="RemoveForm" parent="RemoveDialog" instance=ExtResource( "8_wn8wp" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 104.0
+offset_right = 96.0
+offset_bottom = 96.0
 
 [node name="ClassifDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -395,8 +382,8 @@ always_on_top = true
 [node name="ClassifForm" parent="ClassifDialog" instance=ExtResource( "10_ll3bf" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 304.0
+offset_right = 96.0
+offset_bottom = 96.0
 
 [node name="ValueDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -406,8 +393,8 @@ always_on_top = true
 [node name="ValueForm" parent="ValueDialog" instance=ExtResource( "12_78t0f" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 144.0
+offset_right = 96.0
+offset_bottom = 96.0
 
 [node name="TextDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -417,8 +404,8 @@ always_on_top = true
 [node name="TextForm" parent="TextDialog" instance=ExtResource( "16_wadom" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 204.0
+offset_right = 96.0
+offset_bottom = 96.0
 
 [node name="FilterDialog" type="PopupPanel" parent="."]
 title = "Filter items"
@@ -429,8 +416,8 @@ always_on_top = true
 [node name="FilterForm" parent="FilterDialog" instance=ExtResource( "16_16ohk" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 354.0
-offset_bottom = 504.0
+offset_right = 96.0
+offset_bottom = 96.0
 
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]

@@ -5,106 +5,97 @@
 [ext_resource type="Texture2D" uid="uid://csytqo75pf64x" path="res://addons/datalogue/ui/assets/remove.svg" id="3_3dus4"]
 
 [node name="ClassifForm" type="Control"]
+minimum_size = Vector2(300, 200)
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -724.0
 offset_bottom = -400.0
-rect_min_size = Vector2(300, 300)
 script = ExtResource( "1_cjuoh" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MainLayout" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="IdEdit" type="LineEdit" parent="MainLayout"]
 offset_right = 300.0
-offset_bottom = 33.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 placeholder_text = "Enter a unique ID"
 
 [node name="InputLayout" type="HBoxContainer" parent="MainLayout"]
-offset_top = 37.0
+offset_top = 35.0
 offset_right = 300.0
-offset_bottom = 70.0
+offset_bottom = 66.0
 
 [node name="ValueEdit" type="LineEdit" parent="MainLayout/InputLayout"]
-offset_right = 268.0
-offset_bottom = 33.0
+offset_right = 272.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 placeholder_text = "Add a value"
 
 [node name="AddValueBtn" type="Button" parent="MainLayout/InputLayout"]
-offset_left = 272.0
+offset_left = 276.0
 offset_right = 300.0
-offset_bottom = 33.0
+offset_bottom = 31.0
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 16
 disabled = true
 icon = ExtResource( "2_tlu7l" )
 
 [node name="ValueLayout" type="HBoxContainer" parent="MainLayout"]
-offset_top = 74.0
+offset_top = 70.0
 offset_right = 300.0
-offset_bottom = 233.0
+offset_bottom = 135.0
 size_flags_vertical = 3
 
 [node name="ValueList" type="ItemList" parent="MainLayout/ValueLayout"]
-offset_right = 268.0
-offset_bottom = 159.0
+offset_right = 272.0
+offset_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ValueTools" type="VBoxContainer" parent="MainLayout/ValueLayout"]
-offset_left = 272.0
+offset_left = 276.0
 offset_right = 300.0
-offset_bottom = 159.0
+offset_bottom = 65.0
 
 [node name="RemoveValueBtn" type="Button" parent="MainLayout/ValueLayout/ValueTools"]
 modulate = Color(1, 0.25098, 0.121569, 1)
-offset_right = 28.0
-offset_bottom = 159.0
+offset_right = 24.0
+offset_bottom = 65.0
 size_flags_vertical = 3
 disabled = true
 icon = ExtResource( "3_3dus4" )
 
 [node name="ErrorLbl" type="Label" parent="MainLayout"]
 modulate = Color(0.84, 0.21, 0.21, 1)
-offset_top = 237.0
+offset_top = 139.0
 offset_right = 300.0
-offset_bottom = 267.0
-rect_min_size = Vector2(0, 30)
+offset_bottom = 165.0
 text = "Error!"
 
 [node name="ButtonLayout" type="HBoxContainer" parent="MainLayout"]
-offset_top = 271.0
+offset_top = 169.0
 offset_right = 300.0
-offset_bottom = 300.0
+offset_bottom = 200.0
 
 [node name="CancelBtn" type="Button" parent="MainLayout/ButtonLayout"]
-offset_right = 100.0
-offset_bottom = 29.0
-rect_min_size = Vector2(100, 0)
+offset_right = 60.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 text = "Cancel"
 
 [node name="Spacer" type="Control" parent="MainLayout/ButtonLayout"]
-offset_left = 104.0
-offset_right = 196.0
-offset_bottom = 29.0
+offset_left = 64.0
+offset_right = 236.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 
 [node name="CreateBtn" type="Button" parent="MainLayout/ButtonLayout"]
-offset_left = 200.0
+offset_left = 240.0
 offset_right = 300.0
-offset_bottom = 29.0
-rect_min_size = Vector2(100, 0)
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 disabled = true
 text = "Create"
