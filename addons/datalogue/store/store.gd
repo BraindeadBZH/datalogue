@@ -64,7 +64,8 @@ signal removed(item: DlItem)
 
 
 var _rng := DlRng.new()
-var _content: Array[DlInstance] = []
+# FIXME: Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/60218
+var _content := []
 var _index := {}
 
 
@@ -73,8 +74,9 @@ static func instanciate(item: DlItem) -> DlInstance:
 	return inst
 
 
-static func instanciate_multi(item: DlItem, count: int) -> Array[DlInstance]:
-	var insts: Array[DlInstance] = []
+# FIXME: Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/60218
+static func instanciate_multi(item: DlItem, count: int) -> Array:
+	var insts := []
 
 	for _i in range(count):
 		insts.append(DlInstance.new(item))
@@ -82,8 +84,9 @@ static func instanciate_multi(item: DlItem, count: int) -> Array[DlInstance]:
 	return insts
 
 
-static func instantiate_query(db: DlDatabase, query: DlQuery, count: int = 1) -> Array[DlInstance]:
-	var insts: Array[DlInstance] = []
+# FIXME: Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/60218
+static func instantiate_query(db: DlDatabase, query: DlQuery, count: int = 1) -> Array:
+	var insts := []
 	var result := query.execute(db)
 
 	for id in result:
@@ -98,12 +101,14 @@ func set_rng_seed(seed: String) -> void:
 	_rng.set_string_seed(seed)
 
 
-func instances() -> Array[DlInstance]:
+# FIXME: Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/60218
+func instances() -> Array:
 	return _content
 
 
-func instances_filtered(filter: DlQuery) -> Array[DlInstance]:
-	var filtered: Array[DlInstance] = []
+# FIXME: Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/60218
+func instances_filtered(filter: DlQuery) -> Array:
+	var filtered := []
 
 	for instance in _content:
 		if filter.match_item(instance.data()):
@@ -143,7 +148,8 @@ func shuffle() -> void:
 			continue
 
 		# Swap
-		var tmp := _content[a]
+		# FIXME: as DlInstance should be removed, see https://github.com/godotengine/godot/issues/60218
+		var tmp := _content[a] as DlInstance
 		_content[a] = _content[b]
 		_content[b] = tmp
 
@@ -161,7 +167,7 @@ func insert_back(inst: DlInstance) -> void:
 	emit_signal("changed")
 
 
-# Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/53771
+# FIXME: Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/60218
 func insert_back_multi(insts: Array) -> void:
 	for inst in insts:
 		insert_back(inst)
@@ -178,7 +184,7 @@ func insert_front(inst: DlInstance) -> void:
 	emit_signal("changed")
 
 
-# Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/53771
+# FIXME: Should be Array[DlInstance], see https://github.com/godotengine/godot/issues/60218
 func insert_front_multi(insts: Array) -> void:
 	for inst in insts:
 		insert_front(inst)

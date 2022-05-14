@@ -359,8 +359,8 @@ content_scale_mode = 1
 [node name="CreateForm" parent="CreateDialog" instance=ExtResource( "6_t0t4a" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 304.0
-offset_bottom = 104.0
+offset_right = -720.0
+offset_bottom = -496.0
 
 [node name="RemoveDialog" type="PopupPanel" parent="."]
 title = "Remove Dialog"
@@ -371,8 +371,8 @@ always_on_top = true
 [node name="RemoveForm" parent="RemoveDialog" instance=ExtResource( "8_wn8wp" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = -820.0
+offset_bottom = -496.0
 
 [node name="ClassifDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -382,8 +382,8 @@ always_on_top = true
 [node name="ClassifForm" parent="ClassifDialog" instance=ExtResource( "10_ll3bf" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = -720.0
+offset_bottom = -396.0
 
 [node name="ValueDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -393,8 +393,8 @@ always_on_top = true
 [node name="ValueForm" parent="ValueDialog" instance=ExtResource( "12_78t0f" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = -820.0
+offset_bottom = -446.0
 
 [node name="TextDialog" type="PopupPanel" parent="."]
 exclusive = true
@@ -404,8 +404,8 @@ always_on_top = true
 [node name="TextForm" parent="TextDialog" instance=ExtResource( "16_wadom" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = -820.0
+offset_bottom = -396.0
 
 [node name="FilterDialog" type="PopupPanel" parent="."]
 title = "Filter items"
@@ -416,8 +416,8 @@ always_on_top = true
 [node name="FilterForm" parent="FilterDialog" instance=ExtResource( "16_16ohk" )]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = -670.0
+offset_bottom = -246.0
 
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="." method="_on_database_selected"]
 [connection signal="database_selected" from="Borders/MainLayout/ViewLayout/DatabasesLayout" to="Borders/MainLayout/ViewLayout/ItemsLayout" method="_on_database_selected"]
