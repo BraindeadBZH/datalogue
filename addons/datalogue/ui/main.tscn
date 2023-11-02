@@ -365,7 +365,7 @@ grow_vertical = 2
 
 [node name="FilterDialog" type="PopupPanel" parent="."]
 title = "Filter items"
-size = Vector2i(408, 208)
+size = Vector2i(408, 408)
 exclusive = true
 borderless = false
 always_on_top = true
@@ -373,8 +373,8 @@ always_on_top = true
 [node name="FilterForm" parent="FilterDialog" instance=ExtResource("16_xnkjg")]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 404.0
-offset_bottom = 204.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
