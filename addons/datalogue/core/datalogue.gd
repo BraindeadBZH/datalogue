@@ -74,16 +74,16 @@ func delete_database(id: String) -> void:
 
 	_databases.erase(id)
 
-	var dir := Directory.new()
-	if dir.open(FOLDER_PATH) == OK:
+	var dir := DirAccess.open(FOLDER_PATH)
+	if dir:
 		dir.remove(FMT_DB_PATH % [FOLDER_PATH, id])
 
 	emit_signal("database_removed")
 
 
 func _load_databases() -> void:
-	var dir := Directory.new()
-	if dir.open(FOLDER_PATH) == OK:
+	var dir := DirAccess.open(FOLDER_PATH)
+	if dir:
 		dir.list_dir_begin()
 		var filename := dir.get_next()
 		while filename != "":
