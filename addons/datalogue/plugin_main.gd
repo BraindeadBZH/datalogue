@@ -12,12 +12,12 @@ var main_panel_instance: Control = null
 func _enter_tree() -> void:
 	add_autoload_singleton("Datalogue", "res://addons/datalogue/core/datalogue.gd")
 
-	var dir := Directory.new()
+	var dir := DirAccess.open("res://")
 	if not dir.dir_exists(MAIN_FOLDER):
 		dir.make_dir_recursive(MAIN_FOLDER)
 
 	main_panel_instance = MainPanel.instantiate()
-	get_editor_interface().get_editor_main_control().add_child(main_panel_instance)
+	get_editor_interface().get_editor_main_screen().add_child(main_panel_instance)
 
 	_make_visible(false)
 
